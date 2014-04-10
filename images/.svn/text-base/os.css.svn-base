@@ -1,0 +1,265 @@
+.ui-tooltip {
+	padding: 6px;
+	font-size: 12px;
+	line-height: 100%;
+	position: absolute;
+	z-index: 9999;
+	max-width: 300px;
+	-webkit-box-shadow: 0 0 5px #aaa;
+	box-shadow: 0 0 5px #aaa;
+	background: #fff;
+}
+body .ui-tooltip {
+	border-width: 2px;
+}
+
+.login_box {
+	clear: both;
+	/*width: 250px;*/
+}
+.login_button { 
+    background:url(login_button.png) no-repeat transparent; 
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	margin: 3px 5px 3px 1px;
+	cursor:pointer;
+	display:inline-block;
+	display:-moz-inline-stack;
+	zoom:1;
+	*display:inline;
+} 
+.login_icon_qq{
+	background-position: 0px 0px;
+}
+.login_icon_sina{
+	background-position: 0px -42px;
+}
+.login_icon_taobao{
+	background-position: 0px -84px;
+}
+.login_icon_baidu{
+	background-position: 0px -126px;
+}
+.login_icon_apple { 
+	background-position: 0px -168px;
+}
+.login_icon_appstore{
+	background-position: 0px -210px;
+}
+.login_icon_bing{
+	background-position: 0px -252px;
+} 
+.login_icon_deli{
+	background-position: 0px -294px;
+}
+.login_icon_evernote{
+	background-position: 0px -336px;
+}
+.login_icon_facebook{
+	background-position: 0px -378px;
+}
+.login_icon_fr{
+	background-position: 0px -420px;
+}
+.login_icon_gmail{
+	background-position: 0px -462px;
+}
+.login_icon_google{
+	background-position: 0px -504px;
+}
+.login_icon_in{
+	background-position: 0px -546px;
+}
+.login_icon_myspace{
+	background-position: 0px -588px;
+}
+.login_icon_rss{
+	background-position: 0px -630px;
+}
+.login_icon_twitter{
+	background-position: 0px -672px;
+}
+.login_icon_live{
+	background-position: 0px -714px;
+}
+.login_icon_wordpress{
+	background-position: 0px -756px;
+}
+.login_icon_douban{
+	background-position: 0px -798px;
+}
+.login_icon_renren{
+	background-position: 0px -840px;
+}
+.login_icon_kaixin{
+	background-position: 0px -882px;
+}
+.login_icon_xiaomi{
+	background-position: 0px -924px;
+}
+.login_icon_csdn{
+	background-position: 0px -967px;
+}
+.login_icon_oschina{
+	background-position: 0px -1009px;
+}
+.login_icon_github{
+	background-position: 0px -1051px;
+}
+
+.share_box {
+	clear: both;
+	width: 250px;
+}
+
+.share_box_fixed {
+	position: fixed;
+	top: 32px;
+}
+
+.share_button { 
+    background:url(share_button.png) no-repeat transparent; 
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	padding-right: 5px;
+	cursor:pointer;
+	display:inline-block;
+	display:-moz-inline-stack;
+	zoom:1;
+	*display:inline;
+} 
+.share_icon_fav{
+	background-position: 0px 0px;
+}
+.share_icon_copy{
+	background-position: 0px -30px;
+}
+.share_icon_douban{
+	background-position: 0px -60px;
+}
+.share_icon_email{
+	background-position: 0px -90px;
+}
+.share_icon_facebook { 
+	background-position: 0px -120px;
+}
+.share_icon_baidu{
+	background-position: 0px -150px;
+}
+.share_icon_gmail{
+	background-position: 0px -180px;
+} 
+.share_icon_google{
+	background-position: 0px -210px;
+}
+.share_icon_trans{
+	background-position: 0px -240px;
+}
+.share_icon_kaixin{
+	background-position: 0px -270px;
+}
+.share_icon_pengyou{
+	background-position: 0px -300px;
+}
+.share_icon_qq{
+	background-position: 0px -330px;
+}
+.share_icon_qqt{
+	background-position: 0px -360px;
+}
+.share_icon_qzone{
+	background-position: 0px -390px;
+}
+.share_icon_renren{
+	background-position: 0px -420px;
+}
+.share_icon_tianya{
+	background-position: 0px -450px;
+}
+.share_icon_twitter{
+	background-position: 0px -480px;
+}
+.share_icon_weibo{
+	background-position: 0px -510px;
+}
+.share_icon_weixin{
+	background-position: 0px -540px;
+}
+.share_icon_youdao{
+	background-position: 0px -570px;
+}
+.share_icon_rss{
+	background-position: 0px -600px;
+}
+.share_icon_rss_comment{
+	background-position: 0px -630px;
+}
+.share_icon_language_zh_CN{
+	background-position: 0px -660px;
+}
+.share_icon_language_en_US{
+	background-position: 0px -690px;
+}
+.share_icon_language_zh_HK{
+	background-position: 0px -720px;
+}
+.share_icon_sitemap{
+	background-position: 0px -750px;
+}
+.share_icon_wordpress{
+	background-position: 0px -780px;
+}
+.share_icon_chrome{
+	background-position: 0px -810px;
+}
+
+.lang_button { 
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	padding-right: 5px;
+	cursor:pointer;
+	display:inline-block;
+	display:-moz-inline-stack;
+	zoom:1;
+	*display:inline;
+} 
+
+.os_show {
+	display: block;
+	padding-left: 10px;
+	margin-bottom: 20px;
+	margin-left: 5px;
+	border-left: 2px solid gray;
+}
+
+.os_float_button { 
+    background:url(share_button.png) no-repeat transparent; 
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	padding-right: 5px;
+	cursor:pointer;
+	display:inline-block;
+	display:-moz-inline-stack;
+	zoom:1;
+	*display:inline;
+} 
+
+.float_icon_top{
+	background-position: 0px -840px;
+}
+.float_icon_comment{
+	background-position: 0px -882px;
+}
+
+#open_social_float_button {
+	position: fixed;
+	bottom: 38px;
+	width: 35px;
+	height: 90px;
+	margin-left: -70px;
+	display: none;
+}
