@@ -28,6 +28,8 @@ body .ui-tooltip {
 	display:-moz-inline-stack;
 	zoom:1;
 	*display:inline;
+	border-radius: 6px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 } 
 .login_icon_qq{
 	background-position: 0px 0px;
@@ -107,6 +109,9 @@ body .ui-tooltip {
 .login_icon_github{
 	background-position: 0px -1051px;
 }
+.login_icon_wechat{
+	background-position: 0px -1093px;
+}
 
 .share_box {
 	clear: both;
@@ -123,12 +128,14 @@ body .ui-tooltip {
 	width: 20px;
 	height: 20px;
 	line-height: 20px;
-	padding-right: 5px;
+	margin-right: 5px;
 	cursor:pointer;
 	display:inline-block;
 	display:-moz-inline-stack;
 	zoom:1;
 	*display:inline;
+	border-radius: 4px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 } 
 .share_icon_fav{
 	background-position: 0px 0px;
