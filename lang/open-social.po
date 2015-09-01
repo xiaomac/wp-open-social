@@ -1,14 +1,14 @@
-# Copyright (C) 2014 Open Social for China
-# This file is distributed under the same license as the Open Social for China package.
+# Copyright (C) 2015 Open Social
+# This file is distributed under the same license as the Open Social package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Open Social for China 1.5.0\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/open-social\n"
-"POT-Creation-Date: 2014-10-30 07:34:59+00:00\n"
+"Project-Id-Version: Open Social 1.6.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/open-social\n"
+"POT-Creation-Date: 2015-09-01 08:52:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -29,7 +29,7 @@ msgid "Google"
 msgstr ""
 
 #: open-social.php:26
-msgid "Microsoft Live"
+msgid "Microsoft"
 msgstr ""
 
 #: open-social.php:27
@@ -57,350 +57,353 @@ msgid "OSChina"
 msgstr ""
 
 #: open-social.php:33
-msgid "163"
-msgstr ""
-
-#: open-social.php:34
-msgid "360"
-msgstr ""
-
-#: open-social.php:35
-msgid "Taobao"
-msgstr ""
-
-#: open-social.php:36
 msgid "Facebook"
 msgstr ""
 
-#: open-social.php:37
+#: open-social.php:34
 msgid "Twitter"
 msgstr ""
 
-#: open-social.php:38
-msgid "Instagram"
-msgstr ""
-
-#: open-social.php:39
+#: open-social.php:35
 msgid "Github"
 msgstr ""
 
-#: open-social.php:40
+#: open-social.php:36
 msgid "WeChat"
 msgstr ""
 
-#: open-social.php:41
-msgid "Login with %OPEN_TYPE%"
+#: open-social.php:39
+msgid "Share with Weibo"
 msgstr ""
 
-#: open-social.php:42
-msgid "Unbind with %OPEN_TYPE%"
-msgstr ""
-
-#: open-social.php:43
-msgid "Share with Sina"
-msgstr ""
-
-#: open-social.php:44
+#: open-social.php:40
 msgid "Share with QQZone"
 msgstr ""
 
-#: open-social.php:45
-msgid "Share with QQWeiBo"
+#: open-social.php:41
+msgid "Share with QQWeibo"
 msgstr ""
 
-#: open-social.php:46
+#: open-social.php:42
 msgid "Share with YoudaoNote"
 msgstr ""
 
-#: open-social.php:47
-msgid "Email to Me"
+#: open-social.php:43
+msgid "Share with WeChat"
 msgstr ""
 
-#: open-social.php:48
-msgid "Chat with Me"
+#: open-social.php:44
+msgid "QQEmail Me"
 msgstr ""
 
-#: open-social.php:49
-msgid "Share with WeiXin"
+#: open-social.php:45
+msgid "QQChat Me"
 msgstr ""
 
-#: open-social.php:50
-msgid "Google Translation"
-msgstr ""
-
-#: open-social.php:51
+#: open-social.php:46
 msgid "Share with Twitter"
 msgstr ""
 
-#: open-social.php:52
+#: open-social.php:47
 msgid "Share with Facebook"
 msgstr ""
 
-#: open-social.php:53
-msgid "Language Switcher"
+#: open-social.php:48
+msgid "Google Translation"
 msgstr ""
 
-#: open-social.php:54
-msgid "Open Social"
+#: open-social.php:767
+msgid "This account has been bound with other user."
 msgstr ""
 
-#: open-social.php:55
-msgid "Account Setting"
+#: open-social.php:771
+msgid "Your EMAIL %s has been registered by other user."
 msgstr ""
 
-#: open-social.php:56
-msgid "if you like this plugin"
-msgstr ""
-
-#: open-social.php:57
-msgid "Buy me a drink"
-msgstr ""
-
-#: open-social.php:58
-msgid "Or leave me a link"
-msgstr ""
-
-#: open-social.php:59
-msgid "Or give me Five"
-msgstr ""
-
-#: open-social.php:60
-msgid "Open Social Login"
-msgstr ""
-
-#: open-social.php:61
-msgid "Howdy"
-msgstr ""
-
-#: open-social.php:62
-msgid "Display your Open Social login button"
-msgstr ""
-
-#: open-social.php:63
-msgid "Open Social Share"
-msgstr ""
-
-#: open-social.php:64
-msgid "Connect"
-msgstr ""
-
-#: open-social.php:65
-msgid "Display your Open Social share button"
-msgstr ""
-
-#: open-social.php:66
-msgid "Floating Button"
-msgstr ""
-
-#: open-social.php:67
-msgid "Some floating useful buttons"
-msgstr ""
-
-#: open-social.php:68
-msgid "This account has been bound by other user."
-msgstr ""
-
-#: open-social.php:69
-msgid "You can only bind to one account at a time."
-msgstr ""
-
-#: open-social.php:70
-msgid "Your EMAIL has been registered by other user."
-msgstr ""
-
-#: open-social.php:71
-msgid "Login Buttons"
-msgstr ""
-
-#: open-social.php:72
-msgid "Before comment form"
-msgstr ""
-
-#: open-social.php:73
-msgid "After comment form"
-msgstr ""
-
-#: open-social.php:74
-msgid "Show in Login page"
-msgstr ""
-
-#: open-social.php:75
-msgid "Share Buttons"
-msgstr ""
-
-#: open-social.php:76
-msgid "Show in Post pages"
-msgstr ""
-
-#: open-social.php:77
-msgid "Sina weibo related UserID"
-msgstr ""
-
-#: open-social.php:78
-msgid "QQ weibo share AppKey"
-msgstr ""
-
-#: open-social.php:79
-msgid "QQ EmailMe code"
-msgstr ""
-
-#: open-social.php:80
-msgid "QQ Number for chat online"
-msgstr ""
-
-#: open-social.php:81
-msgid ""
-"Delete all configurations on this page after plugin deleted, NOT RECOMMENDED!"
-msgstr ""
-
-#: open-social.php:82
-msgid "Login to check this hidden content out"
-msgstr ""
-
-#: open-social.php:83
-msgid "Hello"
-msgstr ""
-
-#: open-social.php:84
-msgid "New reply to your comment"
-msgstr ""
-
-#: open-social.php:85
-msgid "Go check it out"
-msgstr ""
-
-#: open-social.php:86
-msgid "Receive reply email notification"
-msgstr ""
-
-#: open-social.php:87
-msgid ""
-"Length of Username between 4 and 20, Lowercase letters included; Or you "
-"already change it "
-msgstr ""
-
-#: open-social.php:88
-msgid "Extensions"
-msgstr ""
-
-#: open-social.php:89
-msgid "Show nickname in users list"
-msgstr ""
-
-#: open-social.php:90
-msgid "Please update your profile before commenting, thx:)"
-msgstr ""
-
-#: open-social.php:91
-msgid "Allow to login with email address"
-msgstr ""
-
-#: open-social.php:92
-msgid "Add jQuery.tooltip to the buttons"
-msgstr ""
-
-#: open-social.php:93
-msgid "Transfer &ltwp-connect&gt users data to be compatible with Open-Social"
-msgstr ""
-
-#: open-social.php:94
-msgid "Users Data Transfer Complete"
-msgstr ""
-
-#: open-social.php:95
-msgid "Regexp Anti-SPAM when guest can comment"
-msgstr ""
-
-#: open-social.php:96
-msgid "Proxy"
-msgstr ""
-
-#: open-social.php:97
-msgid "Proxy & reverse proxy for Facebook/Twitter/Google"
-msgstr ""
-
-#: open-social.php:926
+#: open-social.php:885
 msgid "Settings"
 msgstr ""
 
-#: open-social.php:959 open-social.php:971
+#. #-#-#-#-#  plugin.pot (Open Social 1.6.0)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: open-social.php:894 open-social.php:915 open-social.php:1224
+msgid "Open Social"
+msgstr ""
+
+#: open-social.php:905
+msgid "Users Data Transfer Complete"
+msgstr ""
+
+#: open-social.php:910
+msgid "Scan me a drink"
+msgstr ""
+
+#: open-social.php:911
+msgid "Leave me a link"
+msgstr ""
+
+#: open-social.php:912
+msgid "Give me five"
+msgstr ""
+
+#: open-social.php:929
+msgid "Login Buttons"
+msgstr ""
+
+#: open-social.php:930 open-social.php:942
 msgid "Widgets"
 msgstr ""
 
-#: open-social.php:964
+#: open-social.php:932
+msgid "Show in Login page"
+msgstr ""
+
+#: open-social.php:933
+msgid "Before comment form"
+msgstr ""
+
+#: open-social.php:934
+msgid "After comment form"
+msgstr ""
+
+#: open-social.php:935
 msgid "None"
 msgstr ""
 
-#: open-social.php:985 open-social.php:1054
+#: open-social.php:941
+msgid "Share Buttons"
+msgstr ""
+
+#: open-social.php:944
+msgid "Show in Post pages"
+msgstr ""
+
+#: open-social.php:946
+msgid "SinaWeibo RelatedID"
+msgstr ""
+
+#: open-social.php:948
+msgid "QQWeibo AppKey"
+msgstr ""
+
+#: open-social.php:950
+msgid "QQEmail Code"
+msgstr ""
+
+#: open-social.php:952
+msgid "QQChat Number"
+msgstr ""
+
+#: open-social.php:955 open-social.php:1031
 msgid "Enabled"
 msgstr ""
 
-#: open-social.php:1065
-msgid "About"
+#: open-social.php:964
+msgid "Extensions"
 msgstr ""
 
-#: open-social.php:1108
+#: open-social.php:966
+msgid "Regexp Anti-SPAM when guest can comment"
+msgstr ""
+
+#: open-social.php:967 open-social.php:1090
+msgid "Receive reply email notification"
+msgstr ""
+
+#: open-social.php:968
+msgid "Show nickname in users list"
+msgstr ""
+
+#: open-social.php:969
+msgid "Users"
+msgstr ""
+
+#: open-social.php:970
+msgid "Allow to login with email address"
+msgstr ""
+
+#: open-social.php:971
+msgid "Hide user bar for new user"
+msgstr ""
+
+#: open-social.php:972 open-social.php:976
+msgid "Profile"
+msgstr ""
+
+#: open-social.php:973
+msgid "User Subscriber role for new user or default role if uncheck"
+msgstr ""
+
+#: open-social.php:974
+msgid "General Settings"
+msgstr ""
+
+#: open-social.php:975
+msgid "Display Language Switcher in profile page"
+msgstr ""
+
+#: open-social.php:977
+msgid "Disable Gravatar with a default blank avatar"
+msgstr ""
+
+#: open-social.php:978
+msgid "Discussion Settings"
+msgstr ""
+
+#: open-social.php:979
+msgid "Add jQuery.tooltip to the buttons"
+msgstr ""
+
+#: open-social.php:981
+msgid ""
+"Experimental: Transfer &ltwp-connect&gt users data to be compatible with"
+msgstr ""
+
+#: open-social.php:983
+msgid ""
+"Delete all configurations in this page after plugin deleted, NOT RECOMMENDED."
+msgstr ""
+
+#: open-social.php:989
+msgid "Proxy"
+msgstr ""
+
+#: open-social.php:992
+msgid "Proxy for somesite in somewhere"
+msgstr ""
+
+#: open-social.php:1005
+msgid "Account Setting"
+msgstr ""
+
+#: open-social.php:1087
 msgid "Email"
 msgstr ""
 
-#: open-social.php:1108 open-social.php:1181
+#: open-social.php:1087 open-social.php:1163
 msgid "Website"
 msgstr ""
 
-#: open-social.php:1110 open-social.php:1116 open-social.php:1182
+#: open-social.php:1092 open-social.php:1164
 msgid "Edit My Profile"
 msgstr ""
 
-#: open-social.php:1135
+#: open-social.php:1113
 msgid ""
 "<strong>ERROR</strong>: The comment could not be saved. Please try again "
 "later."
 msgstr ""
 
-#: open-social.php:1183
+#: open-social.php:1142 open-social.php:1241
+msgid "Login with %s"
+msgstr ""
+
+#: open-social.php:1165
 msgid "Log Out"
 msgstr ""
 
-#: open-social.php:1205
+#: open-social.php:1188
 msgid "%s is your new username"
 msgstr ""
 
-#: open-social.php:1210
+#: open-social.php:1193
 msgid "Sorry, that username already exists!"
 msgstr ""
 
-#: open-social.php:1223
+#: open-social.php:1196
+msgid ""
+"Length of Username between 4 and 20, only letters and numbers included; Or "
+"you already change it."
+msgstr ""
+
+#: open-social.php:1206
 msgid "&laquo; Back"
 msgstr ""
 
-#: open-social.php:1235
+#: open-social.php:1219
 msgid ""
 "Must be at least 4 characters, letters and numbers only. It cannot be "
 "changed, so choose carefully!"
 msgstr ""
 
-#: open-social.php:1245
+#: open-social.php:1231
+msgid "Can't check? Need a valid email."
+msgstr ""
+
+#: open-social.php:1234
+msgid "Language Switcher"
+msgstr ""
+
+#: open-social.php:1239
+msgid "Unbind with %s"
+msgstr ""
+
+#: open-social.php:1264
 msgid "Confirm Removal"
+msgstr ""
+
+#: open-social.php:1283
+msgid "Login to check this hidden content out"
 msgstr ""
 
 #: open-social.php:1300
 msgid "Username or E-mail:"
 msgstr ""
 
-#: open-social.php:1332
+#: open-social.php:1316
+msgid "Hello"
+msgstr ""
+
+#: open-social.php:1321
+msgid "Go check it out"
+msgstr ""
+
+#: open-social.php:1323
+msgid "New reply to your comment"
+msgstr ""
+
+#: open-social.php:1334
 msgid "Nickname"
 msgstr ""
 
-#: open-social.php:1333
+#: open-social.php:1335
 msgid "Registered"
 msgstr ""
 
-#: open-social.php:1360 open-social.php:1392
+#: open-social.php:1359
+msgid "Open Social Login"
+msgstr ""
+
+#: open-social.php:1359
+msgid "Display your Open Social login button"
+msgstr ""
+
+#: open-social.php:1363 open-social.php:1395
 msgid "Title:"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "Open Social for China"
+#: open-social.php:1374
+msgid "Howdy"
+msgstr ""
+
+#: open-social.php:1391
+msgid "Open Social Share"
+msgstr ""
+
+#: open-social.php:1391
+msgid "Display your Open Social share button"
+msgstr ""
+
+#: open-social.php:1406
+msgid "Connect"
+msgstr ""
+
+#: open-social.php:1419
+msgid "Floating Button"
+msgstr ""
+
+#: open-social.php:1419
+msgid "Some floating useful buttons"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
