@@ -11,13 +11,13 @@ function login_button_unbind_click(id,link){
 	location.href=(link?link:'/')+'?connect='+id+'&action=unbind&back='+escape(back);
 }
 
-function share_button_click(link){
-	if(!link){
+function share_button_click(link,ev){
+	if(link=='QRCODE'){
 		if(!window.jQuery) return;
-		var elm = window.event.target || window.event.srcElement;
+		var elm = ev.srcElement || ev.target;
 		var qrDiv = jQuery(elm).parent().find('.open_social_qrcode');
 		if(!qrDiv.find('canvas').length){
-			qrDiv.qrcode({width:200,height:200,text:location.href});
+			qrDiv.qrcode({width:180,height:180,correctLevel:0,background:'#fff',foreground:'#111',text:location.href});
 		}
 		qrDiv.toggle(250);
 	}else{
@@ -58,12 +58,12 @@ window.jQuery && jQuery(document).ready(function($){
         $('html,body').animate({
             scrollTop: '0px'
         },
-        800);
+        100);
     });
     $('#open_social_float_button_comment').click(function() {
         $('html,body').animate({
             scrollTop: $('#respond').offset().top
         },
-        800);
+        200);
     });
 });

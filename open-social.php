@@ -5,7 +5,7 @@
  * Description: Login and Share with social networks: QQ, Sina, Baidu, Google, Live, DouBan, RenRen, KaiXin, XiaoMi, CSDN, OSChina, Facebook, Twitter, Github, WeChat. No API, NO Register!
  * Author: Afly
  * Author URI: http://www.xiaomac.com/
- * Version: 1.6.0
+ * Version: 1.6.1
  * License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain: open-social
  * Domain Path: /lang
@@ -40,7 +40,7 @@ function open_init() {
 		'qqzone'=>array(__('Share with QQZone','open-social'),"http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=%URL%&title=%TITLE%&desc=&summary=&site=&pics=%PIC%"),
 		'qqweibo'=>array(__('Share with QQWeibo','open-social'),"http://share.v.t.qq.com/index.php?c=share&amp;a=index&url=%URL%&title=%TITLE%&pic=%PIC%&appkey=".osop('share_qqt_appkey')),
 		'youdao'=>array(__('Share with YoudaoNote','open-social'),"http://note.youdao.com/memory/?url=%URL%&title=%TITLE%&sumary=&pic=%PIC%&product="),
-		'wechat'=>array(__('Share with WeChat','open-social'),""),
+		'wechat'=>array(__('Share with WeChat','open-social'),"QRCODE"),
 		'qqemail'=>array(__('QQEmail Me','open-social'),"http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=".osop('share_qq_email')),
 		'qqchat'=>array(__('QQChat Me','open-social'),'http://wpa.qq.com/msgrd?v=3&uin='.osop('share_qq_talk').'&site='.get_bloginfo('name').'&menu=yes'),
 		'twitter'=>array(__('Share with Twitter','open-social'),"http://twitter.com/home/?status=%TITLE%:%URL%"),
@@ -89,6 +89,7 @@ function open_social_activation(){
 		'extend_show_nickname'	=> 1,
 		'extend_comment_email'	=> 1,
 		'extend_email_login'	=> 1,
+		'extend_change_name'	=> 0,
 		'extend_hide_user_bar'	=> 0,
 		'delete_setting'	    => 0
 	));
@@ -342,7 +343,7 @@ class DOUBAN_CLASS {
 	}
 	function open_new_user(){
 		$user = open_connect_http("https://api.douban.com/v2/user/~me?access_token=".$_SESSION["access_token"]);
-		$_SESSION['open_img'] = $str['large_avatar'] ? $str['large_avatar'] : $str['avatar'];
+		$_SESSION['open_img'] = $user['large_avatar'] ? $user['large_avatar'] : $user['avatar'];
 		return array(
 			'nickname' => $user['name'],
 			'display_name' => $user['name'],
@@ -768,11 +769,11 @@ function open_action($os){
 		}
 	} else { //login
 		if(!isset($newuser)) $newuser = $os -> open_new_user();//refresh avatar in case
-		if(email_exists($newuser['user_email'])) open_close(sprintf(__('Your EMAIL %s has been registered by other user.','open-social'),$newuser['user_email']));//Google,Live
 		$wpuid = open_isbind(OPEN_TYPE,$_SESSION['open_id']);
 		if (!$wpuid) {
 			$wpuid = username_exists(strtoupper(OPEN_TYPE).$_SESSION['open_id']);
 			if(!$wpuid){
+				if(email_exists($newuser['user_email'])) open_close(sprintf(__('This email [%s] has been registered by other user.','open-social'),$newuser['user_email']));//Google,Live
 				$userdata = array(
 					'user_pass' => wp_generate_password(),
 					'user_login' => strtoupper(OPEN_TYPE).$_SESSION['open_id']
@@ -968,12 +969,14 @@ function open_options_page() {
 			<label for="osop[extend_show_nickname]"><input name="osop[extend_show_nickname]" id="osop[extend_show_nickname]" type="checkbox" value="1" <?php checked(osop('extend_show_nickname'),1);?> /> <?php echo __('Show nickname in users list','open-social')?></label>
 			<a href="<?php echo admin_url('users.php');?>">#<?php echo __('Users');?></a><br/>
 			<label for="osop[extend_email_login]"><input name="osop[extend_email_login]" id="osop[extend_email_login]" type="checkbox" value="1" <?php checked(osop('extend_email_login'),1);?> /> <?php echo __('Allow to login with email address','open-social')?></label> <br/>
+			<label for="osop[extend_change_name]"><input name="osop[extend_change_name]" id="osop[extend_change_name]" type="checkbox" value="1" <?php checked(osop('extend_change_name'),1);?> /> <?php echo __('Allow binding user change their [Username] one time and only. Check it CAREFULLY.','open-social')?>
+			<a href="<?php echo admin_url('profile.php');?>#open_social_login_box">#<?php echo __('Profile');?></a></label> <br/>
 			<label for="osop[extend_hide_user_bar]"><input name="osop[extend_hide_user_bar]" id="osop[extend_hide_user_bar]" type="checkbox" value="1" <?php checked(osop('extend_hide_user_bar'),1);?> /> <?php echo __('Hide user bar for new user','open-social')?></label>
 			<a href="<?php echo admin_url('profile.php');?>#comment_shortcuts">#<?php echo __('Profile');?></a><br/>
-			<label for="osop[extend_user_role]"><input name="osop[extend_user_role]" id="osop[extend_user_role]" type="checkbox" value="1" <?php checked(osop('extend_user_role'),1);?> /> <?php echo __('User Subscriber role for new user or default role if uncheck','open-social')?>
-			<a href="<?php echo admin_url('options-general.php');?>#users_can_register">#<?php echo __('General Settings');?></a></label> <br/>
 			<label for="osop[extend_lang_switcher]"><input name="osop[extend_lang_switcher]" id="osop[extend_lang_switcher]" type="checkbox" value="1" <?php checked(osop('extend_lang_switcher'),1);?> /> <?php echo __('Display Language Switcher in profile page','open-social')?></label>
 			<a href="<?php echo admin_url('profile.php');?>#admin_bar_front">#<?php echo __('Profile');?></a><br/>
+			<label for="osop[extend_user_role]"><input name="osop[extend_user_role]" id="osop[extend_user_role]" type="checkbox" value="1" <?php checked(osop('extend_user_role'),1);?> /> <?php echo __('User Subscriber role for new user or default role if uncheck','open-social')?>
+			<a href="<?php echo admin_url('options-general.php');?>#users_can_register">#<?php echo __('General Settings');?></a></label> <br/>
 			<label for="osop[extend_gravatar_disabled]"><input name="osop[extend_gravatar_disabled]" id="osop[extend_gravatar_disabled]" type="checkbox" value="1" <?php checked(osop('extend_gravatar_disabled'),1);?> /> <?php echo __('Disable Gravatar with a default blank avatar','open-social')?></label>
 			<a href="<?php echo admin_url('options-discussion.php');?>#show_avatars">#<?php echo __('Discussion Settings');?></a><br/>
 			<label for="osop[extend_button_tooltip]"><input name="osop[extend_button_tooltip]" id="osop[extend_button_tooltip]" type="checkbox" value="1" <?php checked(osop('extend_button_tooltip'),1);?> /> <?php echo __('Add jQuery.tooltip to the buttons','open-social')?></label>
@@ -1193,7 +1196,7 @@ function open_social_update_options($user_id) {
 				$result = '<div class="error"><p><strong>'.__( 'Sorry, that username already exists!' ).'</strong></p></div>';
 			}
 		}else{
-			$result = '<div class="error"><p><strong>'.__('Length of Username between 4 and 20, only letters and numbers included; Or you already change it.','open-social').'</strong></p></div>';
+			$result = '<div class="error"><p><strong>'.__('Length of Username between 4 and 20, letters and numbers only; Or you already change it.','open-social').'</strong></p></div>';
 		}
 		$_SESSION['personal_options_update_return'] = $result;
 	}
@@ -1210,13 +1213,15 @@ function open_social_edit_profile_note() {
 	}
 }
 
-add_action('admin_head','open_social_hide_option');
-function open_social_hide_option( ){
-	if(!is_user_logged_in()) return;
-	$current_user = wp_get_current_user();
-	$open_type = get_user_meta( $current_user->ID, 'open_type', true);
-	$open_save = get_user_meta( $current_user->ID, 'open_save', true);
-	if($open_type && !$open_save && strlen($current_user->user_login)>12) echo "<script>jQuery(document).ready(function(){jQuery('#user_login').attr('disabled',false).attr('maxlength',20);jQuery('#user_login').parent().find('.description').text('".__( 'Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!' )."');});</script>";
+if(osop('extend_change_name',1)){
+	add_action('admin_head','open_social_hide_option');
+	function open_social_hide_option(){
+		if(!is_user_logged_in()) return;
+		$current_user = wp_get_current_user();
+		$open_type = get_user_meta( $current_user->ID, 'open_type', true);
+		$open_save = get_user_meta( $current_user->ID, 'open_save', true);
+		if( $open_type && !$open_save && 'profile.php' == basename( $_SERVER['SCRIPT_NAME'] ) ) echo "<script>jQuery(document).ready(function(){jQuery('#user_login').attr('disabled',false).attr('maxlength',20);jQuery('#user_login').parent().find('.description').text('".__( 'Must be at least 4 characters, letters and numbers only. It cannot be changed, so choose carefully!' )."');});</script>";
+	}
 }
 
 add_action('profile_personal_options', 'open_social_bind_options');
@@ -1226,13 +1231,13 @@ function open_social_bind_options( $user ) {
 	$open_email = get_user_meta( $user->ID, 'open_email', true);
 	if( osop('extend_comment_email',1) ){
 		$html .= '<p><label for="open_email"><input type="checkbox"';
-		if(preg_match('/(weibo\.com|t\.qq\.com|baidu\.com|twitter\.com|fake\.com)/', $user->user_email)) $html .= ' class="disabled" disabled="disabled"';
+		if(preg_match('/fake\.com/', $user->user_email)) $html .= ' class="disabled" disabled="disabled"';
 		$html .= ' value="1" id="open_email" name="open_email" '.checked(esc_attr( $open_email ),1,false).' />'.__('Receive reply email notification','open-social').'</label>';
-		if(strpos($html,'disabled="disabled"')) $html .= ' <a href="javascript:jQuery(\'#email\').select();jQuery(\'h3\').get(2).scrollIntoView();">'.__('Can\'t check? Need a valid email.','open-social').'</a>';
+		$html .= ' <a href="javascript:jQuery(\'#email\').select();jQuery(\'h3\').get(2).scrollIntoView();">#'.__('Please make sure you have a valid email','open-social').'</a>';
 		$html .= '<br/><br/></p>';
 	}
 	if(osop('extend_lang_switcher',1)) $html .= '<p><input class="button-primary" type="button" onclick="location.href=\'?open_lang='.(get_locale()!='en_US'?'en_US':'zh_CN').'\'" value="'.__('Language Switcher','open-social').'"/><br/><br/></p>';
-	$html .= '<div class="open_social_box login_box">';
+	$html .= '<div id="open_social_login_box" class="open_social_box login_box">';
 	foreach ($GLOBALS['open_arr'] as $v=>$k){
 		if(osop(strtoupper($v))){
 			if($open_type && stripos($open_type,$v)!==false){
@@ -1264,7 +1269,7 @@ function open_login_button_unbind($icon_type,$icon_title,$icon_link){
 	return "<div class=\"login_button login_button_unbind login_icon_$icon_type\" onclick=\"confirm('".__('Confirm Removal')."?')&&login_button_unbind_click('$icon_type','$icon_link')\" title=\"$icon_title\"></div>";
 }
 function open_share_button_show($icon_type,$icon_title,$icon_link){
-	return "<div class=\"share_button share_icon_$icon_type\" onclick=\"share_button_click('$icon_link')\" title=\"$icon_title\"></div>";
+	return "<div class=\"share_button share_icon_$icon_type\" onclick=\"share_button_click('$icon_link',event)\" title=\"$icon_title\"></div>";
 }
 function open_tool_button_show($icon_type,$icon_title,$icon_link){
 	return "<div class=\"share_button share_icon_$icon_type\" onclick=\"location.href='$icon_link';\" title=\"$icon_title\"></div>";

@@ -5,9 +5,14 @@
 	position: absolute;
 	z-index: 9999;
 	max-width: 300px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0 0 5px #aaa;
 	-webkit-box-shadow: 0 0 5px #aaa;
 	box-shadow: 0 0 5px #aaa;
 	background: #fff;
+	z-index: 99;
 }
 body .ui-tooltip {
 	border-width: 2px;
@@ -31,17 +36,30 @@ body .ui-tooltip {
 	display:-moz-inline-stack;
 	zoom:1;
 	*display:inline;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
 	border-radius: 6px;
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 } 
 .login_button:hover {
-	-webkit-filter:opacity(80%);
+	filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
 }
 .login_button_unbind {
-	-webkit-filter:opacity(20%);
+	filter:alpha(opacity=20);
+	-moz-opacity:0.2;
+	-khtml-opacity: 0.2;
+	opacity: 0.2;
 }
 .login_button_unbind:hover {
-	-webkit-filter:opacity(60%);
+	filter:alpha(opacity=60);
+	-moz-opacity:0.6;
+	-khtml-opacity: 0.6;
+	opacity: 0.6;
 }
 .login_icon_qq{
 	background-position: 0px 0px;
@@ -146,7 +164,11 @@ body .ui-tooltip {
 	display:-moz-inline-stack;
 	zoom:1;
 	*display:inline;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
 	border-radius: 4px;
+	-mozbox-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 } 
 .share_icon_fav{
@@ -284,6 +306,8 @@ body .ui-tooltip {
 }
 
 .open_social_qrcode {
+	position: relative;
+	z-index: 100;
 	padding-top: 20px;
 	display: none;
 }

@@ -5,7 +5,7 @@ Donate link: https://me.alipay.com/playes
 Tags: china, chinese, afly, social, login, connect, qq, sina, weibo, baidu, google, live, douban, renren, kaixin001, openid, xiaomi, wechat, QQ登陆, 新浪微博, 百度, 谷歌, 豆瓣, 人人网, 开心网, 登录, 连接, 注册, 分享, 小米, 微信
 Requires at least: 3.0
 Tested up to: 4.3
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,9 +13,7 @@ Login/Share with social networks: QQ, Sina, Baidu, Google, Live, DouBan, RenRen,
 
 == Description ==
 
-Allow to Login or Share with social networks (mainly in china) like QQ, Sina WeiBo, Baidu, Google, Live, DouBan, RenRen, KaiXin, XiaoMi. No API! NO Registration! NO 3rd-party! **Show and Post** will be the Next.
-
-More information: [www.xiaomac.com](http://www.xiaomac.com/).
+Allow to Login or Share with social networks (mainly in china) like QQ, Sina WeiBo, Baidu, Google, Live, DouBan, RenRen, KaiXin, XiaoMi. No API! NO Registration! NO 3rd-party! 
 
 新增：支持多网站绑定！！！
 
@@ -27,17 +25,18 @@ More information: [www.xiaomac.com](http://www.xiaomac.com/).
 
 流程说明：游客点击登陆按钮（如QQ），登陆QQ并确认授权后，系统会自动在后台新建一个用户并以注册用户的身份自动登陆网站：
 
-* 帐号：QQ+OpenID（如：QQ123123123，用户唯一而且不会改变）
+* 帐号：QQ+OpenID（唯一且不可改变）
 * 密码：系统自动随机生成
 * 昵称：QQ昵称（不限）
 * 角色：订阅者
-* 邮箱：OpenID#fake.com（因接口无法取得用户真实QQ号或邮箱，此邮箱为虚假的，仅为标识或筛选用）
+* 邮箱：OpenID#fake.com（接口无法取得用户真实QQ号或邮箱，此邮箱为虚假的，仅为标识或筛选用）
 * 主页：t.qq.com/WeiBoID（如果有开通腾讯微博的话，否则为空）
 * 头像：会自动沿用QQ的头像
 
-更多可查看: [www.xiaomac.com](http://www.xiaomac.com/)，觉得插件好用就帮我挂个链接吧，谢：）
+参与: [https://github.com/xiaomac/open-social](https://github.com/xiaomac/open-social) 
+更多: [http://www.xiaomac.com/201311150.html](http://www.xiaomac.com/201311150.html)
 
-——[ICON来自](http://www.yootheme.com/)、[设置办法](http://www.xiaomac.com/2014081490.html)
+————VERY THX!
 
 == Installation ==
 
@@ -75,15 +74,15 @@ also:
 
 这个也是需要空间支持邮件函数的支持的。否则可以安装邮件插件（如 wp-mail-smtp）。
 
-＝ 有些第三方开放后台并没有 App ID 或 Secret KEY？ ＝
+= 有些第三方开放后台并没有 App ID 或 Secret KEY？ =
 
 各有各的叫法。但一般会有两个：1个是公开的ID，1个是不公开的KEY。这样就很好分，不一定确切就是这个叫法。
 
-＝ 为什么登陆方式是跳转而非弹窗？ ＝
+= 为什么登陆方式是跳转而非弹窗？ =
 
 弹窗容易出现一些兼容问题出现，后来才改为跳转，好像也没什么坏处。
 
-＝ 关闭游客评论的情况下怎么单独开放游客评论？ ＝
+= 关闭游客评论的情况下怎么单独开放游客评论？ =
 
 编辑任意文章或页面，添加自定义栏目“os_guestbook”，值为 1，该文章即支持游客评论；而且跟登陆评论并不矛盾。
 
@@ -97,6 +96,9 @@ also:
 6. Comment Form
 
 == Changelog ==
+
+= 1.6.1 =
+* 若干兼容性更新
 
 = 1.6.0 =
 * 支持多网站绑定
