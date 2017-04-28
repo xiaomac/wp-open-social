@@ -1,8 +1,12 @@
 function login_button_click(id,link){
 	var back = location.href;
-	try{if(back.indexOf('wp-login.php')>0) back = document.loginform.redirect_to.value;}catch(e){back = '/';}
-	if(back.indexOf('profile.php')>0 && back.indexOf('updated')<0) back = back.indexOf('?')>0 ? (back + '&updated=1') : (back + '?updated=1');
-	location.href=(link?link:'/')+'?connect='+id+'&action=login&back='+escape(back);
+	if('wordpress'==id){
+		location.href = link;
+	}else{
+		try{if(back.indexOf('wp-login.php')>0) back = document.loginform.redirect_to.value;}catch(e){back = '/';}
+		if(back.indexOf('profile.php')>0 && back.indexOf('updated')<0) back = back.indexOf('?')>0 ? (back + '&updated=1') : (back + '?updated=1');
+		location.href=(link?link:'/')+'?connect='+id+'&action=login&back='+escape(back);
+	}
 }
 
 function login_button_unbind_click(id,link){

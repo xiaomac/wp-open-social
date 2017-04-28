@@ -1,42 +1,40 @@
 === Open Social ===
 
 Contributors: playes
-Donate link: https://me.alipay.com/playes
-Tags: china, chinese, afly, social, login, connect, qq, sina, weibo, baidu, google, live, douban, renren, kaixin001, openid, xiaomi, wechat, QQ登陆, 新浪微博, 百度, 谷歌, 豆瓣, 人人网, 开心网, 登录, 连接, 注册, 分享, 小米, 微信
-Requires at least: 3.0
-Tested up to: 4.3
-Stable tag: 1.6.1
+Donate link: https://www.xiaomac.com/201311150.html
+Tags: china, afly, social, login, connect, qq, sina, weibo, baidu, google, live, douban, renren, kaixin001, openid, xiaomi, wechat, QQ登陆, 新浪微博, 百度, 谷歌, 豆瓣, 人人网, 开心网, 登录, 连接, 注册, 分享, 小米, 微信
+Tested up to: 4.7.4
+Stable tag: 1.6.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Login/Share with social networks: QQ, Sina, Baidu, Google, Live, DouBan, RenRen, KaiXin, XiaoMi, WeChat. No API, NO Register!
+Login or Share with social networks: QQ, WeiBo, Baidu, Google, Microsoft, DouBan, XiaoMi, WeChat, GitHub, Twitter, Facebook. No API! Single PHP!
 
 == Description ==
 
-Allow to Login or Share with social networks (mainly in china) like QQ, Sina WeiBo, Baidu, Google, Live, DouBan, RenRen, KaiXin, XiaoMi. No API! NO Registration! NO 3rd-party! 
+### 功能特点 ###
 
-新增：支持多网站绑定！！！
+* 社交登陆：腾讯QQ、微博、微信、豆瓣、谷歌、微软、Facebook、Twitter、Github 等
+* 社交分享：QQ空间、微博、微信、Facebook、Twitter 等
+* 其他功能：支持小工具和短代码、自动同步昵称头像、带中英语言
+* 使用环境：单文件、无加密、无第三方平台、无环境要求
 
-可用国内社交网站：腾讯QQ、新浪微博、百度、豆瓣、人人网、开心网、小米、CSDN、OSChina 绑定登录或分享的一个插件。
-无第三方平台、无接口文件冗余、无任何多余脚本加载、带昵称网址头像等、可设置右侧小工具；设置简单，绿色低碳。
-————国外的目前支持：谷歌、微软LIVE、脸书、推特、GitHub，会考虑陆续添加完善。
+### 付费专属 ###
 
-适合人群：**不喜第三方平台接入、不喜任何一个多余脚本、不喜任何一行多余代码、有一定手动折腾能力**。
+* 多注册场景：自动随机生成、自主填写、邮箱激活、管理员审核、直接绑定老用户
+* 支持自定义：登录前后及分享的代码和短代码、统一的回调地址、注册界面样式
+* 微信相关：支持开放号和公众号、自动适配平台、自动打通用户标识、微信 JSSDK
+* 其他功能：加强安全验证、增加出错提示、文章微博同步、用户列表查看绑定信息
+* 策略：一次购买，无使用时间限制；小版本免费升级，大版本会酌情涨价
+* 限制：单次购买可自用多个网站，谢绝另行分享、修改发布或者转卖
 
-流程说明：游客点击登陆按钮（如QQ），登陆QQ并确认授权后，系统会自动在后台新建一个用户并以注册用户的身份自动登陆网站：
+### 版本说明 ###
 
-* 帐号：QQ+OpenID（唯一且不可改变）
-* 密码：系统自动随机生成
-* 昵称：QQ昵称（不限）
-* 角色：订阅者
-* 邮箱：OpenID#fake.com（接口无法取得用户真实QQ号或邮箱，此邮箱为虚假的，仅为标识或筛选用）
-* 主页：t.qq.com/WeiBoID（如果有开通腾讯微博的话，否则为空）
-* 头像：会自动沿用QQ的头像
+* 免费版 1.6.5，已停止更新
+* 付费版￥200，购买和支持，[请联系我](https://www.xiaomac.com/201311150.html)！
+* 升级时直接覆盖原目录，会自动沿用旧版配置
 
-参与: [https://github.com/xiaomac/open-social](https://github.com/xiaomac/open-social) 
-更多: [http://www.xiaomac.com/201311150.html](http://www.xiaomac.com/201311150.html)
-
-————VERY THX!
+更多: [https://www.xiaomac.com/201311150.html](https://www.xiaomac.com/201311150.html)
 
 == Installation ==
 
@@ -44,39 +42,27 @@ Allow to Login or Share with social networks (mainly in china) like QQ, Sina Wei
 2. Activate the plugin through the 'Plugins' menu in WordPress,
 3. Visit the "Settings \ Open Social Setting" administration page to setup the plugin. 
 
-also:
-
-1. 直接在 WordPress 后台搜索 open social 在线安装，并启用。
-2. 然后在设置页面“社交网站设置”配置几个平台的 App ID、Secret KEY 即可。
-3. 选择显示位置，或拖入小工具 widget。
-4. 卸载也同样方便，直接删除即可，无任何数据库残留！
-
 == Frequently Asked Questions ==
 
-= 这个跟其他同类插件有什么不同？ =
+= 回调连接需要怎么设置？ =
 
-其他大部分是适合国外的平台和接口；有国内做的，但要么都是第三方平台中转、要么是残缺陈旧老版本+收费新版本，我个人是不会用的。
-所以弄了这个适合国内，免费、开放、不冗余的登陆接口。
+通常跟网站域名一致（一致意思是一模一样），如 [https://www.xiaomac.com/]，末尾要保留斜杆。
 
-= 绑定帐号后可以自动同步文章或评论么？ =
+= 第三方登陆的后台并没有 AppID 或 SecretKEY？ =
 
-目前没有做这个功能，感觉不够实用。要实现也很简单，代码中提供了一个接口，有需要的朋友可以参照官方API说明自行拓展。不排除后面的版本会加强这个功能。
-
-= 为什么登陆后未显示登陆状态？ =
-
-通常是第三方设置的回调地址设置问题所致。注意：要跟网站域名一致，并且末尾要保留斜杆（如何可设置）。
+叫法大同小异，一般一个叫 XXX_ID 是公开的；一个叫 XXX_KEY 是不公开的。
 
 = 为什么脸书推特等无法登陆？ =
 
-脸书、推特需要空间网络支持，大多数国内的空间可能都不支持。目前提供了一个设置代理的功能。
+脸书推特需要翻墙，目前国内空间基本不支持。插件提供了一个设置代理的功能。
+
+= 绑定帐号后可以自动同步文章或评论么？ =
+
+目前没有做这个功能，不排除后面的版本会实现这个功能。
 
 = 为什么邮件通知没有效果？ =
 
-这个也是需要空间支持邮件函数的支持的。否则可以安装邮件插件（如 wp-mail-smtp）。
-
-= 有些第三方开放后台并没有 App ID 或 Secret KEY？ =
-
-各有各的叫法。但一般会有两个：1个是公开的ID，1个是不公开的KEY。这样就很好分，不一定确切就是这个叫法。
+要么是邮箱地址不存在；要么是空间不支持邮件函数，可以装邮件插件（如 wp-mail-smtp）。
 
 = 为什么登陆方式是跳转而非弹窗？ =
 
@@ -96,6 +82,21 @@ also:
 6. Comment Form
 
 == Changelog ==
+
+= 1.6.5 =
+* 修正登录和头像和脚本的HTTPS问题
+
+= 1.6.4 =
+* 更新QQ登陆：去掉多余的腾讯微博的参数
+* 修正头像函数：提升优先级并兼容邮箱地址
+
+= 1.6.3 =
+* 修正小米登陆
+
+= 1.6.2 =
+* 修正微信开放平台登陆
+* 若干细节规范和优化
+* 新增内部登陆按钮，方便老用户先登陆再绑定
 
 = 1.6.1 =
 * 若干兼容性更新

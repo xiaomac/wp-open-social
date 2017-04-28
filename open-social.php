@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Open Social
- * Plugin URI: http://www.xiaomac.com/201311150.html
+ * Plugin URI: https://www.xiaomac.com/201311150.html
  * Description: Login and Share with social networks: QQ, Sina, Baidu, Google, Live, DouBan, RenRen, KaiXin, XiaoMi, CSDN, OSChina, Facebook, Twitter, Github, WeChat. No API, NO Register!
  * Author: Afly
- * Author URI: http://www.xiaomac.com/
- * Version: 1.6.1
+ * Author URI: https://www.xiaomac.com/
+ * Version: 1.6.5
  * License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain: open-social
  * Domain Path: /lang
@@ -88,7 +88,6 @@ function open_social_activation(){
 		'show_share_content'    => 0,
 		'extend_show_nickname'	=> 1,
 		'extend_comment_email'	=> 1,
-		'extend_email_login'	=> 1,
 		'extend_change_name'	=> 0,
 		'extend_hide_user_bar'	=> 0,
 		'delete_setting'	    => 0
@@ -134,7 +133,7 @@ class QQ_CLASS {
 			'response_type'=>'code',
 			'client_id'=>osop('QQ_AKEY'),
 			'state'=>md5(uniqid(rand(), true)),
-			'scope'=>'get_user_info,add_share,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo',
+			'scope'=>'get_user_info',
 			'redirect_uri'=>home_url('/').'?connect=qq&action=callback'
 		);
 		header('Location:https://graph.qq.com/oauth2.0/authorize?'.http_build_query($params));
@@ -159,14 +158,11 @@ class QQ_CLASS {
 		$user = open_connect_http('https://graph.qq.com/user/get_user_info?access_token='.$_SESSION['access_token'].'&oauth_consumer_key='.osop('QQ_AKEY').'&openid='.$_SESSION['open_id']);
 		$_SESSION['open_img'] = $user['figureurl_qq_2'] ? $user['figureurl_qq_2'] : $user['figureurl_qq_1'];
 		$nickname = $user['nickname'];
-		$user = open_connect_http('https://graph.qq.com/user/get_info?access_token='.$_SESSION['access_token'].'&oauth_consumer_key='.osop('QQ_AKEY').'&openid='.$_SESSION['open_id']);
-		$path_name = $user['data']['name'];
-		$weibo_name = $user['data']['nick'];
-		$name = $nickname ? $nickname : ($weibo_name ? $weibo_name : ($path_name ? $path_name : 'Q'.time()));
+		$name = isset($nickname) ? $nickname : 'Q'.time();
 		return array(
 			'nickname' => $name,
 			'display_name' => $name,
-			'user_url' => $path_name?'http://t.qq.com/'.$path_name:'',
+			'user_url' => '',
 			'user_email' => strtoupper(OPEN_TYPE).time().'@fake.com'
 		);
 	}
@@ -233,7 +229,7 @@ class BAIDU_CLASS {
 	function open_new_user(){
 		$user = open_connect_http("https://openapi.baidu.com/rest/2.0/passport/users/getLoggedInUser?access_token=".$_SESSION["access_token"]);
 		$_SESSION['open_id'] = $user['uid'];
-		$_SESSION['open_img'] = 'http://himg.bdimg.com/sys/portrait/item/'.$user['portrait'].'.jpg';
+		$_SESSION['open_img'] = 'https://himg.bdimg.com/sys/portrait/item/'.$user['portrait'].'.jpg';
 		return array(
 			'nickname' => $user["uname"],
 			'display_name' => $user["uname"],
@@ -461,7 +457,7 @@ class XIAOMI_CLASS {
 		$_SESSION['open_img'] = $user['data']['miliaoIcon_120'];
 		unset($_SESSION["mac_key"]);
 		return array(
-			'nickname' => $user['data']['aliasNick'] ? $user['data']['aliasNick'] : $user['data']['miliaoNick'],
+			'nickname' => isset($user['data']['aliasNick']) ? $user['data']['aliasNick'] : $user['data']['miliaoNick'],
 			'display_name' => $user['data']['miliaoNick'],
 			'user_url' => 'http://www.miui.com/space-uid-'.$_SESSION['open_id'].'.html',
 			'user_email' => strtoupper(OPEN_TYPE).$_SESSION['open_id'].'@fake.com'
@@ -692,29 +688,28 @@ class GITHUB_CLASS {
 class WECHAT_CLASS {
 	function open_login() {
 		$params=array(
+			'appid'=>osop('WECHAT_AKEY'),
+			'redirect_uri'=>home_url('/').'?connect=wechat&action=callback',
 			'response_type'=>'code',
 			'scope'=>'snsapi_login',
-			'state'=>md5(uniqid(rand(), true)),
-			'appid'=>osop('WECHAT_AKEY'),
-			'redirect_uri'=>home_url('/').'?connect=wechat&action=callback'
+			'state'=>md5(uniqid(rand(), true))
 		);
-		header('Location:https://open.weixin.qq.com/connect/qrconnect?'.http_build_query($params));
+		header('Location:https://open.weixin.qq.com/connect/qrconnect?'.http_build_query($params).'#wechat_redirect');
 		exit();
 	} 
 	function open_callback($code) {
 		$params=array(
-			'grant_type'=>'authorization_code',
-			'code'=>$code,
 			'appid'=>osop('WECHAT_AKEY'),
-			'secret'=>osop('WECHAT_SKEY')
-			//'redirect_uri'=>home_url('/').'?connect=wechat&action=callback'
+			'secret'=>osop('WECHAT_SKEY'),
+			'code'=>$code,
+			'grant_type'=>'authorization_code'
 		);
 		$str = open_connect_http('https://api.weixin.qq.com/sns/oauth2/access_token', http_build_query($params), 'POST');
 		$_SESSION["access_token"] = $str["access_token"];
 		$_SESSION['open_id'] = $str["openid"];
 	}
 	function open_new_user(){
-		$user = open_connect_http("https://api.weixin.qq.com/sns/userinfo?access_token=".$_SESSION["access_token"]."&openid=".$_SESSION['open_id']);
+		$user = open_connect_http("https://api.weixin.qq.com/sns/userinfo?access_token=".$_SESSION["access_token"]."&openid=".$_SESSION['open_id']."&lang=zh_CN");
 		$_SESSION['open_img'] = $user['headimgurl'];
 		return array(
 			'nickname' => $user['nickname'],
@@ -733,13 +728,6 @@ function open_close($open_info){
 function open_isbind($open_type,$open_id) {
 	global $wpdb;
 	$bid = $wpdb -> get_var($wpdb -> prepare("SELECT user_id FROM $wpdb->usermeta um WHERE um.meta_key='%s' AND um.meta_value='%s'", 'open_type_'.$open_type, $open_id));
-	if(!$bid){//single era
-		$bid = $wpdb -> get_var($wpdb -> prepare("SELECT um1.user_id FROM $wpdb->usermeta um1 INNER JOIN $wpdb->usermeta um2 ON um1.user_id = um2.user_id WHERE (um1.meta_key='open_type' AND um1.meta_value='%s' AND um2.meta_key='open_id' AND um2.meta_value='%s')", $open_type, $open_id));
-		if($bid){
-			update_user_meta($bid, 'open_type_'.$open_type, $_SESSION['open_id']);
-			delete_user_meta($bid, 'open_id');
-		}
-	}
 	return $bid;
 } 
 
@@ -760,15 +748,15 @@ function open_unbind(){
 }
 
 function open_action($os){
-	if (!isset($_SESSION['open_id'])) $newuser = $os -> open_new_user();
-	if (!$_SESSION['open_id']||strlen($_SESSION['open_id'])<6||!$_SESSION['access_token']||strlen($_SESSION['access_token'])<6||!OPEN_TYPE) return;
+	if (!isset($_SESSION['access_token'])||strlen($_SESSION['access_token'])<6||!OPEN_TYPE) return;
+	$newuser = $os -> open_new_user();
+	if(!isset($_SESSION['open_id'])||strlen($_SESSION['open_id'])<6) return;
 	if (is_user_logged_in()) { //bind
 		$wpuid = get_current_user_id();
 		if ( open_isbind(OPEN_TYPE, $_SESSION['open_id']) ) {
 			open_close(__('This account has been bound with other user.','open-social'));
 		}
 	} else { //login
-		if(!isset($newuser)) $newuser = $os -> open_new_user();//refresh avatar in case
 		$wpuid = open_isbind(OPEN_TYPE,$_SESSION['open_id']);
 		if (!$wpuid) {
 			$wpuid = username_exists(strtoupper(OPEN_TYPE).$_SESSION['open_id']);
@@ -799,6 +787,7 @@ function open_action($os){
 		}
 		update_user_meta($wpuid, 'open_access_token', $_SESSION["access_token"]);
 		wp_set_auth_cookie($wpuid, true, false);
+		wp_set_auth_cookie($wpuid, true, true);
 		wp_set_current_user($wpuid);
 	}
 	unset($_SESSION['open_id']);
@@ -856,25 +845,6 @@ function open_connect_http($url, $postfields='', $method='GET', $headers=array()
 	return $json_r;
 }
 
-//tester
-function open_update_test($text){
-	$params=array(
-		'status'=>$text
-	);
-	$re = open_connect_api('https://api.weibo.com/2/statuses/update.json', $params, 'POST');
-	echo '<script>alert("ok");opener.window.focus();window.close();</script>';
-	exit;
-}
-
-function open_check_url($url){
-	$headers = @get_headers($url);
-	if (!preg_match("|200|", $headers[0])) {
-		return false;
-	} else {
-		return true;
-	}
-}
-
 //admin setting
 add_action( 'admin_init', 'open_social_admin_init' );
 function open_social_admin_init() {
@@ -897,23 +867,14 @@ function open_options_add_page() {
 }
 
 function open_options_page() {
-	if ( osop('extend_user_transfer',1) ) {
-		if(file_exists(dirname(__FILE__).'/transfer.php')) include_once(dirname(__FILE__).'/transfer.php');
-		if(function_exists('open_social_user_transfer')){
-			open_social_user_transfer();
-			$GLOBALS['osop']['extend_user_transfer'] = 0;
-			update_option('osop',$GLOBALS['osop']);
-			echo '<div class="updated fade"><p><strong>'.__('Users Data Transfer Complete','open-social').'</strong></p></div>';
-		}
-	}
 	?> 
 	<div class="wrap" style="right:5px;top:5px;position:absolute">
-		<p><a href="http://www.xiaomac.com/201311150.html#thanks" target="_blank"><img width=30 title="<?php echo __('Scan me a drink','open-social')?>" hspace=5 src="data:image/png;base64,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" /></a>
-		<a href="http://www.xiaomac.com/" target="_blank"><img width=30 title="<?php echo __('Leave me a link','open-social')?>" hspace=5 src="data:image/png;base64,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" /></a>
-		<a href="http://wordpress.org/plugins/open-social/" target="_blank"><img width=30 title="<?php echo __('Give me five','open-social')?>" hspace=5 src="data:image/png;base64,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" /></a></p>
+		<p><a href="https://www.xiaomac.com/201311150.html#thanks" target="_blank"><img width=30 title="<?php _e('Scan me a drink','open-social')?>" hspace=5 src="data:image/png;base64,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" /></a>
+		<a href="https://www.xiaomac.com/" target="_blank"><img width=30 title="<?php _e('Leave me a link','open-social')?>" hspace=5 src="data:image/png;base64,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" /></a>
+		<a href="https://wordpress.org/plugins/open-social/" target="_blank"><img width=30 title="<?php _e('Give me five','open-social')?>" hspace=5 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAfQAAAH0AMQEOAcAAATFSURBVFjDrddLbFVVFAbg7x5aEarlWRB5VECrQdGAaETQiELEqBETHRijMSY+UowPEhPjwKgMKMQg6MSJxgGOEIOKgGgMiY/IIxFSLUbK44qR8FBKaekTjgN2T9t777m3jfx3dPde+197/WvtvdfJKI0RppmixmTTTBU57IAj9ss66FSpxZkS1Neb4143qzRU1Gcm1u6MPbbarV7TALaZh2Ee8KUzzouL/M5rsdkSFYMjz5hnveYcsi5tmjVr05Uz02KjBf0iLCrRCEvVmpj8P+tvP9rhhCatGG6kKnPcYWKfnR/zgbWlc0K1T3SEnZ1z2IceMFF5nl25Ky32gUbdwbrTp64pRT/bD4nqR612rSFF7SPT1PkrEWuX24rT7wmG3Ta7vQR5D4a4xYYkLw3mpovzfTBq977xAyLvwWirtCZR1BQyqbQuiNNsmeGDooehlmoKLj4zOnc643WdYrE2ywqktAfDi1R8mVpngsDLc+Wd70iom/eLUFxmpXeNKBJFXcjFMYv6TgyzPgT3VRHtK6zUqcsal6fajEqYNqnsHX4wnNq/zUtdeqm3tIvFOtQViXK2rFjsrEd7hip9EbyuTi3MCiucTaq93eq+++uHyNvOicW29aR6ntNisUOuK6J9e7/bp8OaVBfV9onFWt19YeDFsOjDlP3n01+4GNakpDtjbbB57YJAm4K/B1Pol4e76XzO1d1lVYqLu0JOt6tilqNisT9MKqj9yoR+V7A8ZXdQuStFqPF+FYudNJeHQvI+LnC8euljX5vvt5CrO3zeR6h8F5H3QjE8xqthN7V5ZpdakWj/jenGh+RlTTbZl0m6Vxco2ieCnMsFX90eydv9WyG28752Da5IHExBtS/C1trV5UVxX4h8g5DiNgtzTJ5LxNlsCnkOmGBjku5XclbfGe7W+shU0KU1x+Rne8C3XvJnwVo56iWbwD4/5cyd1gaGlRV+qrHX8z7yr1r7pSHrBZFpnrcjZyYWg0yZw65DeYEX4BdPaXZIMWTVGmdX3vjIwNdWphGUGVkwitLIyhYYrVAGGiN/iVGmagBkA8eYcKoaIvu1gznB58VAxmwZdGqIZDWD+cZdNAdVoehbHIwcCEpPcuNFc1CjGuxzINJkK6iwJLVkB4sl4WRvcSzCbmfAPeHQ/V9MshictYMI9b4H0z1zEWLIeDK8jDt7y/xhLWKxI24tsjT3LiqMGx0It+zjvYMVybW1Ib8nG5SDSusC0zaj+k7cHV6rbqsMTVk81kb16m01IcWi3BuhPzzp/v5TkTdDT9ZiacqRi4wy1lijUzIVeTr0J+esyucY5dMQXJPa1CjSUe5pJwLDlsKHtsbO5Jurrr+CJVHpjbD72F43pJndpiF5zNebNcCizZhpXfL+HbKgmPFcu5O+J+ttU0p8SWdM9LqDyZq9FpRYocZnyedQt9+tdZdxBXq+IarM947f+lhvzRenkLcxXvZskqZYiz99Z5d/tDgtNlKFMWZbqNrlCcM/PvKO4wNL2RCLfNWnm75Qeh1anXRCq47QsPR229vcP9j3pNKjvslxUujXZrvH02uueELGuMmtFpupwiU5tp1aNdhih71OFKuC0qhytavMMEON4WjTqEGDQxodD+1JKv4De9tblgTzxMYAAAAldEVYdGRhdGU6Y3JlYXRlADIwMTUtMDgtMDJUMjM6MDE6NDQrMDg6MDC5JlGyAAAAJXRFWHRkYXRlOm1vZGlmeQAyMDE1LTA4LTAyVDIzOjAxOjQ0KzA4OjAwyHvpDgAAAE50RVh0c29mdHdhcmUASW1hZ2VNYWdpY2sgNi44LjgtMTAgUTE2IHg4Nl82NCAyMDE1LTA3LTE5IGh0dHA6Ly93d3cuaW1hZ2VtYWdpY2sub3JnBQycNQAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABh0RVh0VGh1bWI6OkltYWdlOjpIZWlnaHQAMTgzLkFwggAAABd0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAAxODO9sCDfAAAAGXRFWHRUaHVtYjo6TWltZXR5cGUAaW1hZ2UvcG5nP7JWTgAAABd0RVh0VGh1bWI6Ok1UaW1lADE0Mzg1Mjc3MDQkYTaXAAAAEnRFWHRUaHVtYjo6U2l6ZQAzLjhLQkLeIu77AAAAWnRFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vaG9tZS93d3dyb290L3d3dy5lYXN5aWNvbi5uZXQvY2RuLWltZy5lYXN5aWNvbi5jbi9zcmMvMTE5MDkvMTE5MDk5OS5wbmejyKWVAAAAAElFTkSuQmCC" /></a></p>
 	</div>
 	<div class="wrap">
-		<h2><?php echo __('Open Social','open-social')?>
+		<h2><?php _e('Open Social','open-social')?>
 		<small style="font-size:14px;padding-left:8px;color:#666">
 		<?php
 			$plugin_data = get_plugin_data( __FILE__ );
@@ -927,30 +888,31 @@ function open_options_page() {
 		?>
 		<table class="form-table">
 		<tr valign="top">
-		<th scope="row"><?php echo __('Login Buttons','open-social')?><br/>
-			<a href="<?php echo admin_url('widgets.php');?>"><?php echo __('Widgets');?></a></th>
+		<th scope="row"><?php _e('Login Buttons','open-social')?><br/>
+			<a href="<?php echo admin_url('widgets.php');?>"><?php _e('Widgets');?></a></th>
 		<td><fieldset>
-			<label for="osop[show_login_page]"><input name="osop[show_login_page]" id="osop[show_login_page]" type="checkbox" value="1" <?php checked(osop('show_login_page'),1);?> /> <?php echo __('Show in Login page','open-social')?></label><br/>
-			<label for="osop[show_login_form1]"><input name="osop[show_login_form]" id="osop[show_login_form1]" type="radio" value="1" <?php checked(osop('show_login_form'),1);?> /> <?php echo __('Before comment form','open-social')?></label> 
-			<label for="osop[show_login_form2]"><input name="osop[show_login_form]" id="osop[show_login_form2]" type="radio" value="2" <?php checked(osop('show_login_form'),2);?> /> <?php echo __('After comment form','open-social')?></label>  
-			<label for="osop[show_login_form0]"><input name="osop[show_login_form]" id="osop[show_login_form0]" type="radio" value="0" <?php checked(osop('show_login_form'),0);?> /> <?php echo __('None');?></label> <br/>
+			<label for="osop[show_login_page]"><input name="osop[show_login_page]" id="osop[show_login_page]" type="checkbox" value="1" <?php checked(osop('show_login_page'),1);?> /> <?php _e('Show in Login page','open-social')?></label><br/>
+			<label for="osop[show_inner_login]"><input name="osop[show_inner_login]" id="osop[show_inner_login]" type="checkbox" value="1" <?php checked(osop('show_inner_login'),1);?> /> <?php _e('Show button for Inner Login','open-social')?></label><br/>
+			<label for="osop[show_login_form1]"><input name="osop[show_login_form]" id="osop[show_login_form1]" type="radio" value="1" <?php checked(osop('show_login_form'),1);?> /> <?php _e('Before comment form','open-social')?></label> 
+			<label for="osop[show_login_form2]"><input name="osop[show_login_form]" id="osop[show_login_form2]" type="radio" value="2" <?php checked(osop('show_login_form'),2);?> /> <?php _e('After comment form','open-social')?></label>  
+			<label for="osop[show_login_form0]"><input name="osop[show_login_form]" id="osop[show_login_form0]" type="radio" value="0" <?php checked(osop('show_login_form'),0);?> /> <?php _e('None');?></label> <br/>
 			<pre>Shortcode: <code>[os_login]</code> <code>[os_login show="qq,sina"]</code> PHP: <code>&lt;?php echo open_social_login_html();?&gt;</code></pre>
 		</fieldset>
 		</td>
 		</tr>
 		<tr valign="top">
-		<th scope="row"><?php echo __('Share Buttons','open-social')?><br/>
-			<a href="<?php echo admin_url('widgets.php');?>"><?php echo __('Widgets');?></a></th>
+		<th scope="row"><?php _e('Share Buttons','open-social')?><br/>
+			<a href="<?php echo admin_url('widgets.php');?>"><?php _e('Widgets');?></a></th>
 		<td><fieldset>
-			<p><label for="osop[show_share_content]"><input name="osop[show_share_content]" id="osop[show_share_content]" type="checkbox" value="1" <?php checked(osop('show_share_content'),1);?> /> <?php echo __('Show in Post pages','open-social')?></label> <br/>
+			<p><label for="osop[show_share_content]"><input name="osop[show_share_content]" id="osop[show_share_content]" type="checkbox" value="1" <?php checked(osop('show_share_content'),1);?> /> <?php _e('Show in Post pages','open-social')?></label> <br/>
 			<input name="osop[share_sina_user]" id="osop[share_sina_user]" class="regular-text" value="<?php echo osop('share_sina_user')?>" />
-			<a href="http://open.weibo.com/sharebutton" target="_blank"><?php echo __('SinaWeibo RelatedID','open-social')?></a><br/>
+			<a href="http://open.weibo.com/sharebutton" target="_blank"><?php _e('SinaWeibo RelatedID','open-social')?></a><br/>
 			<input name="osop[share_qqt_appkey]" id="osop[share_qqt_appkey]" class="regular-text" value="<?php echo osop('share_qqt_appkey')?>" />
-			<a href="http://open.t.qq.com/apps/share/explain.php" target="_blank"><?php echo __('QQWeibo AppKey','open-social')?></a> <br/>
+			<a href="http://open.t.qq.com/apps/share/explain.php" target="_blank"><?php _e('QQWeibo AppKey','open-social')?></a> <br/>
 			<input name="osop[share_qq_email]" id="osop[share_qq_email]" size="65" value="<?php echo osop('share_qq_email')?>" placeholder="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=[CODE]" />
-			<a href="http://open.mail.qq.com/" target="_blank"><?php echo __('QQEmail Code','open-social')?></a> <br/>
+			<a href="http://open.mail.qq.com/" target="_blank"><?php _e('QQEmail Code','open-social')?></a> <br/>
 			<input name="osop[share_qq_talk]" id="osop[share_qq_talk]" size="65" value="<?php echo osop('share_qq_talk')?>" placeholder="http://wpa.qq.com/msgrd?v=3&uin=[NUM]&site=XiaoMac&menu=yes" />
-			<a href="http://shang.qq.com/widget/set.php" target="_blank"><?php echo __('QQChat Number','open-social')?></a></p>
+			<a href="http://shang.qq.com/widget/set.php" target="_blank"><?php _e('QQChat Number','open-social')?></a></p>
 			<?php
 			foreach ($GLOBALS['open_share_arr'] as $k=>$v) {
 				echo '<label for="osop[share_'.$k.']"><input name="osop[share_'.$k.']" id="osop[share_'.$k.']" type="checkbox" value="1" '.checked(osop('share_'.$k),1,false).' title="'.__('Enabled','open-social').'" />'.$v[0].'</label> ';
@@ -962,37 +924,34 @@ function open_options_page() {
 		</td>
 		</tr>
 		<tr valign="top">
-			<th scope="row"><?php echo __('Extensions','open-social')?></th>
+			<th scope="row"><?php _e('Extensions','open-social')?></th>
 		<td><fieldset>
-			<label for="osop[extend_guest_comment]"><input name="osop[extend_guest_comment]" id="osop[extend_guest_comment]" class="regular-text" placeholder="/:\/\//" value="<?php echo osop('extend_guest_comment')?>" /> <?php echo __('Regexp Anti-SPAM when guest can comment','open-social')?></label><br/>
-			<label for="osop[extend_comment_email]"><input name="osop[extend_comment_email]" id="osop[extend_comment_email]" type="checkbox" value="1" <?php checked(osop('extend_comment_email'),1);?> /> <?php echo __('Receive reply email notification','open-social')?></label> <br/>
-			<label for="osop[extend_show_nickname]"><input name="osop[extend_show_nickname]" id="osop[extend_show_nickname]" type="checkbox" value="1" <?php checked(osop('extend_show_nickname'),1);?> /> <?php echo __('Show nickname in users list','open-social')?></label>
-			<a href="<?php echo admin_url('users.php');?>">#<?php echo __('Users');?></a><br/>
-			<label for="osop[extend_email_login]"><input name="osop[extend_email_login]" id="osop[extend_email_login]" type="checkbox" value="1" <?php checked(osop('extend_email_login'),1);?> /> <?php echo __('Allow to login with email address','open-social')?></label> <br/>
-			<label for="osop[extend_change_name]"><input name="osop[extend_change_name]" id="osop[extend_change_name]" type="checkbox" value="1" <?php checked(osop('extend_change_name'),1);?> /> <?php echo __('Allow binding user change their [Username] one time and only. Check it CAREFULLY.','open-social')?>
-			<a href="<?php echo admin_url('profile.php');?>#open_social_login_box">#<?php echo __('Profile');?></a></label> <br/>
-			<label for="osop[extend_hide_user_bar]"><input name="osop[extend_hide_user_bar]" id="osop[extend_hide_user_bar]" type="checkbox" value="1" <?php checked(osop('extend_hide_user_bar'),1);?> /> <?php echo __('Hide user bar for new user','open-social')?></label>
-			<a href="<?php echo admin_url('profile.php');?>#comment_shortcuts">#<?php echo __('Profile');?></a><br/>
-			<label for="osop[extend_lang_switcher]"><input name="osop[extend_lang_switcher]" id="osop[extend_lang_switcher]" type="checkbox" value="1" <?php checked(osop('extend_lang_switcher'),1);?> /> <?php echo __('Display Language Switcher in profile page','open-social')?></label>
-			<a href="<?php echo admin_url('profile.php');?>#admin_bar_front">#<?php echo __('Profile');?></a><br/>
-			<label for="osop[extend_user_role]"><input name="osop[extend_user_role]" id="osop[extend_user_role]" type="checkbox" value="1" <?php checked(osop('extend_user_role'),1);?> /> <?php echo __('User Subscriber role for new user or default role if uncheck','open-social')?>
-			<a href="<?php echo admin_url('options-general.php');?>#users_can_register">#<?php echo __('General Settings');?></a></label> <br/>
-			<label for="osop[extend_gravatar_disabled]"><input name="osop[extend_gravatar_disabled]" id="osop[extend_gravatar_disabled]" type="checkbox" value="1" <?php checked(osop('extend_gravatar_disabled'),1);?> /> <?php echo __('Disable Gravatar with a default blank avatar','open-social')?></label>
-			<a href="<?php echo admin_url('options-discussion.php');?>#show_avatars">#<?php echo __('Discussion Settings');?></a><br/>
-			<label for="osop[extend_button_tooltip]"><input name="osop[extend_button_tooltip]" id="osop[extend_button_tooltip]" type="checkbox" value="1" <?php checked(osop('extend_button_tooltip'),1);?> /> <?php echo __('Add jQuery.tooltip to the buttons','open-social')?></label>
+			<label for="osop[extend_guest_comment]"><input name="osop[extend_guest_comment]" id="osop[extend_guest_comment]" class="regular-text" placeholder="/:\/\//" value="<?php echo osop('extend_guest_comment')?>" /> <?php _e('Regexp Anti-SPAM when guest can comment','open-social')?></label><br/>
+			<label for="osop[extend_comment_email]"><input name="osop[extend_comment_email]" id="osop[extend_comment_email]" type="checkbox" value="1" <?php checked(osop('extend_comment_email'),1);?> /> <?php _e('Receive reply email notification','open-social')?></label> <br/>
+			<label for="osop[extend_show_nickname]"><input name="osop[extend_show_nickname]" id="osop[extend_show_nickname]" type="checkbox" value="1" <?php checked(osop('extend_show_nickname'),1);?> /> <?php _e('Show nickname in users list','open-social')?></label>
+			<a href="<?php echo admin_url('users.php');?>">#<?php _e('Users');?></a><br/>
+			<label for="osop[extend_change_name]"><input name="osop[extend_change_name]" id="osop[extend_change_name]" type="checkbox" value="1" <?php checked(osop('extend_change_name'),1);?> /> <?php _e('Allow binding user change their [Username] one time and only. Check it CAREFULLY.','open-social')?>
+			<a href="<?php echo admin_url('profile.php');?>#open_social_login_box">#<?php _e('Profile');?></a></label> <br/>
+			<label for="osop[extend_hide_user_bar]"><input name="osop[extend_hide_user_bar]" id="osop[extend_hide_user_bar]" type="checkbox" value="1" <?php checked(osop('extend_hide_user_bar'),1);?> /> <?php _e('Hide user bar for new user','open-social')?></label>
+			<a href="<?php echo admin_url('profile.php');?>#comment_shortcuts">#<?php _e('Profile');?></a><br/>
+			<label for="osop[extend_lang_switcher]"><input name="osop[extend_lang_switcher]" id="osop[extend_lang_switcher]" type="checkbox" value="1" <?php checked(osop('extend_lang_switcher'),1);?> /> <?php _e('Display Language Switcher in profile page','open-social')?></label>
+			<a href="<?php echo admin_url('profile.php');?>#admin_bar_front">#<?php _e('Profile');?></a><br/>
+			<label for="osop[extend_user_role]"><input name="osop[extend_user_role]" id="osop[extend_user_role]" type="checkbox" value="1" <?php checked(osop('extend_user_role'),1);?> /> <?php _e('User Subscriber role for new user or default role if uncheck','open-social')?>
+			<a href="<?php echo admin_url('options-general.php');?>#users_can_register">#<?php _e('General Settings');?></a></label> <br/>
+			<label for="osop[extend_gravatar_disabled]"><input name="osop[extend_gravatar_disabled]" id="osop[extend_gravatar_disabled]" type="checkbox" value="1" <?php checked(osop('extend_gravatar_disabled'),1);?> /> <?php _e('Disable Gravatar with a default blank avatar','open-social')?></label>
+			<a href="<?php echo admin_url('options-discussion.php');?>#show_avatars">#<?php _e('Discussion Settings');?></a><br/>
+			<label for="osop[extend_button_tooltip]"><input name="osop[extend_button_tooltip]" id="osop[extend_button_tooltip]" type="checkbox" value="1" <?php checked(osop('extend_button_tooltip'),1);?> /> <?php _e('Add jQuery.tooltip to the buttons','open-social')?></label>
 			<a href="https://jqueryui.com/tooltip/" target="_blank">#jQuery.tooltip</a> <br/>
-			<?php if(file_exists(dirname(__FILE__).'/transfer.php')) : ?><label for="osop[extend_user_transfer]"><input name="osop[extend_user_transfer]" id="osop[extend_user_transfer]" type="checkbox" value="1" <?php checked(osop('extend_user_transfer'),1);?> /> <?php echo __('Experimental: Transfer &ltwp-connect&gt users data to be compatible with','open-social')?></label> 
-			<a href="http://wordpress.org/plugins/wp-connect/" target="_blank">wp-connect</a><br/><?php endif; ?>
-			<label for="osop[delete_setting]"><input name="osop[delete_setting]" id="osop[delete_setting]" type="checkbox" value="1" <?php checked(osop('delete_setting'),1);?> /> <?php echo __('Delete all configurations in this page after plugin deleted, NOT RECOMMENDED.','open-social')?></label> <br/>
+			<label for="osop[delete_setting]"><input name="osop[delete_setting]" id="osop[delete_setting]" type="checkbox" value="1" <?php checked(osop('delete_setting'),1);?> /> <?php _e('Delete all configurations in this page after plugin deleted, NOT RECOMMENDED.','open-social')?></label> <br/>
 			<pre>Shortcode: <code>[os_hide] XXX [/os_hide]</code></pre>
 		</fieldset>
 		</td>
 		</tr>
 		<tr valign="top">
-			<th scope="row"><?php echo __('Proxy','open-social')?></th>
+			<th scope="row"><?php _e('Proxy','open-social')?></th>
 		<td><fieldset>
 			<p><input name="osop[proxy_server]" id="osop[proxy_server]" class="regular-text" placeholder="127.0.0.1:8087" value="<?php echo osop('proxy_server')?>" />
-			<a href="http://www.xiaomac.com/2014081490.html" target="_blank"><?php echo __('Proxy for somesite in somewhere','open-social')?></a><br/>
+			<a href="https://www.xiaomac.com/2014081490.html" target="_blank"><?php _e('Proxy for somesite in somewhere','open-social')?></a><br/>
 			<input name="osop[proxy_facebook]" id="osop[proxy_facebook]" class="regular-text" placeholder="https://graph.facebook.com" value="<?php echo osop('proxy_facebook')?>" /> https://graph.facebook.com <br/>
 			<input name="osop[proxy_twitter]" id="osop[proxy_twitter]" class="regular-text" placeholder="https://api.twitter.com" value="<?php echo osop('proxy_twitter')?>" /> https://api.twitter.com <br/>
 			<input name="osop[proxy_google_account]" id="osop[proxy_google_account]" class="regular-text" placeholder="https://accounts.google.com" value="<?php echo osop('proxy_google_account')?>" /> https://accounts.google.com<br/>
@@ -1005,7 +964,7 @@ function open_options_page() {
 	</div>
 
 	<div class="wrap">
-		<h2><?php echo __('Account Setting','open-social')?></h2>
+		<h2><?php _e('Account Setting','open-social')?></h2>
 		<table class="form-table">
 		<?php
 			$open_arr_link = array(
@@ -1025,15 +984,15 @@ function open_options_page() {
 				'github'=> array('https://github.com/settings/applications','https://developer.github.com/v3/oauth/'),
 				'wechat'=> array('https://open.weixin.qq.com/cgi-bin/index','https://open.weixin.qq.com/cgi-bin/index')
 			);
-			foreach ($GLOBALS['open_arr'] as $v=>$k) {
-				$V = strtoupper($v);
+			foreach ($GLOBALS['open_arr'] as $k=>$v) {
+				$K = strtoupper($k);
 				echo '<tr valign="top"><th scope="row">
-					<a href="'.(isset($open_arr_link[$v][0])?$open_arr_link[$v][0]:'#').'" target="_blank">'.$k.'</a>
-					<a href="'.(isset($open_arr_link[$v][0])?$open_arr_link[$v][1]:'#').'" target="_blank">?</a> </th>
-				<td><label for="osop['.$V.']">
-					<input name="osop['.$V.']" id="osop['.$V.']" type="checkbox" value="1" '.checked(osop($V),1,false).' />'.__('Enabled','open-social').'</label><br />
-					<input name="osop['.$V.'_AKEY]" value="'.osop($V.'_AKEY').'" class="regular-text" /> App ID <br/>
-					<input name="osop['.$V.'_SKEY]" value="'.osop($V.'_SKEY').'" class="regular-text" /> Secret KEY</td>
+					<a href="'.(isset($open_arr_link[$k][0])?$open_arr_link[$k][0]:'#').'" target="_blank">'.$v.'</a>
+					<a href="'.(isset($open_arr_link[$k][0])?$open_arr_link[$k][1]:'#').'" target="_blank">?</a> </th>
+				<td><label for="osop['.$K.']">
+					<input name="osop['.$K.']" id="osop['.$K.']" type="checkbox" value="1" '.checked(osop($K),1,false).' />'.__('Enabled','open-social').'</label><br />
+					<input name="osop['.$K.'_AKEY]" value="'.osop($K.'_AKEY').'" class="regular-text" /> App ID <br/>
+					<input name="osop['.$K.'_SKEY]" value="'.osop($K.'_SKEY').'" class="regular-text" /> Secret KEY</td>
 				</tr>';
 			}
 		?>
@@ -1045,39 +1004,25 @@ function open_options_page() {
 } 
 
 //user setting
-add_filter("get_avatar", "open_get_avatar",10,4);
-function open_get_avatar($avatar, $id_or_email='',$size='80',$default='') {
+add_filter("get_avatar", "open_get_avatar",99999,5);
+function open_get_avatar($avatar, $id_or_email, $size='80', $default, $alt) {
 	global $comment;
 	$comment_ip = '';
-	if($id_or_email && is_object($id_or_email)){
+	if(is_object($id_or_email)){
+		$comment_ID = $id_or_email->comment_ID;
 		$id_or_email = $id_or_email->user_id;
-		if(is_user_logged_in() && current_user_can('manage_options')) $comment_ip = get_comment_author_IP();
+		if(is_user_logged_in() && current_user_can('manage_options') && $comment_ID) $comment_ip = esc_attr(get_comment_author_IP($comment_ID));
+	}elseif(is_email($id_or_email)){
+		$user = get_user_by('email', $id_or_email);
+		$id_or_email = $user->ID;
+		$avatar_option = apply_filters('pre_option_show_avatars', '', 100);
 	}
-	if($id_or_email) {
-		$open_type = get_user_meta($id_or_email, 'open_type', true);
-		$open_id = get_user_meta($id_or_email, 'open_id', true);
-	}
-	if($id_or_email && $open_type!='') {
-		if($open_id!=''){//single era
-			if($open_type=='qq'){
-				if(osop('QQ_AKEY')) $out = 'http://q.qlogo.cn/qqapp/'.osop('QQ_AKEY').'/'.$open_id.'/100';//40
-			}elseif($open_type=='sina'){
-				$out = 'http://tp3.sinaimg.cn/'.$open_id.'/180/1.jpg';//50
-			}elseif($open_type=='douban'){
-				$out = 'http://img3.douban.com/icon/ul'.$open_id.'.jpg';//u
-			}elseif($open_type=='xiaomi'){
-				$out = 'http://avatar.bbs.miui.com/data/avatar/'.substr((strlen($open_id)<=8?'0'.$open_id:$open_id),0,-6).'/'.substr($open_id,-6,-4).'/'.substr($open_id,-4,-2).'/'.substr($open_id,-2).'_avatar_middle.jpg';//eggs broken
-			}else{
-				$out = get_user_meta($id_or_email, 'open_img', true);
-			}
-		}else{
-			$out = get_user_meta($id_or_email, 'open_img', true);
-		}
-		return "<img alt='' ip='{$comment_ip}' src='{$out}' class='avatar avatar-{$size}' height='{$size}' width='{$size}' />";
-	}
-	if( preg_match('/gravatar\.com/', $avatar) && osop('extend_gravatar_disabled',1) ){
-		$default = plugins_url('/images/gravatar.png', __FILE__);
-		$avatar = "<img alt='' ip='{$comment_ip}' src='{$default}?s={$size}' class='avatar avatar-{$size}' width='{$size}' />";
+	if($id_or_email) $out = get_user_meta($id_or_email, 'open_img', true);
+	if(!empty($avatar_option)) unset($out);
+	if(empty($out) && preg_match('/gravatar\.com/', $avatar) && osop('extend_gravatar_disabled',1)) $out = plugins_url('/images/gravatar.png?s='.$size, __FILE__);
+	if(!empty($out)){
+		$out = substr($out, stripos($out, '//'));
+		$avatar = "<img alt='{$alt}' ip='{$comment_ip}' src='{$out}' class='avatar avatar-{$size}' width='{$size}' />";
 	}
 	return $avatar;
 }
@@ -1086,17 +1031,11 @@ add_filter('comment_form_defaults','open_social_comment_note');
 function open_social_comment_note($fields) {
 	if(is_user_logged_in()){
 		$user = wp_get_current_user();
-		$open_email = get_user_meta($user->ID, 'open_email', true);
-		$fields['logged_in_as'] .= '<p class="comment-form-email"><input class="disabled" id="email" name="email" title="'.__( 'Email' ).'" value="'.esc_attr( $user->user_email ).'" size="25" disabled="disabled" /> <input class="disabled" id="url" name="url" title="'.__( 'Website' ).'" value="'.esc_attr( $user->user_url ).'" size="40" disabled="disabled" /></p>';
-		$fields['comment_notes_after'] = '<p>';
-		if( osop('extend_comment_email',1) ){
-			$fields['comment_notes_after'] .= '<input class="disabled" disabled="disabled" type="checkbox" '.checked(esc_attr( $open_email ),1,false).' /> '.__('Receive reply email notification','open-social') .'.';
-		}
-		$fields['comment_notes_after'] .= ' <a href="'.get_edit_user_link($user->ID).'?from='.esc_url($_SERVER["REQUEST_URI"]).'%23comment">'.__('Edit My Profile').'</a></p>';
+		$open_img = get_user_meta($user->ID, 'open_img', true);
+		if($open_img) $fields['logged_in_as'] = '<p class="logged-in-as"> <a href="'.get_edit_user_link($user->ID).'?from='.esc_url($_SERVER["REQUEST_URI"]).'%23comment">'.get_avatar($user->ID,'80').'</a></p>';
 	}elseif(get_option('comment_registration') && get_post_meta(get_the_ID(), 'os_guestbook', true)){
 		add_filter('option_comment_registration', '__return_false');
-		$fields['comment_notes_before'] = $fields['comment_notes_after'] = $fields['fields']['url'] = '';
-		return $fields;
+		$fields['fields']['url'] = '';
 	}
 	return $fields;
 }
@@ -1139,10 +1078,13 @@ if( osop('show_share_content',1) ) {
 
 function open_social_login_html($atts=array()) {
 	$html = '<div class="open_social_box login_box">';
+	if( osop('show_inner_login',1) && stripos(wp_login_url(),basename( $_SERVER['SCRIPT_NAME'] ))===false ) {
+		$html .= open_login_button_show('wordpress',__('Inner Login','open-social'),wp_login_url(get_permalink()));
+	}
 	$show = (isset($atts) && !empty($atts) && isset($atts['show'])) ? $atts['show'] : '';
-	foreach ($GLOBALS['open_arr'] as $v=>$k){
-		if($show && stripos($show,$v)===false) continue;
-		if(osop(strtoupper($v))) $html .= open_login_button_show($v,sprintf(__('Login with %s','open-social'),$k),home_url('/'));
+	foreach ($GLOBALS['open_arr'] as $k=>$v){
+		if($show && stripos($show,$k)===false) continue;
+		if(osop(strtoupper($k))) $html .= open_login_button_show($k,sprintf(__('Login with %s','open-social'),$v),home_url('/'));
 	}
 	$html .= '</div>';
 	return $html;
@@ -1238,12 +1180,12 @@ function open_social_bind_options( $user ) {
 	}
 	if(osop('extend_lang_switcher',1)) $html .= '<p><input class="button-primary" type="button" onclick="location.href=\'?open_lang='.(get_locale()!='en_US'?'en_US':'zh_CN').'\'" value="'.__('Language Switcher','open-social').'"/><br/><br/></p>';
 	$html .= '<div id="open_social_login_box" class="open_social_box login_box">';
-	foreach ($GLOBALS['open_arr'] as $v=>$k){
-		if(osop(strtoupper($v))){
-			if($open_type && stripos($open_type,$v)!==false){
-				$html .= open_login_button_unbind($v,sprintf(__('Unbind with %s','open-social'),$k),home_url('/'));
+	foreach ($GLOBALS['open_arr'] as $k=>$v){
+		if(osop(strtoupper($k))){
+			if($open_type && stripos($open_type,$k)!==false){
+				$html .= open_login_button_unbind($k,sprintf(__('Unbind with %s','open-social'),$v),home_url('/'));
 			}else{
-				$html .= open_login_button_show($v,sprintf(__('Login with %s','open-social'),$k),home_url('/'));
+				$html .= open_login_button_show($k,sprintf(__('Login with %s','open-social'),$v),home_url('/'));
 			}
 		}
 	}
@@ -1253,14 +1195,13 @@ function open_social_bind_options( $user ) {
 } 
 
 //script & style
-add_action( 'wp_enqueue_scripts', 'open_social_style' );
+add_action( 'wp_enqueue_scripts', 'open_social_style', 100 );
 add_action( 'login_enqueue_scripts', 'open_social_style' );
 add_action( 'admin_enqueue_scripts', 'open_social_style' );
 function open_social_style() {
-	wp_register_style( 'open_social_css', plugins_url('/images/os.css', __FILE__) );
-	wp_enqueue_style( 'open_social_css' );
-	wp_enqueue_script( 'open_social_js', plugins_url('/images/os.js', __FILE__), osop('extend_button_tooltip',1) ? array( 'jquery','jquery-ui-tooltip' ) : array(), '', true );
-	if(osop('share_wechat')) wp_enqueue_script('jquery.qrcode', 'http://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js', array('jquery'));
+	wp_enqueue_style( 'open-social-style', plugins_url('/images/os.css', __FILE__) );
+	wp_enqueue_script( 'open-social-script', plugins_url('/images/os.js', __FILE__), osop('extend_button_tooltip',1) ? array( 'jquery','jquery-ui-tooltip' ) : array(), '', true );
+	if(osop('share_wechat')) wp_enqueue_script('jquery.qrcode', plugins_url('/images/jquery.qrcode.min.js', __FILE__), array('jquery'));
 }
 function open_login_button_show($icon_type,$icon_title,$icon_link){
 	return "<div class=\"login_button login_icon_$icon_type\" onclick=\"login_button_click('$icon_type','$icon_link')\" title=\"$icon_title\"></div>";
@@ -1288,23 +1229,6 @@ function open_social_hide($atts, $content=""){
 		$output .= '<p class="os_hide">'.__('Login to check this hidden content out','open-social').'</p>';
 	}
 	return $output;
-}
-
-//login with email
-if(osop('extend_email_login',1)){
-	add_action('wp_authenticate','open_social_email_login');
-	function open_social_email_login($username) {
-		if(is_email( $username )){
-			$user = get_user_by_email($username);
-			if(!empty($user->user_login)) $username = $user->user_login;
-		}
-		return $username;
-	}
-	add_filter( 'gettext', 'open_social_email_login_text', 20, 3 );
-	function open_social_email_login_text( $translated_text, $text, $domain ) {
-		if ( 'wp-login.php' == basename( $_SERVER['SCRIPT_NAME'] ) && "Username" == $text && !(isset($_REQUEST['action']) && $_REQUEST['action']=='register') ) $translated_text = __('Username or E-mail:');
-		return $translated_text;
-	}
 }
 
 //email notification
@@ -1355,7 +1279,6 @@ if( osop('extend_show_nickname',1) ){
 
 //widget
 add_action('widgets_init', create_function('', 'return register_widget("open_social_login_widget");'));
-//add_action( 'widgets_init', function(){register_widget( 'open_social_login_widget' );});//5.3
 add_action('widgets_init', create_function('', 'return register_widget("open_social_share_widget");'));
 add_action('widgets_init', create_function('', 'return register_widget("open_social_float_widget");'));
 

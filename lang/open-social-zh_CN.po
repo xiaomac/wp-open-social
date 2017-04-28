@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Social 1.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/open-social\n"
-"POT-Creation-Date: 2015-09-02 07:23:13+00:00\n"
-"PO-Revision-Date: 2015-09-02 15:46+0800\n"
+"POT-Creation-Date: 2015-10-16 13:26:11+00:00\n"
+"PO-Revision-Date: 2015-10-16 21:28+0800\n"
 "Last-Translator: XiaoMac <afly@xiaomac.com>\n"
 "Language-Team: playes@qq.com\n"
 "Language: zh_CN\n"
@@ -114,302 +114,306 @@ msgstr "分享到 Facebook"
 msgid "Google Translation"
 msgstr "谷歌翻译"
 
-#: open-social.php:768
+#: open-social.php:767
 msgid "This account has been bound with other user."
 msgstr "这个账号已经被其他用户绑定。"
 
-#: open-social.php:776
+#: open-social.php:774
 msgid "This email [%s] has been registered by other user."
 msgstr "这个邮箱 %s 已经被其他用户注册。"
 
-#: open-social.php:886
+#: open-social.php:884
 msgid "Settings"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-#: open-social.php:895 open-social.php:916 open-social.php:1229
+#: open-social.php:893 open-social.php:914 open-social.php:1226
 msgid "Open Social"
 msgstr ""
 
-#: open-social.php:906
+#: open-social.php:904
 msgid "Users Data Transfer Complete"
 msgstr "用户数据转换完成"
 
-#: open-social.php:911
+#: open-social.php:909
 msgid "Scan me a drink"
 msgstr "扫支啤酒"
 
-#: open-social.php:912
+#: open-social.php:910
 msgid "Leave me a link"
 msgstr "挂个连接"
 
-#: open-social.php:913
+#: open-social.php:911
 msgid "Give me five"
 msgstr "点个赞"
 
-#: open-social.php:930
+#: open-social.php:928
 msgid "Login Buttons"
 msgstr "登陆按钮"
 
-#: open-social.php:931 open-social.php:943
+#: open-social.php:929 open-social.php:942
 msgid "Widgets"
 msgstr ""
 
-#: open-social.php:933
+#: open-social.php:931
 msgid "Show in Login page"
 msgstr "在登陆页面中显示"
 
-#: open-social.php:934
+#: open-social.php:932
+msgid "Show button for Inner Login"
+msgstr "显示内部登陆按钮（方便老用户先登陆再绑定）"
+
+#: open-social.php:933
 msgid "Before comment form"
 msgstr "在评论框之前"
 
-#: open-social.php:935
+#: open-social.php:934
 msgid "After comment form"
 msgstr "在评论框之后"
 
-#: open-social.php:936
+#: open-social.php:935
 msgid "None"
 msgstr ""
 
-#: open-social.php:942
+#: open-social.php:941
 msgid "Share Buttons"
 msgstr "分享按钮"
 
-#: open-social.php:945
+#: open-social.php:944
 msgid "Show in Post pages"
 msgstr "在日志文章中显示"
 
-#: open-social.php:947
+#: open-social.php:946
 msgid "SinaWeibo RelatedID"
 msgstr "新浪微博关联账号"
 
-#: open-social.php:949
+#: open-social.php:948
 msgid "QQWeibo AppKey"
 msgstr "腾讯微博转发 AppKey"
 
-#: open-social.php:951
+#: open-social.php:950
 msgid "QQEmail Code"
 msgstr "腾讯邮箱邮我代码"
 
-#: open-social.php:953
+#: open-social.php:952
 msgid "QQChat Number"
 msgstr "在线发消息QQ号"
 
-#: open-social.php:956 open-social.php:1034
+#: open-social.php:955 open-social.php:1033
 msgid "Enabled"
 msgstr "启用"
 
-#: open-social.php:965
+#: open-social.php:964
 msgid "Extensions"
 msgstr "扩展功能"
 
-#: open-social.php:967
+#: open-social.php:966
 msgid "Regexp Anti-SPAM when guest can comment"
 msgstr "针对游客评论开启正则反垃圾"
 
-#: open-social.php:968 open-social.php:1093 open-social.php:1235
+#: open-social.php:967 open-social.php:1232
 msgid "Receive reply email notification"
 msgstr "当评论有回复时接受邮件通知"
 
-#: open-social.php:969
+#: open-social.php:968
 msgid "Show nickname in users list"
 msgstr "在用户列表中显示昵称"
 
-#: open-social.php:970
+#: open-social.php:969
 msgid "Users"
 msgstr ""
 
-#: open-social.php:971
+#: open-social.php:970
 msgid "Allow to login with email address"
 msgstr "允许使用邮箱登陆"
 
-#: open-social.php:972
+#: open-social.php:971
 msgid ""
 "Allow binding user change their [Username] one time and only. Check it "
 "CAREFULLY."
 msgstr "允许绑定登陆的用户修改一次用户名，请小心使用。"
 
-#: open-social.php:973 open-social.php:975 open-social.php:977
+#: open-social.php:972 open-social.php:974 open-social.php:976
 msgid "Profile"
 msgstr ""
 
-#: open-social.php:974
+#: open-social.php:973
 msgid "Hide user bar for new user"
 msgstr "新用户默认关闭顶部工具条"
 
-#: open-social.php:976
+#: open-social.php:975
 msgid "Display Language Switcher in profile page"
 msgstr "在用户资料页显示语言切换按钮"
 
-#: open-social.php:978
+#: open-social.php:977
 msgid "User Subscriber role for new user or default role if uncheck"
 msgstr "新用户指定为订阅者角色，不勾选则为系统默认角色"
 
-#: open-social.php:979
+#: open-social.php:978
 msgid "General Settings"
 msgstr ""
 
-#: open-social.php:980
+#: open-social.php:979
 msgid "Disable Gravatar with a default blank avatar"
 msgstr "当被墙时禁用头像服务并显示为空白头像"
 
-#: open-social.php:981
+#: open-social.php:980
 msgid "Discussion Settings"
 msgstr ""
 
-#: open-social.php:982
+#: open-social.php:981
 msgid "Add jQuery.tooltip to the buttons"
 msgstr "为按钮添加浮动提示效果"
 
-#: open-social.php:984
+#: open-social.php:983
 msgid ""
 "Experimental: Transfer &ltwp-connect&gt users data to be compatible with"
 msgstr "试用功能：转换其他插件用户数据与本插件兼容"
 
-#: open-social.php:986
+#: open-social.php:985
 msgid ""
 "Delete all configurations in this page after plugin deleted, NOT RECOMMENDED."
 msgstr "当删除插件时自动删除本页面所有配置内容，不推荐！"
 
-#: open-social.php:992
+#: open-social.php:991
 msgid "Proxy"
 msgstr "代理"
 
-#: open-social.php:995
+#: open-social.php:994
 msgid "Proxy for somesite in somewhere"
 msgstr "为某些地区某些网站配置代理"
 
-#: open-social.php:1008
+#: open-social.php:1007
 msgid "Account Setting"
 msgstr "账号设置"
 
-#: open-social.php:1090
-msgid "Email"
-msgstr ""
-
-#: open-social.php:1090 open-social.php:1166
-msgid "Website"
-msgstr ""
-
-#: open-social.php:1095 open-social.php:1167
-msgid "Edit My Profile"
-msgstr ""
-
-#: open-social.php:1116
+#: open-social.php:1110
 msgid ""
 "<strong>ERROR</strong>: The comment could not be saved. Please try again "
 "later."
 msgstr ""
 
-#: open-social.php:1145 open-social.php:1246
+#: open-social.php:1137
+msgid "Inner Login"
+msgstr ""
+
+#: open-social.php:1142 open-social.php:1243
 msgid "Login with %s"
 msgstr "使用 %s 登陆"
 
-#: open-social.php:1168
+#: open-social.php:1163
+msgid "Website"
+msgstr ""
+
+#: open-social.php:1164
+msgid "Edit My Profile"
+msgstr ""
+
+#: open-social.php:1165
 msgid "Log Out"
 msgstr ""
 
-#: open-social.php:1191
+#: open-social.php:1188
 msgid "%s is your new username"
 msgstr ""
 
-#: open-social.php:1196
+#: open-social.php:1193
 msgid "Sorry, that username already exists!"
 msgstr ""
 
-#: open-social.php:1199
+#: open-social.php:1196
 msgid ""
 "Length of Username between 4 and 20, letters and numbers only; Or you "
 "already change it."
 msgstr "用户名长度4到20位，只允许字母和数字；或者你已经修改过。"
 
-#: open-social.php:1209
+#: open-social.php:1206
 msgid "&laquo; Back"
 msgstr ""
 
-#: open-social.php:1223
+#: open-social.php:1220
 msgid ""
 "Must be at least 4 characters, letters and numbers only. It cannot be "
 "changed, so choose carefully!"
 msgstr ""
 
-#: open-social.php:1236
+#: open-social.php:1233
 msgid "Please make sure you have a valid email"
 msgstr "请确认你的邮箱地址可用"
 
-#: open-social.php:1239
+#: open-social.php:1236
 msgid "Language Switcher"
 msgstr "语言切换"
 
-#: open-social.php:1244
+#: open-social.php:1241
 msgid "Unbind with %s"
 msgstr "取消 %s 绑定"
 
-#: open-social.php:1269
+#: open-social.php:1265
 msgid "Confirm Removal"
 msgstr ""
 
-#: open-social.php:1288
+#: open-social.php:1284
 msgid "Login to check this hidden content out"
 msgstr "<i>&lt;!—登陆以查看该隐藏内容—&gt;</i>"
 
-#: open-social.php:1305
+#: open-social.php:1301
 msgid "Username or E-mail:"
 msgstr ""
 
-#: open-social.php:1321
+#: open-social.php:1317
 msgid "Hello"
 msgstr "你好"
 
-#: open-social.php:1326
+#: open-social.php:1322
 msgid "Go check it out"
 msgstr "切克闹"
 
-#: open-social.php:1328
+#: open-social.php:1324
 msgid "New reply to your comment"
 msgstr "你的评论有新回复"
 
-#: open-social.php:1339
+#: open-social.php:1335
 msgid "Nickname"
 msgstr ""
 
-#: open-social.php:1340
+#: open-social.php:1336
 msgid "Registered"
 msgstr ""
 
-#: open-social.php:1364
+#: open-social.php:1360
 msgid "Open Social Login"
 msgstr "Open Social 登陆"
 
-#: open-social.php:1364
+#: open-social.php:1360
 msgid "Display your Open Social login button"
 msgstr "显示登陆按钮"
 
-#: open-social.php:1368 open-social.php:1400
+#: open-social.php:1364 open-social.php:1396
 msgid "Title:"
 msgstr ""
 
-#: open-social.php:1379
+#: open-social.php:1375
 msgid "Howdy"
 msgstr "你好"
 
-#: open-social.php:1396
+#: open-social.php:1392
 msgid "Open Social Share"
 msgstr "Open Social 分享"
 
-#: open-social.php:1396
+#: open-social.php:1392
 msgid "Display your Open Social share button"
 msgstr "显示分享按钮"
 
-#: open-social.php:1411
+#: open-social.php:1407
 msgid "Connect"
 msgstr "连结"
 
-#: open-social.php:1424
+#: open-social.php:1420
 msgid "Floating Button"
 msgstr "浮动按钮"
 
-#: open-social.php:1424
+#: open-social.php:1420
 msgid "Some floating useful buttons"
 msgstr "一些有用的浮动按钮"
 
