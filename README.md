@@ -1,29 +1,29 @@
-open-social
-===========
+=== WP Open Social (Login & Share) ===
 
-OAuth Login plugin for WordPress
+Contributors: XiaoMac
+Donate link: https://www.xiaomac.com/about
+Tags: xiaomac, china, social, login, share, qq, wechat, weixin, weibo, google, twitter, facebook, QQ, 微信, 微博, 谷歌, 社交, 登陆, 登录, 注册, 分享
+Tested up to: 5.3
+Stable tag: 1.6.9
 
-Allow to Login or Share with social networks (mainly in china) like QQ, Sina WeiBo, Baidu, Google, Live, DouBan, RenRen, KaiXin, XiaoMi. No API! NO Registration! NO 3rd-party! 
+使用 QQ、微信、微博、谷歌、推特等社交平台实现一键登录和分享，无SDK，单文件。Login and Share with social networks: QQ, WeiBo, Weixin, WeChat, Google, Twitter, Facebook. No SDK! Single PHP file!
 
-Blog: [xiaomac.com](http://www.xiaomac.com/201311150.html)
-More: [wordpress.org](https://wordpress.org/plugins/open-social/)
+== Description ==
 
-������֧�ֶ���վ�󶨣�����
+由于 Open Social 跟谷歌一个项目重名，为了区分改为：WP Open Social。
 
-���ù����罻��վ����ѶQQ������΢�����ٶȡ����ꡢ����������������С�ס�CSDN��OSChina �󶨵�¼�������һ�������
-�޵�����ƽ̨���޽ӿ��ļ����ࡢ���κζ���ű����ء����ǳ���ַͷ��ȡ��������Ҳ�С���ߣ����ü򵥣���ɫ��̼��
-�������������Ŀǰ֧�֣��ȸ衢΢��LIVE�����顢���ء�GitHub���ῼ��½���������ơ�
+### 功能特点 ###
 
-�ʺ���Ⱥ��**��ϲ������ƽ̨���롢��ϲ�κ�һ������ű�����ϲ�κ�һ�ж�����롢��һ���ֶ���������**��
+* 社交登陆：腾讯QQ、微博、微信、豆瓣、谷歌、微软、Facebook、Twitter...
+* 社交分享：QQ空间、微博、微信、Facebook、Twitter 等
+* 其他功能：一键登录、支持小工具和短代码、自动同步昵称头像
+* 使用环境：单文件、纯接口、无第三方平台SDK、无环境要求
 
-����˵�����ο͵����½��ť����QQ������½QQ��ȷ����Ȩ��ϵͳ���Զ��ں�̨�½�һ���û�����ע���û��������Զ���½��վ��
+### 付费专属 ###
 
-* �ʺţ�QQ+OpenID���磺QQ123123123���û�Ψһ���Ҳ���ı䣩
-* ���룺ϵͳ�Զ��������
-* �ǳƣ�QQ�ǳƣ����ޣ�
-* ��ɫ��������
-* ���䣺OpenID#fake.com����ӿ��޷�ȡ���û���ʵQQ�Ż����䣬������Ϊ��ٵģ���Ϊ��ʶ��ɸѡ�ã�
-* ��ҳ��t.qq.com/WeiBoID������п�ͨ��Ѷ΢���Ļ�������Ϊ�գ�
-* ͷ�񣺻��Զ�����QQ��ͷ��
-
-���ǲ��񣬻�ӭ���������ӭ���롣
+* 多注册场景：自动随机生成、自主填写、邮箱激活、管理员审核、直接绑定老用户
+* 支持自定义：登录、分享按钮的样式及代码、统一的回调地址、注册界面样式
+* 微信相关：支持开放号和公众号、适配手机端、打通用户、多域名、微信 JSSDK
+* 其他功能：加强安全验证、增加出错提示、文章微博同步、用户列表查看绑定信息
+* 购买策略：一次购买，无使用时间限制；小版本免费升级，大版本升级需补差价
+* 使用限制：单个账号可用于单个网站；谢绝各种分享、修改分发或者转卖，谢谢
