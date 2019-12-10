@@ -29,7 +29,7 @@ function share_button_click(link,ev){
 		var title = encodeURIComponent(document.title + (window.jQuery ? (': ' + jQuery('article .entry-content').text().replace(/\r|\n|\t/g,'').replace(/ +/g,' ').replace(/<!--(.*)\/\/-->/g,'').substr(0,100)) : ''));
 		var pic = '';
 		window.jQuery && jQuery('#content > article img').each(function(){pic+=(pic?'||':'')+encodeURIComponent(jQuery(this).attr('src'));});
-		window.open(link.replace("%URL%",url).replace("%TITLE%",title).replace("%PIC%",pic),'xmOpenWindow','width=600,height=480,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1');
+		window.open(link.replace(/%URL%/g,url).replace(/%TITLE%/g,title).replace(/%PIC%/g,pic),'xmOpenWindow','width=600,height=480,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1');
 	}
 }
 
@@ -37,13 +37,6 @@ window.jQuery && jQuery(document).ready(function($){
     try{
     	$('.open_social_box').tooltip({ position: { my: "left top+5", at: "left bottom" }, show: { effect: "blind", duration: 200 } });
     }catch(e){}
-	$("img.avatar[ip*='.']").each(
-		function(){
-			$(this).click(
-				function(){
-					window.open("http://www.baidu.com/s?wd="+$(this).attr('ip'));
-				});
-	});
 	$('.comment-content a,.comments-area a.url').each(
 		function(){$(this).attr('target','_blank');}
 	);

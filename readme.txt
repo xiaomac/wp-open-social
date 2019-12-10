@@ -1,46 +1,45 @@
-=== Open Social ===
+=== WP Open Social (Login & Share) ===
 
-Contributors: playes
-Donate link: https://www.xiaomac.com/201311150.html
-Tags: china, afly, social, login, connect, qq, sina, weibo, baidu, google, live, douban, renren, kaixin001, openid, xiaomi, wechat, QQ登陆, 新浪微博, 百度, 谷歌, 豆瓣, 人人网, 开心网, 登录, 连接, 注册, 分享, 小米, 微信
-Tested up to: 4.7.4
-Stable tag: 1.6.5
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Contributors: XiaoMac
+Donate link: https://www.xiaomac.com/about
+Tags: xiaomac, china, social, login, share, qq, wechat, weixin, weibo, google, twitter, facebook, QQ, 微信, 微博, 谷歌, 社交, 登陆, 登录, 注册, 分享
+Tested up to: 5.3
+Stable tag: 1.6.9
 
-Login or Share with social networks: QQ, WeiBo, Baidu, Google, Microsoft, DouBan, XiaoMi, WeChat, GitHub, Twitter, Facebook. No API! Single PHP!
+使用 QQ、微信、微博、谷歌、推特等社交平台实现一键登录和分享，无SDK，单文件。Login and Share with social networks: QQ, WeiBo, Weixin, WeChat, Google, Twitter, Facebook. No SDK! Single PHP file!
 
 == Description ==
 
+由于 Open Social 跟谷歌一个项目重名，为了区分改为：WP Open Social。
+
 ### 功能特点 ###
 
-* 社交登陆：腾讯QQ、微博、微信、豆瓣、谷歌、微软、Facebook、Twitter、Github 等
+* 社交登陆：腾讯QQ、微博、微信、豆瓣、谷歌、微软、Facebook、Twitter...
 * 社交分享：QQ空间、微博、微信、Facebook、Twitter 等
-* 其他功能：支持小工具和短代码、自动同步昵称头像、带中英语言
-* 使用环境：单文件、无加密、无第三方平台、无环境要求
+* 其他功能：一键登录、支持小工具和短代码、自动同步昵称头像
+* 使用环境：单文件、纯接口、无第三方平台SDK、无环境要求
 
 ### 付费专属 ###
 
 * 多注册场景：自动随机生成、自主填写、邮箱激活、管理员审核、直接绑定老用户
-* 支持自定义：登录前后及分享的代码和短代码、统一的回调地址、注册界面样式
-* 微信相关：支持开放号和公众号、自动适配平台、自动打通用户标识、微信 JSSDK
+* 支持自定义：登录、分享按钮的样式及代码、统一的回调地址、注册界面样式
+* 微信相关：支持开放号和公众号、适配手机端、打通用户、多域名、微信 JSSDK
 * 其他功能：加强安全验证、增加出错提示、文章微博同步、用户列表查看绑定信息
-* 策略：一次购买，无使用时间限制；小版本免费升级，大版本会酌情涨价
-* 限制：单次购买可自用多个网站，谢绝另行分享、修改发布或者转卖
+* 购买策略：一次购买，无使用时间限制；小版本免费升级，大版本升级需补差价
+* 使用限制：单个账号可用于单个网站；谢绝各种分享、修改分发或者转卖，谢谢
 
 ### 版本说明 ###
 
-* 免费版 1.6.5，已停止更新
-* 付费版￥200，购买和支持，[请联系我](https://www.xiaomac.com/201311150.html)！
-* 升级时直接覆盖原目录，会自动沿用旧版配置
+* 免费版，目前已停止更新
+* 付费版，[请访问 XiaoMac.com](https://www.xiaomac.com/wp-open-social.html)！
 
-更多: [https://www.xiaomac.com/201311150.html](https://www.xiaomac.com/201311150.html)
+查看新版功能: [https://www.xiaomac.com/wp-open-social.html](https://www.xiaomac.com/wp-open-social.html)
 
 == Installation ==
 
 1. Upload the plugin folder to the "/wp-content/plugins/" directory of your WordPress site,
 2. Activate the plugin through the 'Plugins' menu in WordPress,
-3. Visit the "Settings \ Open Social Setting" administration page to setup the plugin. 
+3. Visit the "Settings \ WP Open Social" administration page to setup the plugin. 
 
 == Frequently Asked Questions ==
 
@@ -82,6 +81,19 @@ Login or Share with social networks: QQ, WeiBo, Baidu, Google, Microsoft, DouBan
 6. Comment Form
 
 == Changelog ==
+
+= 1.6.9 =
+* 修复分享的变量替换问题
+
+= 1.6.8 =
+* 新增微信公众平台登录
+* 修复QQ互联回调地址调整
+
+= 1.6.7 =
+* 修复个别QQ无法登录的问题
+
+= 1.6.6 =
+* 修复阿里云误报木马的问题
 
 = 1.6.5 =
 * 修正登录和头像和脚本的HTTPS问题
