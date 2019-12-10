@@ -1,11 +1,5 @@
 === WP Open Social (Login & Share) ===
 
-Contributors: XiaoMac
-Donate link: https://www.xiaomac.com/about
-Tags: xiaomac, china, social, login, share, qq, wechat, weixin, weibo, google, twitter, facebook, QQ, 微信, 微博, 谷歌, 社交, 登陆, 登录, 注册, 分享
-Tested up to: 5.3
-Stable tag: 1.6.9
-
 使用 QQ、微信、微博、谷歌、推特等社交平台实现一键登录和分享，无SDK，单文件。Login and Share with social networks: QQ, WeiBo, Weixin, WeChat, Google, Twitter, Facebook. No SDK! Single PHP file!
 
 == Description ==
