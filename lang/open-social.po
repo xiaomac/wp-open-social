@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Open Social\n"
-"POT-Creation-Date: 2019-10-24 18:15+0800\n"
-"PO-Revision-Date: 2019-10-24 18:15+0800\n"
+"POT-Creation-Date: 2019-12-14 14:45+0800\n"
+"PO-Revision-Date: 2019-12-14 14:45+0800\n"
 "Last-Translator: Link <playes@qq.com>\n"
 "Language-Team: playes@qq.com\n"
-"Language: en_GB\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: open-social.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -20,411 +20,1057 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: open-social.php:21
-msgid "QQ"
+#: mod/compatible.php:36
+msgid "Compatible Mod"
 msgstr ""
 
-#: open-social.php:22
-msgid "Weibo"
+#: mod/compatible.php:45
+msgid "Module Loaded"
 msgstr ""
 
-#: open-social.php:23
-msgid "Baidu"
+#: mod/compatible.php:59
+msgid ""
+"New user must fill in cellphone number (by <i>Cellphone Identification "
+"Policy</i>)"
 msgstr ""
 
-#: open-social.php:24
-msgid "Google"
+#: mod/compatible.php:60
+msgid "New user using user-id as nicename instead of username in url"
 msgstr ""
 
-#: open-social.php:25
-msgid "Microsoft"
+#: mod/compatible.php:111
+msgid "Reset this avatar"
 msgstr ""
 
-#: open-social.php:26
-msgid "Douban"
+#: mod/proxied.php:36
+msgid "Proxied Mod"
 msgstr ""
 
-#: open-social.php:27
-msgid "RenRen"
+#: mod/proxied.php:51
+msgid "No notification when new version available for update"
 msgstr ""
 
-#: open-social.php:28
-msgid "Kaixin001"
+#: mod/proxied.php:59
+msgid "Proxy Server"
 msgstr ""
 
-#: open-social.php:29
-msgid "XiaoMi"
+#: mod/proxied.php:66
+msgid "Authorization"
 msgstr ""
 
-#: open-social.php:30
-msgid "CSDN"
+#: mod/proxied.php:68 open-social.php:1095
+msgid "User ID"
 msgstr ""
 
-#: open-social.php:31
-msgid "OSChina"
+#: mod/proxied.php:69
+msgid "Validate"
 msgstr ""
 
-#: open-social.php:32
-msgid "Facebook"
+#: mod/registration.php:36
+msgid "Registration Mod"
 msgstr ""
 
-#: open-social.php:33
-msgid "Twitter"
+#: mod/registration.php:48
+msgid "Send email to notify user when their comment being replied"
 msgstr ""
 
-#: open-social.php:34
-msgid "Github"
+#: mod/registration.php:49
+msgid "Donot send email to user when their create account through plugin"
 msgstr ""
 
-#: open-social.php:35
-msgid "WeChat"
+#: mod/registration.php:58
+msgid "Customize user confirmation page html"
 msgstr ""
 
-#: open-social.php:36
-msgid "WeChat.MP"
+#: mod/registration.php:60
+msgid "Customize Privacy & Terms for user registration html"
 msgstr ""
 
-#: open-social.php:39
-msgid "Share with QQ"
+#: mod/registration.php:70
+msgid "Registration"
 msgstr ""
 
-#: open-social.php:40
-msgid "Share with Weibo"
+#: mod/registration.php:72
+msgid "New user can register or binding with existing account (default)"
 msgstr ""
 
-#: open-social.php:41
-msgid "Share with QQZone"
+#: mod/registration.php:73
+msgid "New user can register only (with email editable)"
 msgstr ""
 
-#: open-social.php:42
-msgid "Share with YoudaoNote"
+#: mod/registration.php:74
+msgid "New user can register only (with email auto-generated randomly)"
 msgstr ""
 
-#: open-social.php:43
-msgid "Share with WeChat"
+#: mod/registration.php:75
+msgid "New user has to activate their email address"
 msgstr ""
 
-#: open-social.php:44
-msgid "QQEmail Me"
+#: mod/registration.php:76
+msgid "New user has to reset their password through email"
 msgstr ""
 
-#: open-social.php:45
-msgid "QQChat Me"
+#: mod/registration.php:77
+msgid "New user has to be confirmed by Administrator"
 msgstr ""
 
-#: open-social.php:46
-msgid "Share with Twitter"
+#: mod/registration.php:78
+msgid "New user can bind with existing account only (cannot register)"
 msgstr ""
 
-#: open-social.php:47
-msgid "Share with Facebook"
+#: mod/registration.php:92
+msgid "You account has been approved by an administrator!"
 msgstr ""
 
-#: open-social.php:48
-msgid "Google Translation"
+#: mod/registration.php:92
+msgid "Visit following link to login:"
 msgstr ""
 
-#: open-social.php:794
-msgid "This account has been bound with other user."
+#: mod/registration.php:95
+msgid "Account Confirmation"
 msgstr ""
 
-#: open-social.php:802
+#: mod/registration.php:109
+msgid "An error occurred during the activation."
+msgstr ""
+
+#: mod/registration.php:125
+msgid "Close for Registration."
+msgstr ""
+
+#: mod/registration.php:127 mod/registration.php:218
+msgid "Bind with existing account"
+msgstr ""
+
+#: mod/registration.php:129 mod/registration.php:222 mod/sms.php:117
+#: mod/wechat.php:414
 #, php-format
-msgid "This email [%s] has been registered by other user."
+msgid "Hi, %s"
 msgstr ""
 
-#: open-social.php:898
-msgid "Settings"
+#: mod/registration.php:142
+msgid "Email be banned, try a new one"
 msgstr ""
 
-#: open-social.php:907 open-social.php:919 open-social.php:1214
-msgid "WP Open Social"
+#: mod/registration.php:153
+msgid "Email cannot be empty"
 msgstr ""
 
-#: open-social.php:914
-msgid "Scan me a drink"
+#: mod/registration.php:160
+msgid "Email too short? try a better one"
 msgstr ""
 
-#: open-social.php:915
-msgid "Leave me a link"
+#: mod/registration.php:170
+msgid "Email be used, try a new one"
 msgstr ""
 
-#: open-social.php:916
-msgid "Give me five"
+#: mod/registration.php:181
+msgid "New Coming ?"
 msgstr ""
 
-#: open-social.php:933
-msgid "Login Buttons"
+#: mod/registration.php:182 open-social.php:859
+msgid "Nickname"
 msgstr ""
 
-#: open-social.php:934 open-social.php:947
-msgid "Widgets"
+#: mod/registration.php:186
+msgid "Username"
 msgstr ""
 
-#: open-social.php:936
-msgid "Show in Login page"
+#: mod/registration.php:186
+msgid "Username be empty or be used"
 msgstr ""
 
-#: open-social.php:937
-msgid "Show button for Inner Login"
+#: mod/registration.php:187
+msgid "(Must be at least 4 characters, letters and numbers only.)"
 msgstr ""
 
-#: open-social.php:938
-msgid "Before comment form"
+#: mod/registration.php:191 mod/sms.php:75
+msgid "Cellphone Number"
 msgstr ""
 
-#: open-social.php:939
-msgid "After comment form"
+#: mod/registration.php:196
+msgid "Email"
 msgstr ""
 
-#: open-social.php:940
-msgid "None"
+#: mod/registration.php:201 server.php:266
+msgid "Website"
 msgstr ""
 
-#: open-social.php:946
-msgid "Share Buttons"
+#: mod/registration.php:206
+msgid "Notice: Email must be activated before login"
 msgstr ""
 
-#: open-social.php:949
-msgid "Show in Post pages"
+#: mod/registration.php:207
+msgid "Notice: Password must be reset before login"
 msgstr ""
 
-#: open-social.php:951
-msgid "SinaWeibo RelatedID"
+#: mod/registration.php:208
+msgid "Notice: Account will wait for approving by admin"
 msgstr ""
 
-#: open-social.php:953
-msgid "QQEmail Code"
+#: mod/registration.php:215
+msgid "Create a new account"
 msgstr ""
 
-#: open-social.php:955
-msgid "QQChat Number"
+#: mod/registration.php:217
+msgid "Already Here ?"
 msgstr ""
 
-#: open-social.php:958 open-social.php:1034
-msgid "Enabled"
-msgstr ""
-
-#: open-social.php:967
-msgid "Extensions"
-msgstr ""
-
-#: open-social.php:969
-msgid "Regexp Anti-SPAM when guest can comment"
-msgstr ""
-
-#: open-social.php:970 open-social.php:1220
-msgid "Receive reply email notification"
-msgstr ""
-
-#: open-social.php:971
-msgid "Show nickname in users list"
-msgstr ""
-
-#: open-social.php:972
-msgid "Users"
-msgstr ""
-
-#: open-social.php:973
-msgid ""
-"Allow binding user change their [Username] one time and only. Check it "
-"CAREFULLY."
-msgstr ""
-
-#: open-social.php:974 open-social.php:976 open-social.php:978
-msgid "Profile"
-msgstr ""
-
-#: open-social.php:975
-msgid "Hide user bar for new user"
-msgstr ""
-
-#: open-social.php:977
-msgid "Display Language Switcher in profile page"
-msgstr ""
-
-#: open-social.php:979
-msgid "User Subscriber role for new user or default role if uncheck"
-msgstr ""
-
-#: open-social.php:980
-msgid "General Settings"
-msgstr ""
-
-#: open-social.php:981
-msgid "Disable Gravatar with a default blank avatar"
-msgstr ""
-
-#: open-social.php:982
-msgid "Discussion Settings"
-msgstr ""
-
-#: open-social.php:983
-msgid "Add jQuery.tooltip to the buttons"
-msgstr ""
-
-#: open-social.php:985
-msgid ""
-"Delete all configurations in this page after plugin deleted, NOT RECOMMENDED."
-msgstr ""
-
-#: open-social.php:991
-msgid "Proxy"
-msgstr ""
-
-#: open-social.php:994
-msgid "Proxy for somesite in somewhere"
-msgstr ""
-
-#: open-social.php:1007
-msgid "Account Setting"
-msgstr ""
-
-#: open-social.php:1096
-msgid ""
-"<strong>ERROR</strong>: The comment could not be saved. Please try again "
-"later."
-msgstr ""
-
-#: open-social.php:1123
-msgid "Inner Login"
-msgstr ""
-
-#: open-social.php:1130 open-social.php:1231
+#: mod/registration.php:233 open-social.php:1171
 #, php-format
 msgid "Login with %s"
 msgstr ""
 
-#: open-social.php:1151
-msgid "Website"
+#: mod/registration.php:237
+msgid ""
+"Waiting for approval, please check your email specially your junk folder, "
+"and try again later."
 msgstr ""
 
-#: open-social.php:1152
-msgid "Edit My Profile"
+#: mod/registration.php:245
+msgid ""
+"Check your email for the confirmation link to activate your email address."
 msgstr ""
 
-#: open-social.php:1153
-msgid "Log Out"
+#: mod/registration.php:249
+msgid "Check your email for the confirmation link to reset your password."
 msgstr ""
 
-#: open-social.php:1176
+#: mod/registration.php:252
+msgid "Your account has to be confirmed by administrator before you can login."
+msgstr ""
+
+#: mod/registration.php:272
+msgid "Visit following link to activate and login:"
+msgstr ""
+
+#: mod/registration.php:275
+msgid "Email Activation"
+msgstr ""
+
+#: mod/registration.php:283
+msgid "Hi, {name}:"
+msgstr ""
+
+#: mod/registration.php:284
+msgid "Welcome to {site}, so glad to have you here."
+msgstr ""
+
+#: mod/registration.php:288
 #, php-format
-msgid "%s is your new username"
+msgid "[%s] Password Reset"
 msgstr ""
 
-#: open-social.php:1181
-msgid "Sorry, that username already exists!"
+#: mod/registration.php:289
+msgid "To reset your password, visit the following address:"
 msgstr ""
 
-#: open-social.php:1184
+#: mod/registration.php:292
+msgid "Your basic profile and stuff"
+msgstr ""
+
+#: mod/registration.php:294
+msgid "Binding: {bind}"
+msgstr ""
+
+#: mod/registration.php:295
+msgid "Email: {email}"
+msgstr ""
+
+#: mod/registration.php:296
+msgid "Username: {login}"
+msgstr ""
+
+#: mod/registration.php:297
 msgid ""
-"Length of Username between 4 and 20, letters and numbers only; Or you "
-"already change it."
+"You can login with <u>{bind}</u> next time and always, which is quicker and "
+"smoother and strongly recommended"
 msgstr ""
 
-#: open-social.php:1194
-msgid "&laquo; Back"
-msgstr ""
-
-#: open-social.php:1208
+#: mod/registration.php:298
 msgid ""
-"Must be at least 4 characters, letters and numbers only. It cannot be "
-"changed, so choose carefully!"
+"Your password is invisible and safe because no one know, which was created "
+"by WordPress fully randomly"
 msgstr ""
 
-#: open-social.php:1221
-msgid "Please make sure you have a valid email"
+#: mod/sms.php:36
+msgid "SMS Mod"
 msgstr ""
 
-#: open-social.php:1224
-msgid "Language Switcher"
+#: mod/sms.php:40
+msgid "SMS"
 msgstr ""
 
-#: open-social.php:1229
+#: mod/sms.php:46
+msgid "SMS Sign Name"
+msgstr ""
+
+#: mod/sms.php:47
+msgid "SMS Template ID"
+msgstr ""
+
+#: mod/sms.php:67
+msgid "Your cellphone would recieve a message in a minute, or try again later."
+msgstr ""
+
+#: mod/sms.php:70
+msgid "Login with SMS via cellphone with a six-digit verification code."
+msgstr ""
+
+#: mod/sms.php:78
+msgid "Send me a code"
+msgstr ""
+
+#: mod/sms.php:106
+msgid "Resend Again"
+msgstr ""
+
+#: mod/sms.php:108
+msgid "Confirm and Next"
+msgstr ""
+
+#: mod/sms.php:110
+msgid "Verification Code"
+msgstr ""
+
+#: mod/sms.php:117 mod/wechat.php:414
+msgid "There"
+msgstr ""
+
+#: mod/socialmedia.php:36
+msgid "Extra SocialMedia"
+msgstr ""
+
+#: mod/socialmedia.php:41
+msgid "Taobao"
+msgstr ""
+
+#: mod/socialmedia.php:42
+msgid "Alipay"
+msgstr ""
+
+#: mod/socialmedia.php:43
+msgid "Github"
+msgstr ""
+
+#: mod/socialmedia.php:44 mod/socialmedia.php:64
+msgid "Douban"
+msgstr ""
+
+#: mod/socialmedia.php:45
+msgid "XiaoMi"
+msgstr ""
+
+#: mod/socialmedia.php:46
+msgid "OSChina"
+msgstr ""
+
+#: mod/socialmedia.php:47
+msgid "DingDing"
+msgstr ""
+
+#: mod/socialmedia.php:48 open-social.php:65
+msgid "Linkedin"
+msgstr ""
+
+#: mod/socialmedia.php:49 open-social.php:70
+msgid "Pinterest"
+msgstr ""
+
+#: mod/socialmedia.php:50 open-social.php:69
+msgid "Reddit"
+msgstr ""
+
+#: mod/socialmedia.php:51
+msgid "Instagram"
+msgstr ""
+
+#: mod/socialmedia.php:52
+msgid "Amazon"
+msgstr ""
+
+#: mod/socialmedia.php:53 mod/socialmedia.php:73
+msgid "LINE"
+msgstr ""
+
+#: mod/socialmedia.php:54
+msgid "Naver"
+msgstr ""
+
+#: mod/socialmedia.php:55
+msgid "Kakao"
+msgstr ""
+
+#: mod/socialmedia.php:56
+msgid "WordPress"
+msgstr ""
+
+#: mod/socialmedia.php:65
+msgid "Huaban"
+msgstr ""
+
+#: mod/socialmedia.php:66
+msgid "YoudaoNote"
+msgstr ""
+
+#: mod/socialmedia.php:67
+msgid "Evernote"
+msgstr ""
+
+#: mod/socialmedia.php:68
+msgid "Tumblr"
+msgstr ""
+
+#: mod/socialmedia.php:69
+msgid "RenminWeibo"
+msgstr ""
+
+#: mod/socialmedia.php:70
+msgid "Xing"
+msgstr ""
+
+#: mod/socialmedia.php:71
+msgid "VK"
+msgstr ""
+
+#: mod/socialmedia.php:72
+msgid "Telegram"
+msgstr ""
+
+#: mod/socialmedia.php:74
+msgid "WhatsApp"
+msgstr ""
+
+#: mod/socialmedia.php:75
+msgid "Flipboard"
+msgstr ""
+
+#: mod/socialmedia.php:76
+msgid "Blogger"
+msgstr ""
+
+#: mod/socialmedia.php:77
+msgid "Digg"
+msgstr ""
+
+#: mod/wechat.php:36
+msgid "WeChat Mod"
+msgstr ""
+
+#: mod/wechat.php:40
+msgid "WeChat APP"
+msgstr ""
+
+#: mod/wechat.php:64
+msgid "Customize wechat subscription login html"
+msgstr ""
+
+#: mod/wechat.php:66
+msgid "Customize message for wechat subscriber"
+msgstr ""
+
+#: mod/wechat.php:67 mod/wechat.php:218
+msgid ""
+"Hi, {name}, glad to have you here. Please complete registration on website."
+msgstr ""
+
+#: mod/wechat.php:68 mod/wechat.php:221
+msgid "Hi, {name}, welcome back."
+msgstr ""
+
+#: mod/wechat.php:91
+msgid "Auto Login"
+msgstr ""
+
+#: mod/wechat.php:92
+msgid "No JSSDK"
+msgstr ""
+
+#: mod/wechat.php:98
+msgid "Use Subscription for Login on Desktop"
+msgstr ""
+
+#: mod/wechat.php:99
+msgid "Prior to WeChat Scan"
+msgstr ""
+
+#: mod/wechat.php:100
+msgid "Server Token"
+msgstr ""
+
+#: mod/wechat.php:101
+msgid "Server AESkey"
+msgstr ""
+
+#: mod/wechat.php:102
+msgid "Server URL"
+msgstr ""
+
+#: mod/wechat.php:146
+msgid "ERROR CHECKING SIGNATURE"
+msgstr ""
+
+#: mod/wechat.php:163
+msgid "ERROR CHECKING MSG_SIGNATURE"
+msgstr ""
+
+#: mod/wechat.php:198
+msgid "ERROR EMPTY MESSAGE"
+msgstr ""
+
+#: mod/wechat.php:205
+msgid "ERROR CHECKING APPID"
+msgstr ""
+
+#: mod/wechat.php:231
+msgid "ERROR CHECKING KEY"
+msgstr ""
+
+#: mod/wechat.php:244
+msgid "THANKS FOR SUBSCRIBING, LOGGING IN"
+msgstr ""
+
+#: mod/wechat.php:246
+msgid "WELCOME BACK, LOGGING IN"
+msgstr ""
+
+#: mod/wechat.php:249
+msgid "KEEP WAITING"
+msgstr ""
+
+#: mod/wechat.php:287
+msgid "WP Open Social WeChat Login"
+msgstr ""
+
+#: mod/wechat.php:287
+msgid "Show WeChat Login QRCode"
+msgstr ""
+
+#: mod/wechat.php:292 mod/wechat.php:337 open-social.php:1639
+#: open-social.php:1667
+msgid "Title:"
+msgstr ""
+
+#: mod/wechat.php:293 open-social.php:1640
+msgid "Don't show profile after login"
+msgstr ""
+
+#: mod/wechat.php:306
+msgid "WeChat Login"
+msgstr ""
+
+#: mod/wechat.php:331
+msgid "WP Open Social WeChat Subscription"
+msgstr ""
+
+#: mod/wechat.php:331
+msgid "Show WeChat Subscription QRCode"
+msgstr ""
+
+#: mod/wechat.php:338
+msgid "Scene String:"
+msgstr ""
+
+#: mod/wechat.php:339
+msgid "Template Content:"
+msgstr ""
+
+#: mod/wechat.php:354
+msgid "WeChat Subscription"
+msgstr ""
+
+#: mod/wechat.php:397
+msgid "Scan with WeChat to Subscribe Offcical Account and Login automatically"
+msgstr ""
+
+#: mod/weibo.php:36
+msgid "Weibo Mod"
+msgstr ""
+
+#: mod/weibo.php:60
+msgid "Auto Follow"
+msgstr ""
+
+#: mod/weibo.php:61
+msgid "Force Login"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: mod/weibo.php:67 open-social.php:281 open-social.php:523 open-social.php:958
+#: open-social.php:1092
+msgid "WP Open Social"
+msgstr ""
+
+#: mod/weibo.php:73
+msgid "Sync with Weibo"
+msgstr ""
+
+#: open-social.php:45 open-social.php:61
+msgid "QQ"
+msgstr ""
+
+#: open-social.php:46 open-social.php:62
+msgid "Weibo"
+msgstr ""
+
+#: open-social.php:47
+msgid "Baidu"
+msgstr ""
+
+#: open-social.php:48
+msgid "WeChat Scan"
+msgstr ""
+
+#: open-social.php:49 open-social.php:68
+msgid "Google"
+msgstr ""
+
+#: open-social.php:50
+msgid "Microsoft"
+msgstr ""
+
+#: open-social.php:51 open-social.php:66
+msgid "Facebook"
+msgstr ""
+
+#: open-social.php:52 open-social.php:67
+msgid "Twitter"
+msgstr ""
+
+#: open-social.php:63
+msgid "WeChat"
+msgstr ""
+
+#: open-social.php:64
+msgid "QQZone"
+msgstr ""
+
+#: open-social.php:207
+msgid "OOPS!"
+msgstr ""
+
+#: open-social.php:208
+msgid "Log In"
+msgstr ""
+
+#: open-social.php:210 open-social.php:472
+msgid "Back"
+msgstr ""
+
+#: open-social.php:296
+msgid "Settings"
+msgstr ""
+
+#: open-social.php:302
+msgid "For Less"
+msgstr ""
+
+#: open-social.php:372
+msgid ""
+"This login has been bound by other user already, please unbind then try "
+"again."
+msgstr ""
+
+#: open-social.php:378
+msgid ""
+"This account has been bound with other login already, please unbind then try "
+"again."
+msgstr ""
+
+#: open-social.php:416
+msgid "This account may contain some incompatible characters."
+msgstr ""
+
+#: open-social.php:471
+msgid ""
+"Warning: Unbind the only social login will cause deletion of a user along "
+"with fake email. If this account have published some posts or you just want "
+"to keep it, please renew a valid email that can reset password to login "
+"with, then try again."
+msgstr ""
+
+#: open-social.php:473
+msgid "Delete Users"
+msgstr ""
+
+#: open-social.php:475 open-social.php:1189 open-social.php:1261
 #, php-format
 msgid "Unbind with %s"
 msgstr ""
 
-#: open-social.php:1253
-msgid "Confirm Removal"
+#: open-social.php:477
+msgid "This account has published some posts so that it cannot be deleted."
 msgstr ""
 
-#: open-social.php:1272
-msgid "Login to check this hidden content out"
+#: open-social.php:510
+msgid "Check Update"
 msgstr ""
 
-#: open-social.php:1288
-msgid "Hello"
+#: open-social.php:511
+msgid "Reset Order"
 msgstr ""
 
-#: open-social.php:1293
-msgid "Go check it out"
+#: open-social.php:512
+msgid "Rating Stars"
 msgstr ""
 
-#: open-social.php:1295
-msgid "New reply to your comment"
+#: open-social.php:513
+msgid "Support & Help"
 msgstr ""
 
-#: open-social.php:1306
-msgid "Nickname"
+#: open-social.php:514
+msgid "About Developer"
 msgstr ""
 
-#: open-social.php:1307
-msgid "Registered"
+#: open-social.php:515
+msgid "More Plugins"
 msgstr ""
 
-#: open-social.php:1330
+#: open-social.php:516
+msgid "For More"
+msgstr ""
+
+#: open-social.php:529
+msgid "General"
+msgstr ""
+
+#: open-social.php:530
+msgid "Customization"
+msgstr ""
+
+#: open-social.php:531
+msgid "Modules"
+msgstr ""
+
+#: open-social.php:532
+msgid "Login Account"
+msgstr ""
+
+#: open-social.php:535
+msgid "Share Service"
+msgstr ""
+
+#: open-social.php:537
+msgid "Preview"
+msgstr ""
+
+#: open-social.php:541 open-social.php:699
+msgid "Profile"
+msgstr ""
+
+#: open-social.php:543
+msgid "New user can change nickname"
+msgstr ""
+
+#: open-social.php:544
+msgid "New user can choose website (for exchanging visits)"
+msgstr ""
+
+#: open-social.php:545
+msgid "Speed up Gravatar through cdn.V2EX.com"
+msgstr ""
+
+#: open-social.php:549
+msgid "Button"
+msgstr ""
+
+#: open-social.php:551
+msgid "Show login button for wordpress native login"
+msgstr ""
+
+#: open-social.php:552
+msgid "Show share buttons in Posts"
+msgstr ""
+
+#: open-social.php:553
+msgid "Show share buttons in Pages"
+msgstr ""
+
+#: open-social.php:557
+msgid "Notify"
+msgstr ""
+
+#: open-social.php:559
+msgid "Send email to notify Administrator when new user created"
+msgstr ""
+
+#: open-social.php:560
+msgid "Ignore notifying Administrator when user resets lost password"
+msgstr ""
+
+#: open-social.php:564
+msgid "Security"
+msgstr ""
+
+#: open-social.php:566
+msgid "Visitor must login to interact with this website"
+msgstr ""
+
+#: open-social.php:567
+msgid "Hide login and admin page as 404"
+msgstr ""
+
+#: open-social.php:571
+msgid "Advanced"
+msgstr ""
+
+#: open-social.php:573
+msgid "Customize Button Icon separately"
+msgstr ""
+
+#: open-social.php:574
+msgid "Customize Callback URL separately"
+msgstr ""
+
+#: open-social.php:583 open-social.php:687 open-social.php:1162
+msgid "Login"
+msgstr ""
+
+#: open-social.php:585
+msgid "Callback URL default"
+msgstr ""
+
+#: open-social.php:586
+msgid "Goto URL after login"
+msgstr ""
+
+#: open-social.php:590
+msgid "Images"
+msgstr ""
+
+#: open-social.php:592
+msgid "Default user avatar image"
+msgstr ""
+
+#: open-social.php:593
+msgid "Block user avatars by keywords in domains"
+msgstr ""
+
+#: open-social.php:594
+msgid "Default image when share article"
+msgstr ""
+
+#: open-social.php:595
+msgid "IconFont online url for symbol use"
+msgstr ""
+
+#: open-social.php:600
+msgid "Caption"
+msgstr ""
+
+#: open-social.php:602
+msgid "Caption for login buttons"
+msgstr ""
+
+#: open-social.php:603
+msgid "Caption for share buttons"
+msgstr ""
+
+#: open-social.php:604
+msgid "Caption for bind buttons"
+msgstr ""
+
+#: open-social.php:605
+msgid "Caption for profile html"
+msgstr ""
+
+#: open-social.php:609
+msgid "Blacklist"
+msgstr ""
+
+#: open-social.php:611
+msgid "Email blacklist, one word per line"
+msgstr ""
+
+#: open-social.php:616
+msgid "Code"
+msgstr ""
+
+#: open-social.php:618
+msgid "Customize button icon style"
+msgstr ""
+
+#: open-social.php:620
+msgid "Customize profile html"
+msgstr ""
+
+#: open-social.php:635
+msgid "Action hooks with login buttons"
+msgstr ""
+
+#: open-social.php:636
+msgid "Action hooks with share buttons"
+msgstr ""
+
+#: open-social.php:637
+msgid "Action hooks with bind buttons"
+msgstr ""
+
+#: open-social.php:638
+msgid "Action hooks with profile html"
+msgstr ""
+
+#: open-social.php:639
+msgid "Notice: The action will be removed if it has been hooked already"
+msgstr ""
+
+#: open-social.php:640
+msgid "Sync BuddyPress cellphone"
+msgstr ""
+
+#: open-social.php:653
+msgid "Enabled"
+msgstr ""
+
+#: open-social.php:655
+msgid "Hidden"
+msgstr ""
+
+#: open-social.php:655
+msgid "Proxied"
+msgstr ""
+
+#: open-social.php:658
+msgid "App ID"
+msgstr ""
+
+#: open-social.php:659
+msgid "App Key/Secret"
+msgstr ""
+
+#: open-social.php:661
+msgid "Callback URL"
+msgstr ""
+
+#: open-social.php:679 open-social.php:1242
+#, php-format
+msgid "Share with %s"
+msgstr ""
+
+#: open-social.php:689 open-social.php:1634
 msgid "WP Open Social Login"
 msgstr ""
 
-#: open-social.php:1330
-msgid "Display your WP Open Social login button"
+#: open-social.php:693
+msgid "Share"
 msgstr ""
 
-#: open-social.php:1334 open-social.php:1366
-msgid "Title:"
-msgstr ""
-
-#: open-social.php:1345
-msgid "Howdy"
-msgstr ""
-
-#: open-social.php:1362
+#: open-social.php:695 open-social.php:1663
 msgid "WP Open Social Share"
 msgstr ""
 
-#: open-social.php:1362
+#: open-social.php:705 open-social.php:861 open-social.php:945
+#: open-social.php:1094
+msgid "Binding"
+msgstr ""
+
+#: open-social.php:711
+msgid "Other"
+msgstr ""
+
+#: open-social.php:858
+msgid "ID"
+msgstr ""
+
+#: open-social.php:860 open-social.php:1086 open-social.php:1096
+msgid "Cellphone"
+msgstr ""
+
+#: open-social.php:862
+msgid "Registered"
+msgstr ""
+
+#: open-social.php:892
+msgid "Email Activating"
+msgstr ""
+
+#: open-social.php:893
+msgid "Password Resetting"
+msgstr ""
+
+#: open-social.php:896
+msgid "Confirm User Registration"
+msgstr ""
+
+#: open-social.php:944
+msgid "All Users"
+msgstr ""
+
+#: open-social.php:950
+msgid "Not Binding"
+msgstr ""
+
+#: open-social.php:1022
+msgid "New reply to your comment"
+msgstr ""
+
+#: open-social.php:1143
+#, php-format
+msgid "Login and bind with %s"
+msgstr ""
+
+#: open-social.php:1193
+#, php-format
+msgid "Bind with %s"
+msgstr ""
+
+#: open-social.php:1213
+msgid "Log Out"
+msgstr ""
+
+#: open-social.php:1246
+msgid "Scan to share with WeChat"
+msgstr ""
+
+#: open-social.php:1599
+msgid "Login to check out this content"
+msgstr ""
+
+#: open-social.php:1620
+msgid "Leave comment to check out this content"
+msgstr ""
+
+#: open-social.php:1634
+msgid "Display your WP Open Social login button"
+msgstr ""
+
+#: open-social.php:1652
+msgid "Howdy"
+msgstr ""
+
+#: open-social.php:1663
 msgid "Display your WP Open Social share button"
 msgstr ""
 
-#: open-social.php:1377
-msgid "Connect"
+#: open-social.php:1677
+msgid "Share With"
 msgstr ""
 
-#: open-social.php:1390
-msgid "Floating Button"
+#: server.php:248
+msgid "Version"
 msgstr ""
 
-#: open-social.php:1390
-msgid "Some floating useful buttons"
+#: server.php:257
+msgid "Expired"
 msgstr ""
 
-#. Plugin Name of the plugin/theme
-msgid "WP Open Social (Login & Share)"
+#: server.php:269
+msgid "Built-In"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.xiaomac.com/201311150.html"
+msgid "https://www.xiaomac.com/wp-open-social.html"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"使用 QQ、微信、微博等知名社交一键登录和分享。Login and Share with social "
-"networks: QQ, WeiBo, WeChat, Google, Twitter, Facebook. No SDK! Single PHP!"
+"使用 QQ、微信、微博、谷歌、推特等热门社交平台实现一键登录和分享，无SDK，单文"
+"件。Login and Share with social networks: QQ, WeiBo, Weixin, WeChat, Google, "
+"Twitter, Facebook..."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "XiaoMac"
+msgid "Link (Afly)"
 msgstr ""
 
 #. Author URI of the plugin/theme

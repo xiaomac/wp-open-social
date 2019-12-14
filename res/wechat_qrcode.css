@@ -1,0 +1,6 @@
+body { margin: 0; }
+.impowerBox { text-align: left; }
+.impowerBox .qrcode {width: 180px; margin-top: 0;}
+.impowerBox .title,
+.impowerBox .info {display: none;}
+.impowerBox .status {} 

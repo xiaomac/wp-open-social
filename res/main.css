@@ -1,0 +1,245 @@
+
+#loginform .os-login-box {
+  margin-bottom: 15px;
+}
+.os-bind-box .os-icon-bind {
+  filter:alpha(opacity=20);
+  -moz-opacity:0.2;
+  -khtml-opacity: 0.2;
+  opacity: 0.2;
+}
+.os-bind-box .os-icon-bind:hover {
+  filter:alpha(opacity=60);
+  -moz-opacity:0.6;
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+.os-show {
+  display: block;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  border-left: 2px solid gray;
+}
+.os-hide {
+  color: #aaa;
+  font-style: italic;
+  font-weight: bold;
+}
+.os-icon-gray {
+  color: #666;
+}
+.os-preview-box {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  border-radius: 5px;
+  background: #fff;
+  max-width: 500px;
+}
+#wpos_setting code {
+  border-radius: 3px;
+}
+
+#error-page {
+  min-height: 320px;
+}
+#error-page h1 {
+  margin-top: -8px;
+}
+.os-user-form {
+  font-size: 14px;
+  position: relative;
+}
+.os-user-form .line {
+  position: absolute;
+  background: #ccc;
+  width: 1px;
+  height: 120px;
+  left: 50%;
+  top: 60px;
+}
+.os-user-form .right {
+  float: right;
+  margin-right: 40px;
+}
+.os-user-form input.err {
+  border: #999 solid 2px;
+  outline: none;
+}
+.os-user-form div.err,.os-user-form p.err,.os-user-form span.err {
+
+}
+.os-user-form .ok {
+}
+.os-user-form .label {
+  margin: 20px 0 10px;
+}
+.os-user-form .desc {
+  font-weight: bold;
+}
+
+.os-user-form .desc,
+.os-user-form .input {
+  font-size: 12px;
+  margin: 3px 0 5px
+}
+.os-user-form .input input {
+  padding: 5px;
+}
+.os-user-form .avatar img {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+}
+.os-user-form p {
+  margin: 20px 0 20px;
+}
+.os-user-form .button-primary .button {
+  width: 400px;
+  margin: 4px 0 6px;
+  text-align: center;
+}
+#os_wechat_login_qrcode iframe{
+  width: 190px;
+  height: 190px;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+@viewport {
+  width: device-width;
+}
+@media screen and (max-width: 600px) {
+  #error-page {
+    margin: 0;
+  }
+  .os-user-form .right {
+    float: none;
+  }
+  .os-user-form .input input {
+    width: 85%;
+  }
+  .os-user-form .button-primary .button {
+    width: 90%;
+  }
+}
+
+#os-popup-overlay {
+  width: 100%;
+  height: 100%;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  display: none;
+}
+#os-popup-box {
+  display: none;
+  position: fixed;
+}
+.os-popup-box {
+  -webkit-box-shadow: 5px 5px 10px #00000080;
+  -moz-box-shadow: 5px 5px 10px #00000080;
+  box-shadow: 5px 5px 10px #00000080;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: #666;
+  background: #fff;
+  z-index: 5000;
+  cursor: pointer;
+}
+#os-popup-title {
+  font-weight: bold;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 1.8;
+  border-bottom: #ccc solid 1px;
+  width: 280px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+}
+#os-popup-title .os-icon{
+  float: left;
+  margin: 0px 5px 0px 1px;
+  line-height: 100%;
+}
+#os-popup-title span {
+  line-height: 100%;
+  font-size: 18px;
+  padding: 0px 2px 0px 5px;
+  float: right;
+}
+#os-popup-content {
+  margin: 10px;
+  line-height: 0px;
+}
+#os-popup-content canvas {
+  margin: 15px;
+}
+.os-share-native {
+  font-size: 75px !important;
+  color: #fff;
+}
+
+/*===CUSTOMIZE UNDER===*/
+
+.os-login-box, .os-share-box {
+  clear: both;
+  line-height: 30px;
+}
+
+.os-icon {
+  font-size: 24px;
+  font-style: normal !important;
+  font-weight: normal !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.os-icon svg {
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  -webkit-border-radius: 22%; 
+  -moz-border-radius: 22%; 
+  border-radius: 22%; 
+}
+
+.os-icon { 
+  margin: 3px 5px 3px 1px;
+} 
+
+.os-login-box .os-icon {
+  font-size: 32px;
+}
+
+.os-login-box .os-icon svg {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.os-share-box .os-icon {
+  font-size: 23px;
+}
+
+.os-share-box .os-icon svg {
+  -webkit-border-radius: 50%; 
+  -moz-border-radius: 50%; 
+  border-radius: 50%; 
+}
+
