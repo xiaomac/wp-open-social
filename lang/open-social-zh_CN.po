@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Social\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/open-social\n"
-"POT-Creation-Date: 2019-12-14 14:45+0800\n"
-"PO-Revision-Date: 2019-12-14 14:46+0800\n"
+"POT-Creation-Date: 2019-12-23 15:09+0800\n"
+"PO-Revision-Date: 2019-12-23 15:09+0800\n"
 "Last-Translator: Link <playes@qq.com>\n"
 "Language-Team: Link (Afly) <playes@qq.com>\n"
 "Language: zh_CN\n"
@@ -21,135 +21,135 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: mod/compatible.php:36
+#: mod/compatible.php:38
 msgid "Compatible Mod"
 msgstr "兼容模块"
 
-#: mod/compatible.php:45
+#: mod/compatible.php:48
 msgid "Module Loaded"
 msgstr "已加载模块"
 
-#: mod/compatible.php:59
+#: mod/compatible.php:62
 msgid ""
 "New user must fill in cellphone number (by <i>Cellphone Identification "
 "Policy</i>)"
 msgstr "新用户必须填写手机号码 (以<i>手机实名制</i>之名)"
 
-#: mod/compatible.php:60
+#: mod/compatible.php:63
 msgid "New user using user-id as nicename instead of username in url"
 msgstr "新用户使用用户编号作为链接中的用户标识"
 
-#: mod/compatible.php:111
+#: mod/compatible.php:114
 msgid "Reset this avatar"
 msgstr "重置此头像"
 
-#: mod/proxied.php:36
+#: mod/proxied.php:38
 msgid "Proxied Mod"
 msgstr "代理模块"
 
-#: mod/proxied.php:51
-msgid "No notification when new version available for update"
-msgstr "当有可用新版本不显示更新提醒"
-
-#: mod/proxied.php:59
+#: mod/proxied.php:53
 msgid "Proxy Server"
 msgstr "代理服务器"
 
-#: mod/proxied.php:66
+#: mod/proxied.php:60
 msgid "Authorization"
 msgstr "授权"
 
-#: mod/proxied.php:68 open-social.php:1095
+#: mod/proxied.php:62 open-social.php:981
 msgid "User ID"
 msgstr "用户编号"
 
-#: mod/proxied.php:69
+#: mod/proxied.php:63
 msgid "Validate"
 msgstr "验证"
 
-#: mod/registration.php:36
+#: mod/registration.php:38
 msgid "Registration Mod"
 msgstr "注册模块"
 
-#: mod/registration.php:48
+#: mod/registration.php:51
 msgid "Send email to notify user when their comment being replied"
 msgstr "当用户评论被回复时发邮件通知他们"
 
-#: mod/registration.php:49
+#: mod/registration.php:52
 msgid "Donot send email to user when their create account through plugin"
 msgstr "当用户通过插件创建帐户时不向其发送邮件"
 
-#: mod/registration.php:58
-msgid "Customize user confirmation page html"
-msgstr "自定义新用户确认页代码"
+#: mod/registration.php:61
+msgid "Email blacklist, one word per line"
+msgstr "注册邮箱黑名单"
 
-#: mod/registration.php:60
-msgid "Customize Privacy & Terms for user registration html"
-msgstr "自定义用户注册的隐私和条款的代码"
+#: mod/registration.php:63
+msgid "Customize html for user confirmation page"
+msgstr "自定义新用户确认页的代码"
 
-#: mod/registration.php:70
+#: mod/registration.php:65
+msgid "Customize Privacy & Terms html for user registration"
+msgstr "自定义用户注册页的隐私和条款"
+
+#: mod/registration.php:75
 msgid "Registration"
 msgstr "注册模式"
 
-#: mod/registration.php:72
+#: mod/registration.php:77
 msgid "New user can register or binding with existing account (default)"
 msgstr "新用户能注册或绑定已有账号 (默认)"
 
-#: mod/registration.php:73
+#: mod/registration.php:78
 msgid "New user can register only (with email editable)"
 msgstr "新用户只能注册 (可编辑邮箱)"
 
-#: mod/registration.php:74
+#: mod/registration.php:79
 msgid "New user can register only (with email auto-generated randomly)"
 msgstr "新用户只能注册 (自动生成随机邮箱)"
 
-#: mod/registration.php:75
+#: mod/registration.php:80
 msgid "New user has to activate their email address"
 msgstr "新用户需激活邮箱地址"
 
-#: mod/registration.php:76
+#: mod/registration.php:81
 msgid "New user has to reset their password through email"
 msgstr "新用户需重置新密码"
 
-#: mod/registration.php:77
+#: mod/registration.php:82
 msgid "New user has to be confirmed by Administrator"
 msgstr "新用户需管理员确认"
 
-#: mod/registration.php:78
+#: mod/registration.php:83
 msgid "New user can bind with existing account only (cannot register)"
 msgstr "新用户只能绑定已有帐户 (不能注册)"
 
-#: mod/registration.php:92
+#: mod/registration.php:97
 msgid "You account has been approved by an administrator!"
 msgstr "您的账号已通过了管理员的审核！"
 
-#: mod/registration.php:92
+#: mod/registration.php:97
 msgid "Visit following link to login:"
 msgstr "访问以下链接登录︰"
 
-#: mod/registration.php:95
+#: mod/registration.php:100
 msgid "Account Confirmation"
 msgstr "账号确认"
 
-#: mod/registration.php:109
+#: mod/registration.php:114
 msgid "An error occurred during the activation."
 msgstr "激活过程中发生错误。"
 
-#: mod/registration.php:125
+#: mod/registration.php:130
 msgid "Close for Registration."
 msgstr "已关闭注册。"
 
-#: mod/registration.php:127 mod/registration.php:218
+#: mod/registration.php:132 mod/registration.php:227
 msgid "Bind with existing account"
 msgstr "绑定现有的帐户"
 
-#: mod/registration.php:129 mod/registration.php:222 mod/sms.php:117
-#: mod/wechat.php:414
+#: mod/registration.php:134 mod/registration.php:231 mod/sms.php:120
+#: mod/wechat.php:416
 #, php-format
 msgid "Hi, %s"
 msgstr "您好，%s"
 
-#: mod/registration.php:142
+#: mod/registration.php:147
 msgid "Email be banned, try a new one"
 msgstr "邮箱被禁用，请重新输入"
 
@@ -157,504 +157,504 @@ msgstr "邮箱被禁用，请重新输入"
 msgid "Email cannot be empty"
 msgstr "邮箱不能为空"
 
-#: mod/registration.php:160
+#: mod/registration.php:154
+msgid "Username cannot be empty"
+msgstr "用户名不能为空"
+
+#: mod/registration.php:161
 msgid "Email too short? try a better one"
 msgstr "邮箱不规范，请重新输入"
 
-#: mod/registration.php:170
+#: mod/registration.php:173
 msgid "Email be used, try a new one"
 msgstr "邮箱已被使用，请重新输入"
 
-#: mod/registration.php:181
+#: mod/registration.php:177
+msgid "Username be used, try a new one"
+msgstr "用户名已被使用，请重新输入"
+
+#: mod/registration.php:190
 msgid "New Coming ?"
 msgstr "新用户？"
 
-#: mod/registration.php:182 open-social.php:859
+#: mod/registration.php:191 open-social.php:745
 msgid "Nickname"
 msgstr "昵称"
 
-#: mod/registration.php:186
+#: mod/registration.php:195
 msgid "Username"
 msgstr "用户名"
 
-#: mod/registration.php:186
-msgid "Username be empty or be used"
-msgstr "用户名为空或已使用"
-
-#: mod/registration.php:187
-msgid "(Must be at least 4 characters, letters and numbers only.)"
-msgstr "(至少4个字符，只能字母和数字)"
-
-#: mod/registration.php:191 mod/sms.php:75
+#: mod/registration.php:200 mod/sms.php:78
 msgid "Cellphone Number"
 msgstr "手机号码"
 
-#: mod/registration.php:196
+#: mod/registration.php:205
 msgid "Email"
 msgstr "邮箱"
 
-#: mod/registration.php:201 server.php:266
+#: mod/registration.php:210 server.php:240
 msgid "Website"
 msgstr "网站"
 
-#: mod/registration.php:206
+#: mod/registration.php:215
 msgid "Notice: Email must be activated before login"
 msgstr "注意：需激活邮箱才能登录"
 
-#: mod/registration.php:207
+#: mod/registration.php:216
 msgid "Notice: Password must be reset before login"
 msgstr "注意：需重置密码才能登录"
 
-#: mod/registration.php:208
+#: mod/registration.php:217
 msgid "Notice: Account will wait for approving by admin"
 msgstr "注意：需管理员审核账号才能登录"
 
-#: mod/registration.php:215
+#: mod/registration.php:224
 msgid "Create a new account"
 msgstr "创建一个新账号"
 
-#: mod/registration.php:217
+#: mod/registration.php:226
 msgid "Already Here ?"
 msgstr "已有账号？"
 
-#: mod/registration.php:233 open-social.php:1171
+#: mod/registration.php:242 open-social.php:1059
 #, php-format
 msgid "Login with %s"
 msgstr "使用 %s 登录"
 
-#: mod/registration.php:237
+#: mod/registration.php:246
 msgid ""
 "Waiting for approval, please check your email specially your junk folder, "
 "and try again later."
 msgstr "等待审核通过中。请检查您的邮件特别是垃圾邮件文件夹，或稍后再试。"
 
-#: mod/registration.php:245
+#: mod/registration.php:254
 msgid ""
 "Check your email for the confirmation link to activate your email address."
 msgstr "请检查您的邮箱，并通过浏览确认链接来激活您的邮箱地址。"
 
-#: mod/registration.php:249
+#: mod/registration.php:258
 msgid "Check your email for the confirmation link to reset your password."
 msgstr "请检查您的邮箱，并浏览确认链接来重置您的登录密码。"
 
-#: mod/registration.php:252
+#: mod/registration.php:261
 msgid "Your account has to be confirmed by administrator before you can login."
 msgstr "您的账号必须由管理员确认后才能登录。"
 
-#: mod/registration.php:272
+#: mod/registration.php:281
 msgid "Visit following link to activate and login:"
 msgstr "访问以下链接以激活并登录︰"
 
-#: mod/registration.php:275
+#: mod/registration.php:284
 msgid "Email Activation"
 msgstr "邮箱激活"
 
-#: mod/registration.php:283
+#: mod/registration.php:292
 msgid "Hi, {name}:"
 msgstr "你好，{name}："
 
-#: mod/registration.php:284
+#: mod/registration.php:293
 msgid "Welcome to {site}, so glad to have you here."
 msgstr "欢迎来到 {site}，很高兴有你在这。"
 
-#: mod/registration.php:288
+#: mod/registration.php:297
 #, php-format
 msgid "[%s] Password Reset"
 msgstr "[%s] 密码重置"
 
-#: mod/registration.php:289
+#: mod/registration.php:298
 msgid "To reset your password, visit the following address:"
 msgstr "重置您的密码，请访问以下地址:"
 
-#: mod/registration.php:292
+#: mod/registration.php:301
 msgid "Your basic profile and stuff"
 msgstr "您的一些基本资料"
 
-#: mod/registration.php:294
+#: mod/registration.php:303
 msgid "Binding: {bind}"
 msgstr "已绑定：{bind}"
 
-#: mod/registration.php:295
+#: mod/registration.php:304
 msgid "Email: {email}"
 msgstr "邮箱：{email}"
 
-#: mod/registration.php:296
+#: mod/registration.php:305
 msgid "Username: {login}"
 msgstr "用户名：{login}"
 
-#: mod/registration.php:297
+#: mod/registration.php:306
 msgid ""
 "You can login with <u>{bind}</u> next time and always, which is quicker and "
 "smoother and strongly recommended"
 msgstr "强烈建议您以后都使用 <u>{bind}</u> 来登录网站，更方便更快捷"
 
-#: mod/registration.php:298
+#: mod/registration.php:307
 msgid ""
 "Your password is invisible and safe because no one know, which was created "
 "by WordPress fully randomly"
 msgstr "没有任何人知道您的密码，它完全由 WordPress 自动随机创建"
 
-#: mod/sms.php:36
+#: mod/sms.php:38
 msgid "SMS Mod"
 msgstr "短信模块"
 
-#: mod/sms.php:40
+#: mod/sms.php:43
 msgid "SMS"
 msgstr "短信"
 
-#: mod/sms.php:46
+#: mod/sms.php:49
 msgid "SMS Sign Name"
 msgstr "短信签名名称"
 
-#: mod/sms.php:47
+#: mod/sms.php:50
 msgid "SMS Template ID"
 msgstr "短信模板 ID"
 
-#: mod/sms.php:67
+#: mod/sms.php:70
 msgid "Your cellphone would recieve a message in a minute, or try again later."
 msgstr "您的手机将很快会收到验证码短信，否则请稍后重试。"
 
-#: mod/sms.php:70
+#: mod/sms.php:73
 msgid "Login with SMS via cellphone with a six-digit verification code."
 msgstr "通过手机短信使用六位数字的验证码实现快速登录。"
 
-#: mod/sms.php:78
+#: mod/sms.php:81
 msgid "Send me a code"
 msgstr "发送验证码"
 
-#: mod/sms.php:106
+#: mod/sms.php:109
 msgid "Resend Again"
 msgstr "重新发送"
 
-#: mod/sms.php:108
+#: mod/sms.php:111
 msgid "Confirm and Next"
 msgstr "确认并下一步"
 
-#: mod/sms.php:110
+#: mod/sms.php:113
 msgid "Verification Code"
 msgstr "验证码"
 
-#: mod/sms.php:117 mod/wechat.php:414
+#: mod/sms.php:120 mod/wechat.php:416
 msgid "There"
 msgstr "欢迎"
 
-#: mod/socialmedia.php:36
+#: mod/socialmedia.php:38
 msgid "Extra SocialMedia"
 msgstr "更多社交"
 
-#: mod/socialmedia.php:41
+#: mod/socialmedia.php:44
 msgid "Taobao"
 msgstr "淘宝"
 
-#: mod/socialmedia.php:42
+#: mod/socialmedia.php:45
 msgid "Alipay"
 msgstr "支付宝"
 
-#: mod/socialmedia.php:43
+#: mod/socialmedia.php:46
 msgid "Github"
 msgstr "Github"
 
-#: mod/socialmedia.php:44 mod/socialmedia.php:64
+#: mod/socialmedia.php:47 mod/socialmedia.php:67
 msgid "Douban"
 msgstr "豆瓣"
 
-#: mod/socialmedia.php:45
+#: mod/socialmedia.php:48
 msgid "XiaoMi"
 msgstr "小米"
 
-#: mod/socialmedia.php:46
+#: mod/socialmedia.php:49
 msgid "OSChina"
 msgstr "开源中国"
 
-#: mod/socialmedia.php:47
+#: mod/socialmedia.php:50
 msgid "DingDing"
 msgstr "钉钉"
 
-#: mod/socialmedia.php:48 open-social.php:65
+#: mod/socialmedia.php:51 open-social.php:66
 msgid "Linkedin"
 msgstr "Linkedin"
 
-#: mod/socialmedia.php:49 open-social.php:70
+#: mod/socialmedia.php:52 open-social.php:71
 msgid "Pinterest"
 msgstr "Pinterest"
 
-#: mod/socialmedia.php:50 open-social.php:69
+#: mod/socialmedia.php:53 open-social.php:70
 msgid "Reddit"
 msgstr "Reddit"
 
-#: mod/socialmedia.php:51
+#: mod/socialmedia.php:54
 msgid "Instagram"
 msgstr "Instagram"
 
-#: mod/socialmedia.php:52
+#: mod/socialmedia.php:55
 msgid "Amazon"
 msgstr "Amazon"
 
-#: mod/socialmedia.php:53 mod/socialmedia.php:73
+#: mod/socialmedia.php:56 mod/socialmedia.php:76
 msgid "LINE"
 msgstr "LINE"
 
-#: mod/socialmedia.php:54
+#: mod/socialmedia.php:57
 msgid "Naver"
 msgstr "Naver"
 
-#: mod/socialmedia.php:55
+#: mod/socialmedia.php:58
 msgid "Kakao"
 msgstr "Kakao"
 
-#: mod/socialmedia.php:56
+#: mod/socialmedia.php:59
 msgid "WordPress"
 msgstr "WordPress"
 
-#: mod/socialmedia.php:65
+#: mod/socialmedia.php:68
 msgid "Huaban"
 msgstr "花瓣"
 
-#: mod/socialmedia.php:66
+#: mod/socialmedia.php:69
 msgid "YoudaoNote"
 msgstr "有道云笔记"
 
-#: mod/socialmedia.php:67
+#: mod/socialmedia.php:70
 msgid "Evernote"
 msgstr "印象笔记"
 
-#: mod/socialmedia.php:68
+#: mod/socialmedia.php:71
 msgid "Tumblr"
 msgstr "Tumblr"
 
-#: mod/socialmedia.php:69
+#: mod/socialmedia.php:72
 msgid "RenminWeibo"
 msgstr "人民微博"
 
-#: mod/socialmedia.php:70
+#: mod/socialmedia.php:73
 msgid "Xing"
 msgstr "Xing"
 
-#: mod/socialmedia.php:71
+#: mod/socialmedia.php:74
 msgid "VK"
 msgstr "VK"
 
-#: mod/socialmedia.php:72
+#: mod/socialmedia.php:75
 msgid "Telegram"
 msgstr "Telegram"
 
-#: mod/socialmedia.php:74
+#: mod/socialmedia.php:77
 msgid "WhatsApp"
 msgstr "WhatsApp"
 
-#: mod/socialmedia.php:75
+#: mod/socialmedia.php:78
 msgid "Flipboard"
 msgstr "Flipboard"
 
-#: mod/socialmedia.php:76
+#: mod/socialmedia.php:79
 msgid "Blogger"
 msgstr "Blogger"
 
-#: mod/socialmedia.php:77
+#: mod/socialmedia.php:80
 msgid "Digg"
 msgstr "Digg"
 
-#: mod/wechat.php:36
+#: mod/wechat.php:38
 msgid "WeChat Mod"
 msgstr "微信模块"
 
-#: mod/wechat.php:40
+#: mod/wechat.php:47
 msgid "WeChat APP"
 msgstr "微信APP"
 
-#: mod/wechat.php:64
+#: mod/wechat.php:63
 msgid "Customize wechat subscription login html"
 msgstr "自定义微信公众号桌面登录的代码"
 
-#: mod/wechat.php:66
+#: mod/wechat.php:65
 msgid "Customize message for wechat subscriber"
 msgstr "自定义订阅/登录微信公众号时的发送消息"
 
-#: mod/wechat.php:67 mod/wechat.php:218
+#: mod/wechat.php:66 mod/wechat.php:217
 msgid ""
 "Hi, {name}, glad to have you here. Please complete registration on website."
 msgstr "你好，{name}，很高兴有你在这，请在网站上完成注册。"
 
-#: mod/wechat.php:68 mod/wechat.php:221
+#: mod/wechat.php:67 mod/wechat.php:220
 msgid "Hi, {name}, welcome back."
 msgstr "你好，{name}，欢迎回来。"
 
-#: mod/wechat.php:91
+#: mod/wechat.php:90
 msgid "Auto Login"
 msgstr "自动登录"
 
-#: mod/wechat.php:92
+#: mod/wechat.php:91
 msgid "No JSSDK"
 msgstr "不加载 JSSDK"
 
-#: mod/wechat.php:98
+#: mod/wechat.php:97
 msgid "Use Subscription for Login on Desktop"
 msgstr "使用关注公众号登录桌面网站"
 
-#: mod/wechat.php:99
+#: mod/wechat.php:98
 msgid "Prior to WeChat Scan"
 msgstr "优先于微信扫码登录"
 
-#: mod/wechat.php:100
+#: mod/wechat.php:99
 msgid "Server Token"
 msgstr "服务器令牌"
 
-#: mod/wechat.php:101
+#: mod/wechat.php:100
 msgid "Server AESkey"
 msgstr "加解密密钥"
 
-#: mod/wechat.php:102
+#: mod/wechat.php:101
 msgid "Server URL"
 msgstr "服务器地址"
 
-#: mod/wechat.php:146
+#: mod/wechat.php:145
 msgid "ERROR CHECKING SIGNATURE"
 msgstr "签名出错"
 
-#: mod/wechat.php:163
+#: mod/wechat.php:162
 msgid "ERROR CHECKING MSG_SIGNATURE"
 msgstr "消息签名出错"
 
-#: mod/wechat.php:198
+#: mod/wechat.php:197
 msgid "ERROR EMPTY MESSAGE"
 msgstr "消息解密出错"
 
-#: mod/wechat.php:205
+#: mod/wechat.php:204
 msgid "ERROR CHECKING APPID"
 msgstr "应用ID出错"
 
-#: mod/wechat.php:231
+#: mod/wechat.php:230
 msgid "ERROR CHECKING KEY"
 msgstr "用户标识出错"
 
-#: mod/wechat.php:244
+#: mod/wechat.php:243
 msgid "THANKS FOR SUBSCRIBING, LOGGING IN"
 msgstr "感谢关注！登录中…"
 
-#: mod/wechat.php:246
+#: mod/wechat.php:245
 msgid "WELCOME BACK, LOGGING IN"
 msgstr "欢迎回来！登录中…"
 
-#: mod/wechat.php:249
+#: mod/wechat.php:248
 msgid "KEEP WAITING"
 msgstr "继续等待中…"
 
-#: mod/wechat.php:287
+#: mod/wechat.php:286
 msgid "WP Open Social WeChat Login"
 msgstr "WP Open Social 微信登录"
 
-#: mod/wechat.php:287
+#: mod/wechat.php:286
 msgid "Show WeChat Login QRCode"
 msgstr "显示微信登录二维码，扫码可登录网站"
 
-#: mod/wechat.php:292 mod/wechat.php:337 open-social.php:1639
-#: open-social.php:1667
+#: mod/wechat.php:291 mod/wechat.php:338 open-social.php:1527
+#: open-social.php:1555
 msgid "Title:"
 msgstr "标题："
 
-#: mod/wechat.php:293 open-social.php:1640
+#: mod/wechat.php:292 open-social.php:1528
 msgid "Don't show profile after login"
 msgstr "登录后不显示"
 
-#: mod/wechat.php:306
+#: mod/wechat.php:305
 msgid "WeChat Login"
 msgstr "微信登录"
 
-#: mod/wechat.php:331
+#: mod/wechat.php:332
 msgid "WP Open Social WeChat Subscription"
 msgstr "WP Open Social 微信公众号"
 
-#: mod/wechat.php:331
+#: mod/wechat.php:332
 msgid "Show WeChat Subscription QRCode"
 msgstr "显示微信公众号订阅二维码"
 
-#: mod/wechat.php:338
+#: mod/wechat.php:339
 msgid "Scene String:"
 msgstr "场景字符串："
 
-#: mod/wechat.php:339
+#: mod/wechat.php:340
 msgid "Template Content:"
 msgstr "显示模板："
 
-#: mod/wechat.php:354
+#: mod/wechat.php:355
 msgid "WeChat Subscription"
 msgstr "关注微信公众号"
 
-#: mod/wechat.php:397
+#: mod/wechat.php:398
 msgid "Scan with WeChat to Subscribe Offcical Account and Login automatically"
 msgstr "使用微信扫码关注公众号并自动登录网站"
 
-#: mod/weibo.php:36
+#: mod/weibo.php:38
 msgid "Weibo Mod"
 msgstr "微博模块"
 
-#: mod/weibo.php:60
+#: mod/weibo.php:59
 msgid "Auto Follow"
 msgstr "自动关注"
 
-#: mod/weibo.php:61
+#: mod/weibo.php:60
 msgid "Force Login"
 msgstr "强制登录"
 
 #. Plugin Name of the plugin/theme
-#: mod/weibo.php:67 open-social.php:281 open-social.php:523 open-social.php:958
-#: open-social.php:1092
+#: mod/weibo.php:66 open-social.php:281 open-social.php:530 open-social.php:844
+#: open-social.php:978
 msgid "WP Open Social"
 msgstr "WP Open Social"
 
-#: mod/weibo.php:73
+#: mod/weibo.php:72
 msgid "Sync with Weibo"
 msgstr "同步到微博"
 
-#: open-social.php:45 open-social.php:61
+#: open-social.php:47 open-social.php:62
 msgid "QQ"
 msgstr "QQ"
 
-#: open-social.php:46 open-social.php:62
+#: open-social.php:48 open-social.php:63
 msgid "Weibo"
 msgstr "微博"
 
-#: open-social.php:47
+#: open-social.php:49
 msgid "Baidu"
 msgstr "百度"
 
-#: open-social.php:48
+#: open-social.php:50
 msgid "WeChat Scan"
 msgstr "微信扫码"
 
-#: open-social.php:49 open-social.php:68
+#: open-social.php:51 open-social.php:69
 msgid "Google"
 msgstr "谷歌"
 
-#: open-social.php:50
+#: open-social.php:52
 msgid "Microsoft"
 msgstr "微软"
 
-#: open-social.php:51 open-social.php:66
+#: open-social.php:53 open-social.php:67
 msgid "Facebook"
 msgstr "Facebook"
 
-#: open-social.php:52 open-social.php:67
+#: open-social.php:54 open-social.php:68
 msgid "Twitter"
 msgstr "Twitter"
 
-#: open-social.php:63
+#: open-social.php:64
 msgid "WeChat"
 msgstr "微信"
 
-#: open-social.php:64
+#: open-social.php:65
 msgid "QQZone"
 msgstr "QQ空间"
 
-#: open-social.php:207
+#: open-social.php:209
 msgid "OOPS!"
 msgstr "哎呀！"
 
-#: open-social.php:208
+#: open-social.php:210
 msgid "Log In"
 msgstr "登录"
 
-#: open-social.php:210 open-social.php:472
+#: open-social.php:212 open-social.php:479
 msgid "Back"
 msgstr "返回"
 
@@ -666,23 +666,23 @@ msgstr "设置"
 msgid "For Less"
 msgstr "更少"
 
-#: open-social.php:372
+#: open-social.php:373
 msgid ""
 "This login has been bound by other user already, please unbind then try "
 "again."
 msgstr "这个登录号已经被其他用户绑定，请先解绑再尝试绑定。"
 
-#: open-social.php:378
+#: open-social.php:379
 msgid ""
 "This account has been bound with other login already, please unbind then try "
 "again."
 msgstr "这个帐号已经绑定了其他登录号，请先解绑再尝试绑定。"
 
-#: open-social.php:416
+#: open-social.php:423
 msgid "This account may contain some incompatible characters."
 msgstr "这个账号可能包含了一些不兼容的字符。"
 
-#: open-social.php:471
+#: open-social.php:478
 msgid ""
 "Warning: Unbind the only social login will cause deletion of a user along "
 "with fake email. If this account have published some posts or you just want "
@@ -693,198 +693,190 @@ msgstr ""
 "表过文章或者你想保留此账号，请更新为一个可用的邮箱地址这样以后需登录时可重置"
 "密码，然后再尝试解绑。"
 
-#: open-social.php:473
+#: open-social.php:480
 msgid "Delete Users"
 msgstr "删除用户"
 
-#: open-social.php:475 open-social.php:1189 open-social.php:1261
+#: open-social.php:482 open-social.php:1077 open-social.php:1149
 #, php-format
 msgid "Unbind with %s"
 msgstr "取消 %s 绑定"
 
-#: open-social.php:477
+#: open-social.php:484
 msgid "This account has published some posts so that it cannot be deleted."
 msgstr "这个账号发表过文章所以无法被删除。"
 
-#: open-social.php:510
+#: open-social.php:517
 msgid "Check Update"
 msgstr "检查更新"
 
-#: open-social.php:511
+#: open-social.php:518
 msgid "Reset Order"
 msgstr "重置排序"
 
-#: open-social.php:512
+#: open-social.php:519
 msgid "Rating Stars"
 msgstr "点赞插件"
 
-#: open-social.php:513
+#: open-social.php:520
 msgid "Support & Help"
 msgstr "技术支持"
 
-#: open-social.php:514
+#: open-social.php:521
 msgid "About Developer"
 msgstr "关于作者"
 
-#: open-social.php:515
+#: open-social.php:522
 msgid "More Plugins"
 msgstr "更多插件"
 
-#: open-social.php:516
+#: open-social.php:523
 msgid "For More"
 msgstr "更多"
 
-#: open-social.php:529
+#: open-social.php:536
 msgid "General"
 msgstr "常规"
 
-#: open-social.php:530
+#: open-social.php:537
 msgid "Customization"
 msgstr "自定义"
 
-#: open-social.php:531
+#: open-social.php:538
 msgid "Modules"
 msgstr "模块"
 
-#: open-social.php:532
+#: open-social.php:539
 msgid "Login Account"
 msgstr "登录帐号"
 
-#: open-social.php:535
+#: open-social.php:542
 msgid "Share Service"
 msgstr "分享服务"
 
-#: open-social.php:537
+#: open-social.php:544
 msgid "Preview"
 msgstr "预览"
 
-#: open-social.php:541 open-social.php:699
+#: open-social.php:548 open-social.php:699
 msgid "Profile"
 msgstr "资料"
 
-#: open-social.php:543
+#: open-social.php:550
 msgid "New user can change nickname"
 msgstr "新用户可以编辑昵称"
 
-#: open-social.php:544
+#: open-social.php:551
 msgid "New user can choose website (for exchanging visits)"
 msgstr "新用户可以选择填写网址以便互访"
 
-#: open-social.php:545
+#: open-social.php:552
 msgid "Speed up Gravatar through cdn.V2EX.com"
 msgstr "使用 V2EX CDN 来加速 Gravatar头像"
 
-#: open-social.php:549
+#: open-social.php:556
 msgid "Button"
 msgstr "按钮"
 
-#: open-social.php:551
+#: open-social.php:558
 msgid "Show login button for wordpress native login"
 msgstr "显示系统默认登录入口"
 
-#: open-social.php:552
+#: open-social.php:559
 msgid "Show share buttons in Posts"
 msgstr "在文章中显示分享按钮"
 
-#: open-social.php:553
+#: open-social.php:560
 msgid "Show share buttons in Pages"
 msgstr "在页面中显示分享按钮"
 
-#: open-social.php:557
+#: open-social.php:564
 msgid "Notify"
 msgstr "通知"
 
-#: open-social.php:559
+#: open-social.php:566
 msgid "Send email to notify Administrator when new user created"
 msgstr "当新用户注册后发送邮件通知管理员"
 
-#: open-social.php:560
+#: open-social.php:567
 msgid "Ignore notifying Administrator when user resets lost password"
 msgstr "当用户重置丢失密码时不通知管理员"
 
-#: open-social.php:564
+#: open-social.php:571
 msgid "Security"
 msgstr "安全"
 
-#: open-social.php:566
+#: open-social.php:573
 msgid "Visitor must login to interact with this website"
 msgstr "访问者必须登录才能浏览网站"
 
-#: open-social.php:567
+#: open-social.php:574
 msgid "Hide login and admin page as 404"
 msgstr "隐藏登录页面和管理后台"
 
-#: open-social.php:571
+#: open-social.php:578
 msgid "Advanced"
 msgstr "高级"
 
-#: open-social.php:573
+#: open-social.php:580
 msgid "Customize Button Icon separately"
 msgstr "自定义各按钮的图标样式"
 
-#: open-social.php:574
+#: open-social.php:581
 msgid "Customize Callback URL separately"
 msgstr "自定义各登录账号的回调地址"
 
-#: open-social.php:583 open-social.php:687 open-social.php:1162
+#: open-social.php:590 open-social.php:687 open-social.php:1050
 msgid "Login"
 msgstr "登录"
 
-#: open-social.php:585
+#: open-social.php:592
 msgid "Callback URL default"
 msgstr "默认回调地址"
 
-#: open-social.php:586
+#: open-social.php:593
 msgid "Goto URL after login"
 msgstr "登录后转到"
 
-#: open-social.php:590
+#: open-social.php:597
 msgid "Images"
 msgstr "图像"
 
-#: open-social.php:592
+#: open-social.php:599
 msgid "Default user avatar image"
 msgstr "用户的默认头像"
 
-#: open-social.php:593
+#: open-social.php:600
 msgid "Block user avatars by keywords in domains"
 msgstr "屏蔽某些域名的用户头像"
 
-#: open-social.php:594
+#: open-social.php:601
 msgid "Default image when share article"
 msgstr "分享文章时的默认图片"
 
-#: open-social.php:595
+#: open-social.php:602
 msgid "IconFont online url for symbol use"
 msgstr "自定义 IconFont 在线地址"
 
-#: open-social.php:600
+#: open-social.php:607
 msgid "Caption"
 msgstr "标题"
 
-#: open-social.php:602
+#: open-social.php:609
 msgid "Caption for login buttons"
 msgstr "登录按钮说明文字"
 
-#: open-social.php:603
+#: open-social.php:610
 msgid "Caption for share buttons"
 msgstr "分享按钮说明文字"
 
-#: open-social.php:604
+#: open-social.php:611
 msgid "Caption for bind buttons"
 msgstr "登录绑定按钮说明文字"
 
-#: open-social.php:605
+#: open-social.php:612
 msgid "Caption for profile html"
 msgstr "用户资料说明文字"
-
-#: open-social.php:609
-msgid "Blacklist"
-msgstr "黑名单"
-
-#: open-social.php:611
-msgid "Email blacklist, one word per line"
-msgstr "注册邮箱黑名单"
 
 #: open-social.php:616
 msgid "Code"
@@ -946,12 +938,12 @@ msgstr "App Key/Secret"
 msgid "Callback URL"
 msgstr "回调地址"
 
-#: open-social.php:679 open-social.php:1242
+#: open-social.php:679 open-social.php:1130
 #, php-format
 msgid "Share with %s"
 msgstr "分享到 %s"
 
-#: open-social.php:689 open-social.php:1634
+#: open-social.php:689 open-social.php:1522
 msgid "WP Open Social Login"
 msgstr "WP Open Social 登录"
 
@@ -959,12 +951,12 @@ msgstr "WP Open Social 登录"
 msgid "Share"
 msgstr "分享"
 
-#: open-social.php:695 open-social.php:1663
+#: open-social.php:695 open-social.php:1551
 msgid "WP Open Social Share"
 msgstr "WP Open Social 分享"
 
-#: open-social.php:705 open-social.php:861 open-social.php:945
-#: open-social.php:1094
+#: open-social.php:705 open-social.php:747 open-social.php:831
+#: open-social.php:980
 msgid "Binding"
 msgstr "已绑定"
 
@@ -972,93 +964,93 @@ msgstr "已绑定"
 msgid "Other"
 msgstr "其他"
 
-#: open-social.php:858
+#: open-social.php:744
 msgid "ID"
 msgstr "ID"
 
-#: open-social.php:860 open-social.php:1086 open-social.php:1096
+#: open-social.php:746 open-social.php:972 open-social.php:982
 msgid "Cellphone"
 msgstr "手机"
 
-#: open-social.php:862
+#: open-social.php:748
 msgid "Registered"
 msgstr "注册时间"
 
-#: open-social.php:892
+#: open-social.php:778
 msgid "Email Activating"
 msgstr "邮箱待激活中"
 
-#: open-social.php:893
+#: open-social.php:779
 msgid "Password Resetting"
 msgstr "密码待重置中"
 
-#: open-social.php:896
+#: open-social.php:782
 msgid "Confirm User Registration"
 msgstr "确认用户注册"
 
-#: open-social.php:944
+#: open-social.php:830
 msgid "All Users"
 msgstr "所有用户"
 
-#: open-social.php:950
+#: open-social.php:836
 msgid "Not Binding"
 msgstr "未绑定"
 
-#: open-social.php:1022
+#: open-social.php:908
 msgid "New reply to your comment"
 msgstr "您的评论有新回复"
 
-#: open-social.php:1143
+#: open-social.php:1031
 #, php-format
 msgid "Login and bind with %s"
 msgstr "登录并绑定 %s"
 
-#: open-social.php:1193
+#: open-social.php:1081
 #, php-format
 msgid "Bind with %s"
 msgstr "绑定 %s"
 
-#: open-social.php:1213
+#: open-social.php:1101
 msgid "Log Out"
 msgstr "登出"
 
-#: open-social.php:1246
+#: open-social.php:1134
 msgid "Scan to share with WeChat"
 msgstr "用微信扫描并分享"
 
-#: open-social.php:1599
+#: open-social.php:1487
 msgid "Login to check out this content"
 msgstr "登录以查阅此内容"
 
-#: open-social.php:1620
+#: open-social.php:1508
 msgid "Leave comment to check out this content"
 msgstr "评论以查阅此内容"
 
-#: open-social.php:1634
+#: open-social.php:1522
 msgid "Display your WP Open Social login button"
 msgstr "显示登录按钮"
 
-#: open-social.php:1652
+#: open-social.php:1540
 msgid "Howdy"
 msgstr "你好"
 
-#: open-social.php:1663
+#: open-social.php:1551
 msgid "Display your WP Open Social share button"
 msgstr "显示分享按钮"
 
-#: open-social.php:1677
+#: open-social.php:1565
 msgid "Share With"
 msgstr "分享到"
 
-#: server.php:248
+#: server.php:222
 msgid "Version"
 msgstr "版本"
 
-#: server.php:257
+#: server.php:231
 msgid "Expired"
 msgstr "过期"
 
-#: server.php:269
+#: server.php:243
 msgid "Built-In"
 msgstr "内置"
 
@@ -1068,18 +1060,31 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"使用 QQ、微信、微博、谷歌、推特等热门社交平台实现一键登录和分享，无SDK，单文"
-"件。Login and Share with social networks: QQ, WeiBo, Weixin, WeChat, Google, "
-"Twitter, Facebook..."
+"Login and Share with social networks: QQ, WeiBo, WeChat, Baidu, Google, "
+"Microsoft, Twitter, Facebook. And so many other platforms and features."
 msgstr ""
+"使用 QQ、微信、微博、百度、谷歌、微软、脸书、推特等社交平台实现一键登录和分"
+"享，还有更多平台和功能。模块化结构，按需扩展。"
 
 #. Author of the plugin/theme
-msgid "Link (Afly)"
+msgid "Link (XiaoMac.com)"
 msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://www.xiaomac.com/"
 msgstr ""
+
+#~ msgid "No notification when new version available for update"
+#~ msgstr "当有可用新版本不显示更新提醒"
+
+#~ msgid "Username be empty or be used"
+#~ msgstr "用户名为空或已使用"
+
+#~ msgid "(Must be at least 4 characters, letters and numbers only.)"
+#~ msgstr "(至少4个字符，只能字母和数字)"
+
+#~ msgid "Blacklist"
+#~ msgstr "黑名单"
 
 #~ msgid "Hook"
 #~ msgstr "钩子"

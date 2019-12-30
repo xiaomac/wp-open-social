@@ -1,14 +1,14 @@
 <?php
 /**
  * Plugin Name: WP Open Social
- * Version: 5.0
+ * Version: 5.0.1
  * Plugin URI: https://www.xiaomac.com/wp-open-social.html
- * Description: 使用 QQ、微信、微博、谷歌、推特等热门社交平台实现一键登录和分享。模块化结构，按需扩展，代码开源。Login and Share with social networks: QQ, WeiBo, Weixin, WeChat, Google, Twitter, Facebook...
+ * Description: Login and Share with social networks: QQ, WeiBo, WeChat, Baidu, Google, Microsoft, Twitter, Facebook. And so many other platforms and features.
  * Author: Link (XiaoMac.com)
  * Author URI: https://www.xiaomac.com/
  * Text Domain: open-social
- * License: MIT License
  * Domain Path: /lang
+ * License: MIT License
  * Network: true
  */
 
@@ -51,8 +51,7 @@ function open_social_init(){
         'google'=>array(__('Google','open-social'), '//console.developers.google.com/'),
         'live'=>array(__('Microsoft','open-social'), '//apps.dev.microsoft.com/'),
         'facebook'=>array(__('Facebook','open-social'), '//developers.facebook.com/'),
-        'twitter'=>array(__('Twitter','open-social'), '//apps.twitter.com/'),
-
+        'twitter'=>array(__('Twitter','open-social'), '//apps.twitter.com/')
     ));
     if($order = wpos_ops('osop_login_order')){
         $order = preg_split('/[ ,]+/', $order, null, PREG_SPLIT_NO_EMPTY);
@@ -69,7 +68,7 @@ function open_social_init(){
         'twitter'=>array(__('Twitter','open-social'), '//twitter.com/home/?status=%TITLE%:%URL%'),
         'google'=>array(__('Google','open-social'), '//www.google.com/bookmarks/mark?op=edit&bkmk=%URL%&title=%TITLE%&annotation=%SUMMARY%'),
         'reddit'=>array(__('Reddit','open-social'), '//www.reddit.com/submit?url=%URL%&amp;title=%TITLE%'),
-        'pinterest'=>array(__('Pinterest','open-social'), '//pinterest.com/pin/create/button/?url=%URL%&amp;media=%TITLE%&amp;description=%SUMMARY%'),
+        'pinterest'=>array(__('Pinterest','open-social'), '//pinterest.com/pin/create/button/?url=%URL%&amp;media=%TITLE%&amp;description=%SUMMARY%')
     ), $site);
     if($order = wpos_ops('osop_share_order')){
         $order = preg_split('/[ ,]+/', $order, null, PREG_SPLIT_NO_EMPTY);
@@ -78,9 +77,9 @@ function open_social_init(){
     $GLOBALS['open_share_arr'] = $osop_share;
     define('OPEN_CBURL', wpos_ops('extend_callback_url') ? wpos_ops('extend_callback_url') : home_url());
     if(isset($_GET['error_description'], $_SESSION['open_login_state'])) open_social_check($_GET, 'login', 'code');
-    if(isset($_GET['auth_code'], $_SESSION['open_login_state'])) $_GET['code'] = $_GET['auth_code'];
+    if(isset($_GET['auth_code'], $_SESSION['open_login_state'])) $_GET['code'] = sanitize_text_field($_GET['auth_code']);
     if(isset($_GET['connect']) || (isset($_GET['code'], $_GET['state'], $_SESSION['state'], $_SESSION['open_login_state']))){
-        $action = isset($_GET['action']) ? $_GET['action'] : '';
+        $action = isset($_GET['action']) ? sanitize_text_field($_GET['action']) : '';
         if(!isset($_GET['connect'])){
             foreach ($GLOBALS['open_login_arr'] as $k => $v){
                 if(!is_array($v)) continue;
@@ -92,15 +91,16 @@ function open_social_init(){
             }
         }else{
             if($action == 'login' && !isset($_GET['back']) && isset($_SERVER['HTTP_REFERER'])){
-                $_GET['back'] = $_SERVER['HTTP_REFERER'];
+                $_GET['back'] = esc_url($_SERVER['HTTP_REFERER']);
             }
+            $_GET['connect'] = sanitize_text_field($_GET['connect']);
             if(in_array($_GET['connect'], array_keys($GLOBALS['open_login_arr'])) && wpos_ops(strtoupper($_GET['connect']))){
                 define('OPEN_TYPE', $_GET['connect']);
             }
             do_action('open_social_connect_action', $action, $_GET);
         }
         if(!defined('OPEN_TYPE') || !$action) return;
-        if(!isset($_SESSION['back'])) $_SESSION['back'] = !empty($_GET['back']) ? $_GET['back'] : home_url('/');
+        if(!isset($_SESSION['back'])) $_SESSION['back'] = !empty($_GET['back']) ? esc_url($_GET['back']) : home_url('/');
         $open_class = 'WPOS_'.strtoupper(OPEN_TYPE).'_CLASS';
         if(!class_exists($open_class)) open_social_next(OPEN_CBURL);
         $wpos = new $open_class;
@@ -123,12 +123,12 @@ function open_social_init(){
         }else if($action == 'callback'){
             do_action('open_social_server_after_action', OPEN_TYPE);
             if(!isset($_GET['code']) || isset($_GET['error']) || isset($_GET['error_code']) || isset($_GET['error_description'])) open_social_next(OPEN_CBURL);
-            $wpos->open_callback($_GET['code'], $action_info);
+            $wpos->open_callback(sanitize_text_field($_GET['code']), $action_info);
             $wpos_user = $wpos->open_new_user($action_info);
             do_action('open_social_callback_action', $_SESSION, $wpos_user);
             open_social_action($wpos_user);
         }else if($action == 'bind'){
-            open_social_action($_POST);
+            open_social_action($_POST);//with sanitized
         }else if($action == 'unbind'){
             open_social_action_unbind();
         }else if($action == 'activate'){
@@ -137,10 +137,10 @@ function open_social_init(){
     }else{
         do_action('open_social_hook_action');
         if(!is_user_logged_in()){
-            if(wpos_ops('extend_must_login') && !open_social_login_page()) open_social_next(wp_login_url($_SERVER['REQUEST_URI']));
+            if(wpos_ops('extend_must_login') && !open_social_login_page()) open_social_next(wp_login_url(esc_url($_SERVER['REQUEST_URI'])));
             if(!open_social_login_page()) open_social_unsession();//clear
         }else{
-            open_social_unsession('back, state, open_login_state, login_back_state');//clear
+            if(empty($_GET)) open_social_unsession('back, state, open_login_state, login_back_state');//clear
             if(open_social_login_page() && !count($_GET)) open_social_next(home_url());//no point
         }
     }
@@ -154,7 +154,7 @@ function open_social_include_module(){
 add_action('init', 'open_social_init_later', 10);
 function open_social_init_later(){
     if(!empty($_SERVER['HTTP_REFERER']) && empty($_SESSION['HTTP_REFERER'])){
-        $_SESSION['HTTP_REFERER'] = $_SERVER['HTTP_REFERER'];
+        $_SESSION['HTTP_REFERER'] = esc_url($_SERVER['HTTP_REFERER']);
     }
     if(wpos_ops('extend_ignore_reset') && has_action('after_password_reset', 'wp_password_change_notification')){
         remove_action('after_password_reset', 'wp_password_change_notification');
@@ -191,12 +191,12 @@ function open_social_unsession($str=''){
 }
 
 function open_social_login_page($url=null){
-    return stripos(!empty($url) ? $url : home_url($_SERVER['REQUEST_URI']), wp_login_url()) === 0;
+    return stripos(!empty($url) ? $url : home_url(esc_url($_SERVER['REQUEST_URI'])), wp_login_url()) === 0;
 }
 
 function open_social_back($qa=array(), $url='', $encode=true){
     if($encode) $qa = array_map('urlencode', $qa);
-    if(empty($url)) $url = home_url($_SERVER['REQUEST_URI']);
+    if(empty($url)) $url = home_url(esc_url($_SERVER['REQUEST_URI']));
     return add_query_arg($qa, $url);
 }
 
@@ -211,7 +211,6 @@ function open_social_text($msg, $title=''){
     $link = is_user_logged_in() ? get_edit_profile_url() : home_url();
     if(!open_social_in($msg, 'button')) $msg .= open_social_link($link, __('Back', 'open-social'), 'p,button');
     $style = '<style>pre{white-space: pre-wrap;} p{word-break: break-all;}</style>';
-    open_social_unsession('back, state, open_login_state, login_back_state');//clear
     wp_die("{$style}<h1>{$title}</h1><p>{$msg}</p>", $site, array('response'=>200, 'back_link'=>false));
 }
 
@@ -219,7 +218,6 @@ function open_social_http($url, $args=array(), $text=false){
     $url = apply_filters('open_social_http_url_filter', $url);//for reverse proxy
     $args['timeout'] = 30;
     $args['sslverify'] = false;
-    $args['httpversion'] = '1.1';
     $args['user-agent'] = 'WP Open Social (xiaomac.com)';
     $headers = isset($args['headers']) ? $args['headers'] : array();
     if(!$headers && isset($_SESSION['access_token'])){
@@ -229,7 +227,7 @@ function open_social_http($url, $args=array(), $text=false){
     $args['headers'] = $headers;
     $response = wp_remote_request($url, $args);
     if(is_wp_error($response)){
-        $res = '<p>URL: '.$url.'</p><p>HOST: '.$_SERVER['HTTP_HOST'].'</p><p>'.$response->get_error_message().'</p>';
+        $res = '<p>URL: '.$url.'</p><p>HOST: '.esc_url($_SERVER['HTTP_HOST']).'</p><p>'.$response->get_error_message().'</p>';
         if($text) return $res;
         open_social_text($res);
     }
@@ -354,10 +352,11 @@ function open_social_action($newuser){
     $newer = 0;
     $back = !isset($_SESSION['back']) || open_social_login_page($_SESSION['back']) ? home_url() : $_SESSION['back'];
     if(empty($_SESSION['open_id']) || empty($_SESSION['access_token']) || !defined('OPEN_TYPE')) open_social_next($back);
-    if(isset($newuser['nickname'])) $_SESSION['nickname'] = $newuser['nickname'];
     $avatar = wpos_ops('extend_default_avatar') ? wpos_ops('extend_default_avatar') : plugins_url('res/gravatar.png',__FILE__);
     if(empty($_SESSION['open_img'])) $_SESSION['open_img'] = $avatar;
+    $_SESSION['open_img'] = sanitize_text_field($_SESSION['open_img']);
     $_SESSION['open_img'] = substr($_SESSION['open_img'], stripos($_SESSION['open_img'], '//'));
+    $newuser['nickname'] = isset($newuser['nickname']) ? sanitize_user($newuser['nickname']) : '';
     if(is_user_logged_in()){ //bind
         if(isset($_GET['action']) && $_GET['action'] == 'bind' && empty($_SESSION['osbindwith'])){
             open_social_next($back);
@@ -392,6 +391,7 @@ function open_social_action($newuser){
                 $prename = 'osu';
                 $extname = rand(100000,999998);
                 if(!empty($newuser['user_login'])){
+                    $newuser['user_login'] = sanitize_user($newuser['user_login']);
                     $check_str = '/admin|root|guest|user|author|test|abcd|aaaa/';
                     if(mb_strlen($newuser['user_login'])<3 || preg_match($check_str, strtolower($newuser['user_login'])) || username_exists($newuser['user_login'])){
                         $prename = $newuser['user_login'];
@@ -409,6 +409,11 @@ function open_social_action($newuser){
                     while(email_exists($prename.$extname.'@fake.com')){ $extname++; }
                     $newuser['user_email'] = $prename.$extname.'@fake.com';
                 }
+                if(!isset($newuser['user_url'])) $newuser['user_url'] = '';
+                if(!isset($newuser['cellphone'])) $newuser['cellphone'] = '';
+                if(OPEN_TYPE == 'sms') $newuser['cellphone'] = $_SESSION['open_id'];
+                $newuser['user_url'] = esc_url_raw($newuser['user_url']);
+                $newuser['cellphone'] = sanitize_text_field($newuser['cellphone']);
                 $newuser = apply_filters('open_social_newuser_form_filter', $newuser);
                 $newuser['first_name'] = $newuser['nickname'];
                 $newuser['display_name'] = $newuser['nickname'];
@@ -608,13 +613,6 @@ function open_social_options_page(){
             <?php do_action('open_social_tabtwo_caption_action'); ?>
         </fieldset>
         </td></tr>
-        <tr valign="top"><th><?php _e('Blacklist','open-social'); ?></th>
-        <td><fieldset>
-            <label><?php _e('Email blacklist, one word per line','open-social')?></label> <br/>
-            <textarea name="osop[mail_blacklist]" rows="5" cols="85" placeholder="<?php echo "keyword1\nkeyword2" ?>"><?php echo esc_textarea(wpos_ops('mail_blacklist')); ?></textarea><br/><br/>
-            <?php do_action('open_social_tabtwo_blacklist_action'); ?>
-        </fieldset>
-        </td></tr>
         <tr valign="top"><th><?php _e('Code','open-social'); ?></th>
         <td><fieldset>
             <label><?php _e('Customize button icon style','open-social')?></label> <br/>
@@ -733,121 +731,7 @@ function open_social_options_page(){
             submit_button();
         ?>
         </form>
-        <script type="text/javascript">
-            function reset_order(){
-                jQuery('#osop_login_order,#osop_share_order').val('');
-                jQuery('#submit').click();
-            }
-            jQuery('a.nav-tab').on('click', function(e){
-                var idx = jQuery(this).index('a.nav-tab');
-                jQuery('a.nav-tab').removeClass('nav-tab-active').eq(idx).addClass('nav-tab-active').blur();
-                jQuery('.form-table').hide().eq(idx).show();
-                if(window.localStorage) localStorage.setItem('open_social_tab', idx);
-            });
-            jQuery('span.nav-tab').on('click', function(e){
-                jQuery('#show-settings-link').click();
-            });
-            jQuery('#show-settings-link').on('click', function(e){
-                var toggle = jQuery('#screen-options-wrap').css('display') == 'none';
-                jQuery('a.nav-tab').eq(3).click();
-                jQuery('span.nav-tab').text(toggle?'-':'+');
-            });
-            jQuery('.manage-column td').each(function(e){
-                jQuery(this).find('input:first').on('click',function(e){//login
-                    var obj = jQuery(this).parent().parent().find('input').not(jQuery(this));
-                    if(jQuery(this).prop('checked')){
-                        obj.filter(':checkbox').removeAttr('disabled');
-                        obj.filter(':text,:password').removeAttr('readonly');
-                        jQuery(this).parent().parent().find('.os-icon').removeClass('os-icon-gray');
-                    }else{
-                        obj.filter(':checkbox').attr('disabled','disabled');
-                        obj.filter(':text,:password').attr('readonly','readonly');
-                        jQuery(this).parent().parent().find('.os-icon').addClass('os-icon-gray');
-                    }
-                });
-                jQuery(this).find('input:checkbox[name*=_in]').on('click',function(e){//login_in
-                    if(!jQuery(this).parent().parent().find('input:first').prop('checked')) return;
-                    var obj = jQuery(this).parent().parent();
-                    if(jQuery(this).prop('checked')){
-                        obj.find(':text,:password').attr('readonly','readonly');
-                        obj.find(':checkbox:gt(1)').attr('disabled','disabled');
-                    }else{
-                        obj.find(':text,:password').removeAttr('readonly');
-                        obj.find(':checkbox:gt(1)').removeAttr('disabled');
-                    }
-                });
-                if(!jQuery(this).find('input:first').prop('checked')){
-                    jQuery(this).find(':text,:password').attr('readonly','readonly');
-                    jQuery(this).find('input:checkbox:gt(0)').attr('disabled','disabled');
-                    jQuery(this).find('.os-icon').addClass('os-icon-gray');
-                }else if(jQuery(this).find('input:eq(1)').prop('checked')){
-                    jQuery(this).find(':text,:password').attr('readonly','readonly');
-                }
-            });
-            jQuery('.form-table:eq(2) td').each(function(e){//share
-                jQuery(this).find('input:first').on('click',function(e){
-                    var obj = jQuery(this).parent().parent().find('input').not(jQuery(this));
-                    if(jQuery(this).prop('checked')){
-                        obj.filter(':text').removeAttr('readonly');
-                        jQuery(this).parent().parent().find('.os-icon').removeClass('os-icon-gray');
-                    }else{
-                        obj.filter(':text').attr('readonly','readonly');
-                        jQuery(this).parent().parent().find('.os-icon').addClass('os-icon-gray');
-                    }
-                });
-                if(!jQuery(this).find('input:first').prop('checked')){
-                    jQuery(this).find('input:gt(0):text').attr('readonly','readonly');
-                    jQuery(this).find('.os-icon').addClass('os-icon-gray');
-                }
-            });
-            jQuery('input[name*=wechat_mp_desktop]').each(function(){
-                var obj = jQuery('input[name*=wechat_mp_]:gt(1)');
-                jQuery(this).on('click', function(){
-                    if(jQuery(this).prop('checked')){
-                        obj.filter(':text,:password').removeAttr('readonly');
-                        obj.filter(':checkbox').removeAttr('disabled');
-                    }else{
-                        obj.filter(':text,:password').attr('readonly','readonly');
-                        obj.filter(':checkbox').attr('disabled','disabled');
-                    }
-                });
-                if(!jQuery(this).prop('checked')){
-                    obj.filter(':text,:password').attr('readonly','readonly');
-                    obj.filter(':checkbox').attr('disabled','disabled');
-                }
-            });
-            jQuery('input[name*=_SKEY],input[name*=_asekey]').focus(
-                function(){ jQuery(this).get(0).type = 'text'; }
-            ).blur(
-                function(){ jQuery(this).get(0).type = 'password'; }
-            );
-            jQuery('input[name*=WECHAT_MP_]').on('input propertychange', function() {
-                jQuery('input[name*=wechat_access_]').val('');
-            });
-            jQuery(function(){
-                var list, changed, tab = window.localStorage ? localStorage.getItem('open_social_tab') : 0;
-                jQuery('a.nav-tab').eq(tab*1).click();
-                jQuery('#osop_login_order').attr('value2',jQuery('#osop_login_order').val());
-                jQuery('#osop_share_order').attr('value2',jQuery('#osop_share_order').val());
-                jQuery('#login_order, #share_order').sortable({
-                    placeholder: 'ui-sortable-placeholder',
-                    containment: 'parent',
-                    connectWith: 'tr:visible',
-                    dropOnEmpty: false,
-                    items: 'tr:visible',
-                    handle: 'span',
-                    cursor: 'move',
-                    distance: 2,
-                    tolerance: 'pointer',
-                    stop: function(){
-                        list = jQuery(this).sortable('toArray', {attribute:'name'}).join(',');
-                        jQuery('#osop_'+jQuery(this).attr('id')).val(list);
-                        changed = jQuery('#osop_'+jQuery(this).attr('id')).attr('value2') != list;
-                        jQuery('#tab_'+jQuery(this).attr('id')).toggle(changed);
-                    }
-                });
-            });
-        </script>
+        <script type="text/javascript" src="<?php esc_attr_e(plugins_url('res/admin.js',__FILE__)); ?>"></script>
     </div>
     <?php
 }
@@ -982,9 +866,9 @@ function open_social_comment_on_post($id){
 }
 add_filter('pre_comment_user_ip', 'open_social_extend_proxy_ip');
 function open_social_extend_proxy_ip(){
-    $user_ip = $_SERVER['REMOTE_ADDR'];
-    if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) $user_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    if(!empty($_SERVER['X_FORWARDED_FOR'])) $user_ip = $_SERVER['X_FORWARDED_FOR'];
+    $user_ip = sanitize_text_field($_SERVER['REMOTE_ADDR']);
+    if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) $user_ip = sanitize_text_field($_SERVER['HTTP_X_FORWARDED_FOR']);
+    if(!empty($_SERVER['X_FORWARDED_FOR'])) $user_ip = sanitize_text_field($_SERVER['X_FORWARDED_FOR']);
     $user_ip = preg_replace('/[^0-9\.].*$/', '', $user_ip);
     return preg_replace('/[^0-9a-f:\., ]/si', '', $user_ip);
 }
@@ -1097,7 +981,9 @@ function open_social_profile_options($user) {
     if(defined('OPEN_SOCIAL_SERVER')) echo "<tr valign='top'><th scope='row'>".__('User ID', 'open-social')."</th><td><input type='text' disabled='disabled' class='regular-text' value='".$user->ID."'/></td></tr>";
     echo "<tr valign='top'><th scope='row'>".__('Cellphone', 'open-social')."</th><td><input type='text' class='regular-text' name='cellphone' minlength='11' maxlength='15' value='".get_user_meta($user->ID, 'cellphone', true)."' onkeyup='value=value.replace(/[^\d]/g,&#39;&#39;)' /></td></tr>";
     echo "</table>
-    <script type='text/javascript'>jQuery(document).ready(function(){
+    <script type='text/javascript'>
+    'use strict';
+    jQuery(document).ready(function(){
         jQuery('.user-email-wrap,.user-url-wrap').insertAfter('#open_social_table tr:last');
         jQuery('#display_name').parents('table').next('h2').remove();
     });</script>";
@@ -1140,7 +1026,7 @@ function open_social_profile_html_echo(){ echo open_social_profile_html(); }
 function open_social_login_form(){
     if(is_user_logged_in()) return;
     if(isset($_SESSION['open_id'], $_SESSION['access_token'], $_GET['connect'], $_REQUEST['redirect_to'])){
-        if(($bind = $_GET['connect']) && ($back = $_REQUEST['redirect_to']) && open_social_in($back, $bind)){
+        if(($bind = sanitize_text_field($_GET['connect'])) && ($back = $_REQUEST['redirect_to']) && open_social_in($back, $bind)){
             if(open_social_in($back, 'action=bind') && isset($GLOBALS['open_login_arr'][$bind])){
                 $title = sprintf(esc_attr__('Login and bind with %s', 'open-social'), $GLOBALS['open_login_arr'][$bind][0]);
                 echo "<p class='forgetmenot' style='float:inherit;line-height:250%'>
@@ -1168,7 +1054,7 @@ function open_social_login_html($atts=array()){
         if($show && !open_social_in($show.',', $k.',')) continue;
         if(defined('OPEN_SOCIAL_SERVER') && wpos_ops($k.'_in') && !$preview) continue;
         if((wp_is_mobile() || wpos_ops('wechat_mp_prior')) && $k == 'wechat' && !$preview) continue;//prior to wechat open
-        if(((wp_is_mobile() && !open_social_in($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')) 
+        if(((wp_is_mobile() && !open_social_in(sanitize_text_field($_SERVER['HTTP_USER_AGENT']), 'MicroMessenger')) 
             || (!wp_is_mobile() && !wpos_ops('wechat_mp_desktop'))) && $k == 'wechat_mp' && !$preview) continue;
         if(wpos_ops(strtoupper($k))) $html .= open_login_button_show($k, ($preview ? '' : sprintf(__('Login with %s','open-social'), $v[0])));
     }
@@ -1191,7 +1077,7 @@ function open_social_bind_html($atts=array()){
                 $html .= open_login_button_unbind($k, sprintf(__('Unbind with %s','open-social'), $v[0]));
             }else{
                 if(wp_is_mobile() && $k == 'wechat') continue;
-                if((!wp_is_mobile() || !open_social_in($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')) && $k == 'wechat_mp' && !wpos_ops('wechat_mp_desktop')) continue;
+                if((!wp_is_mobile() || !open_social_in(sanitize_text_field($_SERVER['HTTP_USER_AGENT']), 'MicroMessenger')) && $k == 'wechat_mp' && !wpos_ops('wechat_mp_desktop')) continue;
                 $html .= open_login_button_show($k, sprintf(__('Bind with %s','open-social'), $v[0]));
             }
         }
@@ -1211,7 +1097,7 @@ function open_social_profile_html($atts=array()){
     $avatar = get_avatar($user->ID);
     $profile_url = current_user_can('manage_options') ? admin_url() : get_edit_user_link().'?from='.esc_url($_SERVER['REQUEST_URI']);
     $profile = open_social_link($profile_url, $avatar);
-    $logout_url = wp_logout_url($_SERVER['REQUEST_URI']);
+    $logout_url = wp_logout_url(esc_url($_SERVER['REQUEST_URI']));
     $logout = open_social_link($logout_url, __('Log Out', 'open-social'));
     $html = "{$profile}<br/>{$name} ({$logout})";
     if(wpos_ops('profile_html')){
@@ -1516,7 +1402,7 @@ class WPOS_TWITTER_CLASS {
         foreach ($params as $key => $val) { $str .= '&'.$key.'='.rawurlencode($val); }
         $base = 'POST&'.rawurlencode('https://api.twitter.com/oauth/access_token').'&'.rawurlencode(trim($str, '&'));
         $params['oauth_signature'] = base64_encode(hash_hmac('sha1', $base, $info['skey'].'&'.$_SESSION['oauth_token_secret'], true));
-        $params['oauth_verifier'] = $_GET['oauth_verifier'];//only can be put in header, cant be post
+        $params['oauth_verifier'] = sanitize_text_field($_GET['oauth_verifier']);//only can be put in header, cant be post
         open_social_unsession('oauth_token, oauth_token_secret');
         $str = '';
         foreach ($params as $key => $val) { $str .= ''.$key.'="'.rawurlencode($val).'", '; }

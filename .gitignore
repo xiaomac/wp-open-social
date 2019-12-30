@@ -2,3 +2,10 @@
 .DS_Store
 
 .DS_Store
+mod/proxied.php
+mod/registration.php
+mod/sms.php
+mod/socialmedia.php
+mod/wechat.php
+mod/weibo.php
+server.php

@@ -103,7 +103,7 @@ add_action('personal_options_update', 'open_social_profile_update');
 add_action('edit_user_profile_update', 'open_social_profile_update');
 function open_social_profile_update($user_id) {
     if(!current_user_can('edit_user', $user_id)) return;
-    if(!empty($_POST['cellphone'])) open_social_update_cellphone($user_id, $_POST['cellphone']);
+    if(!empty($_POST['cellphone'])) open_social_update_cellphone($user_id, sanitize_text_field($_POST['cellphone']));
     if(!empty($_GET['clear']) && $_GET['clear'] == 'avatar') update_user_meta($user_id, 'open_img', '');
 }
 
