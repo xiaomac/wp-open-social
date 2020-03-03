@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Open Social
- * Version: 5.0.1
+ * Version: 5.0.2
  * Plugin URI: https://www.xiaomac.com/wp-open-social.html
  * Description: Login and Share with social networks: QQ, WeiBo, WeChat, Baidu, Google, Microsoft, Twitter, Facebook. And so many other platforms and features.
  * Author: Link (XiaoMac.com)
@@ -36,7 +36,7 @@
  * 本软件以 MIT 许可协议发布，简言：你可以自由使用或各种改造再发行，但在软件中必须包含以上许可声明；由软件引起的损失或意外本人概不负责。
  */
 
-if(!session_id()) session_start();
+if(!session_id()) @session_start();
 open_social_include_module();
 add_action('init', 'open_social_init', 1);
 function open_social_init(){
@@ -418,6 +418,7 @@ function open_social_action($newuser){
                 $newuser['first_name'] = $newuser['nickname'];
                 $newuser['display_name'] = $newuser['nickname'];
                 $newuser['user_pass'] = wp_generate_password();
+                if(wpos_ops('extend_hide_user_bar')) $newuser['show_admin_bar_front'] = 'false';
                 if(!function_exists('wp_insert_user')) include_once(ABSPATH.WPINC.'/registration.php');
                 $wpuid = wp_insert_user($newuser);
                 if(!$wpuid) open_social_text(__('This account may contain some incompatible characters.','open-social'));
@@ -550,6 +551,7 @@ function open_social_options_page(){
             <label><input name="osop[extend_change_nickname]" type="checkbox" value="1" <?php checked(wpos_ops('extend_change_nickname'),1);?> /> <?php _e('New user can change nickname','open-social'); ?></label><br/>
             <label><input name="osop[extend_must_website]" type="checkbox" value="1" <?php checked(wpos_ops('extend_must_website'),1);?> /> <?php _e('New user can choose website (for exchanging visits)','open-social'); ?></label><br/>
             <label><input name="osop[extend_avatar_cdn]" type="checkbox" value="1" <?php checked(wpos_ops('extend_avatar_cdn'),1);?> /> <?php _e('Speed up Gravatar through cdn.V2EX.com','open-social'); ?> <?php echo open_social_link('//www.v2ex.com/t/141485', '?', 'blank'); ?></label><br/>
+            <label><input name="osop[extend_hide_user_bar]" type="checkbox" value="1" <?php checked(wpos_ops('extend_hide_user_bar'),1);?> /> <?php _e('Donot show toolbar when viewing site','open-social'); ?></label><br/>
             <?php do_action('open_social_tabone_profile_action'); ?>
             </fieldset>
         </td></tr>
@@ -589,7 +591,7 @@ function open_social_options_page(){
         <?php do_action('open_social_tabtwo_start_action'); ?>
         <tr valign="top"><th><?php _e('Login','open-social'); ?></th>
         <td><fieldset>
-            <label><input type="url" name="osop[extend_callback_url]" size="65" placeholder="<?php echo home_url()?>" value="<?php esc_attr_e(OPEN_CBURL);?>" /> <?php _e('Callback URL default','open-social'); ?></label><br/>
+            <label><input type="url" name="osop[extend_callback_url]" size="65" placeholder="<?php echo home_url()?>" value="<?php esc_attr_e(wpos_ops('extend_callback_url'));?>" /> <?php _e('Callback URL default','open-social'); ?></label><br/>
             <label><input type="text" name="osop[extend_goto_url]" size="65" value="<?php esc_attr_e(wpos_ops('extend_goto_url')); ?>" /> <?php _e('Goto URL after login','open-social'); ?></label><br/>
             <?php do_action('open_social_tabtwo_login_action'); ?>
             </fieldset>
@@ -852,7 +854,8 @@ add_filter('comment_form_defaults', 'open_social_comment_note');
 function open_social_comment_note($fields){
     if(is_user_logged_in()){
         $user = wp_get_current_user();
-        $fields['logged_in_as'] = '<p class="logged-in-as"> '.open_social_link(get_edit_user_link($user->ID).'?from='.esc_url($_SERVER['REQUEST_URI']).'%23comment', get_avatar($user->ID, 80)).'</p>';
+        if(!$profile = get_avatar($user->ID, 80)) $profile = $user->display_name;
+        $fields['logged_in_as'] = '<p class="logged-in-as"> '.open_social_link(get_edit_user_link($user->ID).'?from='.esc_url($_SERVER['REQUEST_URI']).'%23comment', $profile).'</p>';
     }elseif(get_option('comment_registration') && get_post_meta(get_the_ID(), 'os_guestbook', true)){
         add_filter('option_comment_registration', '__return_false');
         $fields['fields']['url'] = '';
@@ -881,7 +884,7 @@ function open_social_wp_mail_filter($args){
     return $args;
 }
 
-add_filter('retrieve_password_message', 'open_social_fix_password_message', 99, 1);
+add_filter('retrieve_password_message', 'open_social_fix_password_message', 9999);
 function open_social_fix_password_message($message){
     return str_replace(array('<','>'), '', $message);//fix the messup link
 }
@@ -910,7 +913,7 @@ function open_social_email_comment($comment_id, $comment_object){
 
 //PROFILE
 
-add_filter('get_avatar', 'open_social_get_avatar', 99999, 5);
+add_filter('get_avatar', 'open_social_get_avatar', 999999, 5);
 function open_social_get_avatar($avatar, $id_or_email, $size=80, $default, $alt){
     if(!open_social_in($avatar, 'gravatar.com')) return $avatar;
     $data = open_social_get_avatar_data(array(), $id_or_email);
@@ -925,7 +928,7 @@ function open_social_get_avatar($avatar, $id_or_email, $size=80, $default, $alt)
     return $avatar;
 }
 
-add_filter('get_avatar_data', 'open_social_get_avatar_data', 99999, 2);
+add_filter('get_avatar_data', 'open_social_get_avatar_data', 999999, 2);
 function open_social_get_avatar_data($args, $id_or_email){
     if(isset($args['url']) && !open_social_in($args['url'], 'gravatar.com')) return $args;
     if(is_object($id_or_email)){
@@ -1001,8 +1004,8 @@ function open_social_style(){
     if(is_admin()) wp_enqueue_script('jquery-ui-sortable');
     if(wpos_ops('icon_style')) wp_add_inline_style('open-social-style', wpos_ops('icon_style'));
     $iconfont = wpos_ops('extend_iconfont_url') ? wpos_ops('extend_iconfont_url') : plugins_url('res/iconfont.js',__FILE__);
-    wp_enqueue_script('open-social-iconfont', add_query_arg('v', $version, $iconfont), array(), '', true);
-    wp_enqueue_script('open-social-script', add_query_arg('v', $version, plugins_url('res/main.js',__FILE__)), array(), '', true);
+    wp_enqueue_script('open-social-iconfont', add_query_arg('v', $version, $iconfont), array('jquery'), '', true);
+    wp_enqueue_script('open-social-script', add_query_arg('v', $version, plugins_url('res/main.js',__FILE__)), array('jquery'), '', true);
     if(wpos_ops('extend_share_image')){
         wp_localize_script('open-social-script', 'os_share_image', array('url' => wpos_ops('extend_share_image')));
     }
@@ -1042,7 +1045,7 @@ function open_social_login_form(){
 function open_social_login_html($atts=array()){
     $preview = isset($atts['preview']) && $atts['preview'];
     if(!$preview && is_user_logged_in()) return;
-    $title = $html = '';
+    $title = $html = $mobileTip = '';
     $title = isset($atts['title']) ? $atts['title'] : wpos_ops('login_button_title');
     if($title) $title = "<div class='os-login-title'>{$title}</div>";
     $show = (isset($atts, $atts['show']) && !empty($atts)) ? $atts['show'] : '';
@@ -1054,11 +1057,13 @@ function open_social_login_html($atts=array()){
         if($show && !open_social_in($show.',', $k.',')) continue;
         if(defined('OPEN_SOCIAL_SERVER') && wpos_ops($k.'_in') && !$preview) continue;
         if((wp_is_mobile() || wpos_ops('wechat_mp_prior')) && $k == 'wechat' && !$preview) continue;//prior to wechat open
-        if(((wp_is_mobile() && !open_social_in(sanitize_text_field($_SERVER['HTTP_USER_AGENT']), 'MicroMessenger')) 
-            || (!wp_is_mobile() && !wpos_ops('wechat_mp_desktop'))) && $k == 'wechat_mp' && !$preview) continue;
+        if(!wp_is_mobile() && !wpos_ops('wechat_mp_desktop') && $k == 'wechat_mp' && !$preview) continue;
         if(wpos_ops(strtoupper($k))) $html .= open_login_button_show($k, ($preview ? '' : sprintf(__('Login with %s','open-social'), $v[0])));
     }
-    if($html) $html = "<div class='os-login-box'>{$html}</div>";
+    if(wp_is_mobile() && !open_social_in(sanitize_text_field($_SERVER['HTTP_USER_AGENT']), 'MicroMessenger')){
+        $mobileTip = "<div id='os-popup-placeholder' style='display:none'><span>&#215;</span>".open_share_button_show('wechat').__('Scan to Login with WeChat','open-social')."</div>";
+    }
+    if($html) $html = "<div class='os-login-box'>{$html}{$mobileTip}</div>";
     return "{$title}{$html}";
 } 
 
@@ -1096,10 +1101,11 @@ function open_social_profile_html($atts=array()){
     $avatar_url = get_avatar_url($user->ID);
     $avatar = get_avatar($user->ID);
     $profile_url = current_user_can('manage_options') ? admin_url() : get_edit_user_link().'?from='.esc_url($_SERVER['REQUEST_URI']);
-    $profile = open_social_link($profile_url, $avatar);
+    $profile = !empty($avatar) ? open_social_link($profile_url, $avatar).'<br/>' : '';//when avatar disabled
+    $name = open_social_link($profile_url, $name);
     $logout_url = wp_logout_url(esc_url($_SERVER['REQUEST_URI']));
     $logout = open_social_link($logout_url, __('Log Out', 'open-social'));
-    $html = "{$profile}<br/>{$name} ({$logout})";
+    $html = "{$profile}{$name} ({$logout})";
     if(wpos_ops('profile_html')){
         $be_replace = array('{name}','{email}','{avatar}','{profile}','{logout}','{avatar_url}','{profile_url}','{logout_url}');
         $to_replace = array($name, $email, $avatar, $profile, $logout, $avatar_url, $profile_url, $logout_url);
@@ -1130,7 +1136,7 @@ function open_social_share_html($atts=array()) {
         if(wpos_ops('share_'.$k)) $html .= open_share_button_show($k, ($preview ? '' : sprintf(__('Share with %s','open-social'), $v[0])), $v[1]);
     }
     if($html) $html = "<div class='os-share-box'>{$html}</div>";
-    if(wpos_ops('share_wechat')){
+    if(wpos_ops('share_wechat') && !wp_is_mobile()){
         $html .= "<div id='os-popup-placeholder' style='display:none'><span>&#215;</span>".open_share_button_show('wechat').__('Scan to share with WeChat','open-social')."</div>";
     }
     return "{$title}{$html}";

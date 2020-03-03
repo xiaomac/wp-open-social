@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Open Social
- * Plugin Version: 5.0
+ * Plugin Version: 5.0.1
  * Plugin URI: https://www.xiaomac.com/wp-open-social.html
  * Author: Link (XiaoMac.com)
  * License: MIT License
@@ -63,7 +63,11 @@ function open_social_tabone_profile_action_comp(){
         <label><input name="osop[extend_profile_path]" type="checkbox" value="1" <?php checked(wpos_ops('extend_profile_path'),1);?> /> <?php _e('New user using user-id as nicename instead of username in url','open-social'); ?></label><br/>
     <?php
 }
-
+add_filter('um_user_avatar_url_filter', 'open_social_um_user_avatar_url_filter', 999, 2);
+function open_social_um_user_avatar_url_filter($url, $user_id){
+    $data = open_social_get_avatar_data(array(), $user_id);
+    return isset($data['url']) ? $data['url'] : $url;
+}
 add_filter('bp_core_fetch_avatar', 'open_social_bp_fetch_avatar', 999, 2);
 add_filter('bp_core_fetch_avatar_url', 'open_social_bp_fetch_avatar', 999, 2);
 function open_social_bp_fetch_avatar($url, $params){

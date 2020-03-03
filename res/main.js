@@ -10,6 +10,18 @@ function open_social_param(name){
 
 function login_button_click(id,link,type,site){
     var back = location.href;
+    if(id=='wechat_mp' && !/MicroMessenger/.test(navigator.userAgent)){
+        jQuery('#os-popup-overlay, #os-popup-box').remove();
+        jQuery('body').append("<div id='os-popup-overlay'></div><div id='os-popup-box' class='os-popup-box'><div id='os-popup-title'>"+jQuery('#os-popup-placeholder').html()+"</div><div id='os-popup-content'></div></div>");
+        jQuery('#os-popup-overlay').show();
+        jQuery('#os-popup-box').css({
+            top: jQuery(window).height()/2-175, left: jQuery(window).width()/2-150
+        }).show();
+        jQuery('#os-popup-content').empty().qrcode({
+            width: 250, height: 250, text: os_utf16to8(decodeURIComponent(location.href))
+        });
+        return;
+    }
     if(open_social_param('redirect_to')) back = open_social_param('redirect_to');
     location.href = link + (/\?/.test(link) ? '&' : '?') + 'connect=' + id + '&action=' + type + (site ? '&site='+site : '') + '&back=' + escape(back);
 }
@@ -54,9 +66,8 @@ function os_utf16to8(str){
 
 window.jQuery && (function(){
     jQuery(document).on('click', '.os-share-box .os-wechat', function(){
-        if(!jQuery('#os-popup-overlay').length){
-            jQuery('body').append("<div id='os-popup-overlay'></div><div id='os-popup-box' class='os-popup-box'><div id='os-popup-title'>"+jQuery('#os-popup-placeholder').html()+"</div><div id='os-popup-content'></div></div>");
-        }
+        jQuery('#os-popup-overlay, #os-popup-box').remove();
+        jQuery('body').append("<div id='os-popup-overlay'></div><div id='os-popup-box' class='os-popup-box'><div id='os-popup-title'>"+jQuery('#os-popup-placeholder').html()+"</div><div id='os-popup-content'></div></div>");
         jQuery('#os-popup-overlay').show();
         if(/Mobile/.test(navigator.userAgent)){
             jQuery('#os-popup-title').hide();
@@ -79,10 +90,6 @@ window.jQuery && (function(){
 })();
 
 document.addEventListener && document.addEventListener("DOMContentLoaded", function(){
-    var obj = document.querySelectorAll('.comment-content a,.comments-area a.url');
-    for (var i = 0; i < obj.length; i++){
-        obj[i].target = '_blank';
-    }
     if(window.wx && 'object' == typeof os_wechat_init){
         os_wechat_init['debug'] = false;
         os_wechat_init['jsApiList'] = ['onMenuShareAppMessage','onMenuShareTimeline','updateAppMessageShareData','updateTimelineShareData'];

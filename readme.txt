@@ -1,6 +1,6 @@
 === WP Open Social ===
 
-Stable tag: 5.0.1
+Stable tag: 5.0.2
 Tested up to: 5.3.2
 Donate link: https://www.xiaomac.com/wp-open-social.html
 Tags: 社交, 登录, 登陆, 分享, 微博, 微信, 谷歌, 推特, social, share, qq, weibo, wechat, google, facebook, twitter
@@ -69,6 +69,11 @@ License: MIT License
 5. 设置-预览
 
 == Changelog ==
+
+= 5.0.2 =
+* 微信登录在不同平台默认显示
+* 增强头像函数的兼容性
+* 增加隐藏登录工具条的选项
 
 = 5.0.1 =
 * 修复绑定无效并直接跳回首页的BUG
