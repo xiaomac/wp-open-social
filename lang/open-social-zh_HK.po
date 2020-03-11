@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Social\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/open-social\n"
-"POT-Creation-Date: 2019-12-23 15:09+0800\n"
-"PO-Revision-Date: 2019-12-23 15:10+0800\n"
+"POT-Creation-Date: 2020-03-11 15:30+0800\n"
+"PO-Revision-Date: 2020-03-11 15:30+0800\n"
 "Last-Translator: Link <playes@qq.com>\n"
 "Language-Team: Link (Afly) <playes@qq.com>\n"
 "Language: zh_HK\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: open-social.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "新用戶必須填寫手機號碼 (以<i>手機實名制</i>之名)"
 msgid "New user using user-id as nicename instead of username in url"
 msgstr "新用戶使用用戶編號作為鏈接中的用戶標識"
 
-#: mod/compatible.php:114
+#: mod/compatible.php:118
 msgid "Reset this avatar"
 msgstr "重置此頭像"
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Authorization"
 msgstr "授權"
 
-#: mod/proxied.php:62 open-social.php:981
+#: mod/proxied.php:62 open-social.php:984
 msgid "User ID"
 msgstr "用戶編號"
 
@@ -154,7 +154,7 @@ msgid "Bind with existing account"
 msgstr "綁定現有的帳戶"
 
 #: mod/registration.php:134 mod/registration.php:231 mod/sms.php:120
-#: mod/wechat.php:416
+#: mod/wechat.php:419
 #, php-format
 msgid "Hi, %s"
 msgstr "您好，%s"
@@ -193,7 +193,7 @@ msgstr "用戶名為空或已使用"
 msgid "New Coming ?"
 msgstr "新用戶？"
 
-#: mod/registration.php:191 open-social.php:745
+#: mod/registration.php:191 open-social.php:747
 msgid "Nickname"
 msgstr "昵稱"
 
@@ -209,7 +209,7 @@ msgstr "手機號碼"
 msgid "Email"
 msgstr "郵箱"
 
-#: mod/registration.php:210 server.php:240
+#: mod/registration.php:210 server.php:243
 msgid "Website"
 msgstr "網站"
 
@@ -233,7 +233,7 @@ msgstr "創建一個新賬號"
 msgid "Already Here ?"
 msgstr "已有賬號？"
 
-#: mod/registration.php:242 open-social.php:1059
+#: mod/registration.php:242 open-social.php:1061
 #, php-format
 msgid "Login with %s"
 msgstr "使用 %s 登錄"
@@ -350,7 +350,7 @@ msgstr "確認並下一步"
 msgid "Verification Code"
 msgstr "驗證碼"
 
-#: mod/sms.php:120 mod/wechat.php:416
+#: mod/sms.php:120 mod/wechat.php:419
 msgid "There"
 msgstr "歡迎"
 
@@ -490,12 +490,12 @@ msgstr "自定義微信公眾號桌面登錄的代碼"
 msgid "Customize message for wechat subscriber"
 msgstr "自定義訂閱/登錄微信公眾號時的發送消息"
 
-#: mod/wechat.php:66 mod/wechat.php:217
+#: mod/wechat.php:66 mod/wechat.php:216
 msgid ""
 "Hi, {name}, glad to have you here. Please complete registration on website."
 msgstr "你好，{name}，很高興有你在這，請在網站上完成註冊。"
 
-#: mod/wechat.php:67 mod/wechat.php:220
+#: mod/wechat.php:67 mod/wechat.php:219
 msgid "Hi, {name}, welcome back."
 msgstr "你好，{name}，歡迎回來。"
 
@@ -531,84 +531,84 @@ msgstr "加解密密鑰"
 msgid "Server URL"
 msgstr "服務器地址"
 
-#: mod/wechat.php:145
+#: mod/wechat.php:144
 msgid "ERROR CHECKING SIGNATURE"
 msgstr "簽名出錯"
 
-#: mod/wechat.php:162
+#: mod/wechat.php:161
 msgid "ERROR CHECKING MSG_SIGNATURE"
 msgstr "消息簽名出錯"
 
-#: mod/wechat.php:197
+#: mod/wechat.php:196
 msgid "ERROR EMPTY MESSAGE"
 msgstr "消息解密出錯"
 
-#: mod/wechat.php:204
+#: mod/wechat.php:203
 msgid "ERROR CHECKING APPID"
 msgstr "應用ID出錯"
 
-#: mod/wechat.php:230
+#: mod/wechat.php:229
 msgid "ERROR CHECKING KEY"
 msgstr "用戶標識出錯"
 
-#: mod/wechat.php:243
+#: mod/wechat.php:242
 msgid "THANKS FOR SUBSCRIBING, LOGGING IN"
 msgstr "感謝關注！登錄中…"
 
-#: mod/wechat.php:245
+#: mod/wechat.php:244
 msgid "WELCOME BACK, LOGGING IN"
 msgstr "歡迎回來！登錄中…"
 
-#: mod/wechat.php:248
+#: mod/wechat.php:247
 msgid "KEEP WAITING"
 msgstr "繼續等待中…"
 
-#: mod/wechat.php:286
+#: mod/wechat.php:291
 #, fuzzy
 #| msgid "Open Social WeChat Login"
 msgid "WP Open Social WeChat Login"
 msgstr "Open Social 微信登錄"
 
-#: mod/wechat.php:286
+#: mod/wechat.php:291
 msgid "Show WeChat Login QRCode"
 msgstr "顯示微信登錄二維碼，掃描可登錄網站"
 
-#: mod/wechat.php:291 mod/wechat.php:338 open-social.php:1527
-#: open-social.php:1555
+#: mod/wechat.php:296 mod/wechat.php:342 open-social.php:1533
+#: open-social.php:1561
 msgid "Title:"
 msgstr "標題："
 
-#: mod/wechat.php:292 open-social.php:1528
+#: mod/wechat.php:297 open-social.php:1534
 msgid "Don't show profile after login"
 msgstr "登錄後不顯示"
 
-#: mod/wechat.php:305
+#: mod/wechat.php:309
 msgid "WeChat Login"
 msgstr "微信登錄"
 
-#: mod/wechat.php:332
+#: mod/wechat.php:336
 #, fuzzy
 #| msgid "Open Social WeChat Subscription"
 msgid "WP Open Social WeChat Subscription"
 msgstr "Open Social 微信公眾號"
 
-#: mod/wechat.php:332
+#: mod/wechat.php:336
 msgid "Show WeChat Subscription QRCode"
 msgstr "顯示微信公眾號二維碼"
 
-#: mod/wechat.php:339
+#: mod/wechat.php:343
 msgid "Scene String:"
 msgstr "場景字符串："
 
-#: mod/wechat.php:340
+#: mod/wechat.php:344
 msgid "Template Content:"
 msgstr "顯示模板："
 
-#: mod/wechat.php:355
+#: mod/wechat.php:358
 msgid "WeChat Subscription"
 msgstr "關注微信公眾號"
 
-#: mod/wechat.php:398
+#: mod/wechat.php:401
 msgid "Scan with WeChat to Subscribe Offcical Account and Login automatically"
 msgstr "使用微信掃描關注公眾號並自動登錄網站"
 
@@ -627,8 +627,8 @@ msgid "Force Login"
 msgstr "強制登錄"
 
 #. Plugin Name of the plugin/theme
-#: mod/weibo.php:66 open-social.php:281 open-social.php:530 open-social.php:844
-#: open-social.php:978
+#: mod/weibo.php:66 open-social.php:281 open-social.php:531 open-social.php:846
+#: open-social.php:981
 #, fuzzy
 #| msgid "Open Social"
 msgid "WP Open Social"
@@ -688,7 +688,7 @@ msgstr "哎呀！"
 msgid "Log In"
 msgstr "登錄"
 
-#: open-social.php:212 open-social.php:479
+#: open-social.php:212 open-social.php:480
 msgid "Back"
 msgstr "返回"
 
@@ -714,11 +714,11 @@ msgid ""
 "again."
 msgstr "這個帳號已經綁定了其他登錄號，請先解綁再嘗試綁定。"
 
-#: open-social.php:423
+#: open-social.php:424
 msgid "This account may contain some incompatible characters."
 msgstr "這個賬號可能包含了一些不兼容的字符。"
 
-#: open-social.php:478
+#: open-social.php:479
 msgid ""
 "Warning: Unbind the only social login will cause deletion of a user along "
 "with fake email. If this account have published some posts or you just want "
@@ -729,392 +729,402 @@ msgstr ""
 "表過文章或者你想保留此賬號，請更新為一個可用的郵箱地址這樣以後需登錄時可重置"
 "密碼，然後再嘗試解綁。"
 
-#: open-social.php:480
+#: open-social.php:481
 msgid "Delete Users"
 msgstr "刪除用戶"
 
-#: open-social.php:482 open-social.php:1077 open-social.php:1149
+#: open-social.php:483 open-social.php:1082 open-social.php:1155
 #, php-format
 msgid "Unbind with %s"
 msgstr "取消 %s 綁定"
 
-#: open-social.php:484
+#: open-social.php:485
 msgid "This account has published some posts so that it cannot be deleted."
 msgstr "這個賬號發表過文章所以無法被刪除。"
 
-#: open-social.php:517
+#: open-social.php:518
 msgid "Check Update"
 msgstr "檢查更新"
 
-#: open-social.php:518
+#: open-social.php:519
 #, fuzzy
 #| msgid "Reset Button Order"
 msgid "Reset Order"
 msgstr "重置按鈕順序"
 
-#: open-social.php:519
+#: open-social.php:520
 msgid "Rating Stars"
 msgstr ""
 
-#: open-social.php:520
+#: open-social.php:521
 #, fuzzy
 #| msgid "Support and Help"
 msgid "Support & Help"
 msgstr "支持和幫助"
 
-#: open-social.php:521
+#: open-social.php:522
 msgid "About Developer"
 msgstr ""
 
-#: open-social.php:522
+#: open-social.php:523
 #, fuzzy
 #| msgid "See More Plugins"
 msgid "More Plugins"
 msgstr "看看更多插件"
 
-#: open-social.php:523
+#: open-social.php:524
 #, fuzzy
 #| msgid "Show More"
 msgid "For More"
 msgstr "顯示更多"
 
-#: open-social.php:536
+#: open-social.php:537
 msgid "General"
 msgstr "常規"
 
-#: open-social.php:537
+#: open-social.php:538
 msgid "Customization"
 msgstr "自定義"
 
-#: open-social.php:538
+#: open-social.php:539
 msgid "Modules"
 msgstr ""
 
-#: open-social.php:539
+#: open-social.php:540
 msgid "Login Account"
 msgstr "登錄帳號"
 
-#: open-social.php:542
+#: open-social.php:543
 msgid "Share Service"
 msgstr "分享服務"
 
-#: open-social.php:544
+#: open-social.php:545
 msgid "Preview"
 msgstr "預覽"
 
-#: open-social.php:548 open-social.php:699
+#: open-social.php:549 open-social.php:701
 msgid "Profile"
 msgstr "資料"
 
-#: open-social.php:550
+#: open-social.php:551
 msgid "New user can change nickname"
 msgstr "新用戶可以更改昵稱"
 
-#: open-social.php:551
+#: open-social.php:552
 msgid "New user can choose website (for exchanging visits)"
 msgstr "新用戶可以選擇填寫網址 (以便互訪)"
 
-#: open-social.php:552
+#: open-social.php:553
 msgid "Speed up Gravatar through cdn.V2EX.com"
 msgstr ""
 
-#: open-social.php:556
+#: open-social.php:554
+msgid "Donot show toolbar when viewing site"
+msgstr ""
+
+#: open-social.php:558
 msgid "Button"
 msgstr "按鈕"
 
-#: open-social.php:558
+#: open-social.php:560
 msgid "Show login button for wordpress native login"
 msgstr "顯示系統默認登錄入口按鈕"
 
-#: open-social.php:559
+#: open-social.php:561
 msgid "Show share buttons in Posts"
 msgstr "在文章中顯示分享按鈕"
 
-#: open-social.php:560
+#: open-social.php:562
 msgid "Show share buttons in Pages"
 msgstr "在頁面中顯示分享按鈕"
 
-#: open-social.php:564
+#: open-social.php:566
 msgid "Notify"
 msgstr "通知"
 
-#: open-social.php:566
+#: open-social.php:568
 msgid "Send email to notify Administrator when new user created"
 msgstr "當使用者通過外掛程式創建帳戶時不要向其發送電子郵件"
 
-#: open-social.php:567
+#: open-social.php:569
 msgid "Ignore notifying Administrator when user resets lost password"
 msgstr "當用戶重置丟失密碼時不通知管理員"
 
-#: open-social.php:571
+#: open-social.php:573
 msgid "Security"
 msgstr ""
 
-#: open-social.php:573
+#: open-social.php:575
 msgid "Visitor must login to interact with this website"
 msgstr "訪問者必須登錄才能瀏覽網站或進行交互"
 
-#: open-social.php:574
+#: open-social.php:576
 #, fuzzy
 #| msgid "Hide login and admin page as 404 for security"
 msgid "Hide login and admin page as 404"
 msgstr "隱藏登錄頁面和管理後台以提升安全性"
 
-#: open-social.php:578
+#: open-social.php:580
 msgid "Advanced"
 msgstr "高級"
 
-#: open-social.php:580
+#: open-social.php:582
 #, fuzzy
 #| msgid "Customize button icon style"
 msgid "Customize Button Icon separately"
 msgstr "自定義按鈕圖標樣式"
 
-#: open-social.php:581
+#: open-social.php:583
 #, fuzzy
 #| msgid "Enable customize Callback URL"
 msgid "Customize Callback URL separately"
 msgstr "啟用自定義回調地址"
 
-#: open-social.php:590 open-social.php:687 open-social.php:1050
+#: open-social.php:592 open-social.php:689 open-social.php:1053
 msgid "Login"
 msgstr "登錄"
 
-#: open-social.php:592
+#: open-social.php:594
 msgid "Callback URL default"
 msgstr "默認回調地址"
 
-#: open-social.php:593
+#: open-social.php:595
 msgid "Goto URL after login"
 msgstr "登錄後轉到"
 
-#: open-social.php:597
+#: open-social.php:599
 msgid "Images"
 msgstr ""
 
-#: open-social.php:599
+#: open-social.php:601
 msgid "Default user avatar image"
 msgstr ""
 
-#: open-social.php:600
+#: open-social.php:602
 msgid "Block user avatars by keywords in domains"
 msgstr ""
 
-#: open-social.php:601
+#: open-social.php:603
 msgid "Default image when share article"
 msgstr "分享文章時的默認圖片"
 
-#: open-social.php:602
+#: open-social.php:604
 #, fuzzy
 #| msgid "Customize iconfont url for symbol use"
 msgid "IconFont online url for symbol use"
 msgstr "自定義圖標字體在線地址"
 
-#: open-social.php:607
+#: open-social.php:609
 msgid "Caption"
 msgstr "標題"
 
-#: open-social.php:609
+#: open-social.php:611
 msgid "Caption for login buttons"
 msgstr "登錄按鈕說明文字"
 
-#: open-social.php:610
+#: open-social.php:612
 msgid "Caption for share buttons"
 msgstr "分享按鈕說明文字"
 
-#: open-social.php:611
+#: open-social.php:613
 msgid "Caption for bind buttons"
 msgstr "登錄綁定按鈕說明文字"
 
-#: open-social.php:612
+#: open-social.php:614
 msgid "Caption for profile html"
 msgstr "用戶資料說明文字"
 
-#: open-social.php:616
+#: open-social.php:618
 msgid "Code"
 msgstr "代碼"
 
-#: open-social.php:618
+#: open-social.php:620
 msgid "Customize button icon style"
 msgstr "自定義按鈕圖標樣式"
 
-#: open-social.php:620
+#: open-social.php:622
 msgid "Customize profile html"
 msgstr "自定義用戶資料代碼"
 
-#: open-social.php:635
+#: open-social.php:637
 msgid "Action hooks with login buttons"
 msgstr "登錄按鈕的鉤子"
 
-#: open-social.php:636
+#: open-social.php:638
 msgid "Action hooks with share buttons"
 msgstr "分享按鈕的鉤子"
 
-#: open-social.php:637
+#: open-social.php:639
 msgid "Action hooks with bind buttons"
 msgstr "登錄綁定按鈕的鉤子"
 
-#: open-social.php:638
+#: open-social.php:640
 msgid "Action hooks with profile html"
 msgstr "用戶資料的鉤子"
 
-#: open-social.php:639
+#: open-social.php:641
 msgid "Notice: The action will be removed if it has been hooked already"
 msgstr "注意：如鉤子已經加載，再次填寫將刪除鉤子"
 
-#: open-social.php:640
+#: open-social.php:642
 msgid "Sync BuddyPress cellphone"
 msgstr ""
 
-#: open-social.php:653
+#: open-social.php:655
 msgid "Enabled"
 msgstr "啟用"
 
-#: open-social.php:655
+#: open-social.php:657
 msgid "Hidden"
 msgstr "不顯示"
 
-#: open-social.php:655
+#: open-social.php:657
 msgid "Proxied"
 msgstr ""
 
-#: open-social.php:658
+#: open-social.php:660
 #, fuzzy
 #| msgid "App ID/Key"
 msgid "App ID"
 msgstr "App ID/Key"
 
-#: open-social.php:659
+#: open-social.php:661
 #, fuzzy
 #| msgid "App Secret"
 msgid "App Key/Secret"
 msgstr "App Secret"
 
-#: open-social.php:661
+#: open-social.php:663
 msgid "Callback URL"
 msgstr "回調地址"
 
-#: open-social.php:679 open-social.php:1130
+#: open-social.php:681 open-social.php:1136
 #, php-format
 msgid "Share with %s"
 msgstr "分享到 %s"
 
-#: open-social.php:689 open-social.php:1522
+#: open-social.php:691 open-social.php:1528
 #, fuzzy
 #| msgid "Open Social Login"
 msgid "WP Open Social Login"
 msgstr "Open Social 登錄"
 
-#: open-social.php:693
+#: open-social.php:695
 msgid "Share"
 msgstr "分享"
 
-#: open-social.php:695 open-social.php:1551
+#: open-social.php:697 open-social.php:1557
 #, fuzzy
 #| msgid "Open Social Share"
 msgid "WP Open Social Share"
 msgstr "Open Social 分享"
 
-#: open-social.php:705 open-social.php:747 open-social.php:831
-#: open-social.php:980
+#: open-social.php:707 open-social.php:749 open-social.php:833
+#: open-social.php:983
 msgid "Binding"
 msgstr "已綁定"
 
-#: open-social.php:711
+#: open-social.php:713
 msgid "Other"
 msgstr ""
 
-#: open-social.php:744
+#: open-social.php:746
 msgid "ID"
 msgstr "ID"
 
-#: open-social.php:746 open-social.php:972 open-social.php:982
+#: open-social.php:748 open-social.php:975 open-social.php:985
 msgid "Cellphone"
 msgstr "手機"
 
-#: open-social.php:748
+#: open-social.php:750
 msgid "Registered"
 msgstr "註冊時間"
 
-#: open-social.php:778
+#: open-social.php:780
 msgid "Email Activating"
 msgstr "郵箱待激活中"
 
-#: open-social.php:779
+#: open-social.php:781
 msgid "Password Resetting"
 msgstr "密碼待重置中"
 
-#: open-social.php:782
+#: open-social.php:784
 msgid "Confirm User Registration"
 msgstr "確認用戶註冊"
 
-#: open-social.php:830
+#: open-social.php:832
 msgid "All Users"
 msgstr "所有用戶"
 
-#: open-social.php:836
+#: open-social.php:838
 msgid "Not Binding"
 msgstr "未綁定"
 
-#: open-social.php:908
+#: open-social.php:911
 msgid "New reply to your comment"
 msgstr "您的評論有新回復"
 
-#: open-social.php:1031
+#: open-social.php:1034
 #, php-format
 msgid "Login and bind with %s"
 msgstr "登錄並綁定 %s"
 
-#: open-social.php:1081
+#: open-social.php:1064
+#, fuzzy
+#| msgid "Scan to share with WeChat"
+msgid "Scan to Login in WeChat"
+msgstr "用微信掃描並分享"
+
+#: open-social.php:1086
 #, php-format
 msgid "Bind with %s"
 msgstr "綁定 %s"
 
-#: open-social.php:1101
+#: open-social.php:1107
 msgid "Log Out"
 msgstr "登出"
 
-#: open-social.php:1134
+#: open-social.php:1140
 msgid "Scan to share with WeChat"
 msgstr "用微信掃描並分享"
 
-#: open-social.php:1487
+#: open-social.php:1493
 msgid "Login to check out this content"
 msgstr "登錄以查閱此內容"
 
-#: open-social.php:1508
+#: open-social.php:1514
 msgid "Leave comment to check out this content"
 msgstr "評論以查閱此內容"
 
-#: open-social.php:1522
+#: open-social.php:1528
 #, fuzzy
 #| msgid "Display your Open Social login button"
 msgid "Display your WP Open Social login button"
 msgstr "顯示登錄按鈕"
 
-#: open-social.php:1540
+#: open-social.php:1546
 msgid "Howdy"
 msgstr "你好"
 
-#: open-social.php:1551
+#: open-social.php:1557
 #, fuzzy
 #| msgid "Display your Open Social share button"
 msgid "Display your WP Open Social share button"
 msgstr "顯示分享按鈕"
 
-#: open-social.php:1565
+#: open-social.php:1571
 msgid "Share With"
 msgstr "分享到"
 
-#: server.php:222
+#: server.php:225
 msgid "Version"
 msgstr "版本"
 
-#: server.php:231
+#: server.php:234
 msgid "Expired"
 msgstr "過期"
 
-#: server.php:243
+#: server.php:246
 msgid "Built-In"
 msgstr "內置"
 

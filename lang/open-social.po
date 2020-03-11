@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Open Social\n"
-"POT-Creation-Date: 2020-01-12 11:45+0800\n"
-"PO-Revision-Date: 2020-01-12 11:45+0800\n"
+"POT-Creation-Date: 2020-03-11 15:29+0800\n"
+"PO-Revision-Date: 2020-03-11 15:29+0800\n"
 "Last-Translator: Link <playes@qq.com>\n"
 "Language-Team: playes@qq.com\n"
 "Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: open-social.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "New user using user-id as nicename instead of username in url"
 msgstr ""
 
-#: mod/compatible.php:114
+#: mod/compatible.php:118
 msgid "Reset this avatar"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Authorization"
 msgstr ""
 
-#: mod/proxied.php:62 open-social.php:983
+#: mod/proxied.php:62 open-social.php:984
 msgid "User ID"
 msgstr ""
 
@@ -143,7 +143,7 @@ msgid "Bind with existing account"
 msgstr ""
 
 #: mod/registration.php:134 mod/registration.php:231 mod/sms.php:120
-#: mod/wechat.php:416
+#: mod/wechat.php:419
 #, php-format
 msgid "Hi, %s"
 msgstr ""
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Verification Code"
 msgstr ""
 
-#: mod/sms.php:120 mod/wechat.php:416
+#: mod/sms.php:120 mod/wechat.php:419
 msgid "There"
 msgstr ""
 
@@ -469,12 +469,12 @@ msgstr ""
 msgid "Customize message for wechat subscriber"
 msgstr ""
 
-#: mod/wechat.php:66 mod/wechat.php:217
+#: mod/wechat.php:66 mod/wechat.php:216
 msgid ""
 "Hi, {name}, glad to have you here. Please complete registration on website."
 msgstr ""
 
-#: mod/wechat.php:67 mod/wechat.php:220
+#: mod/wechat.php:67 mod/wechat.php:219
 msgid "Hi, {name}, welcome back."
 msgstr ""
 
@@ -506,80 +506,80 @@ msgstr ""
 msgid "Server URL"
 msgstr ""
 
-#: mod/wechat.php:145
+#: mod/wechat.php:144
 msgid "ERROR CHECKING SIGNATURE"
 msgstr ""
 
-#: mod/wechat.php:162
+#: mod/wechat.php:161
 msgid "ERROR CHECKING MSG_SIGNATURE"
 msgstr ""
 
-#: mod/wechat.php:197
+#: mod/wechat.php:196
 msgid "ERROR EMPTY MESSAGE"
 msgstr ""
 
-#: mod/wechat.php:204
+#: mod/wechat.php:203
 msgid "ERROR CHECKING APPID"
 msgstr ""
 
-#: mod/wechat.php:230
+#: mod/wechat.php:229
 msgid "ERROR CHECKING KEY"
 msgstr ""
 
-#: mod/wechat.php:243
+#: mod/wechat.php:242
 msgid "THANKS FOR SUBSCRIBING, LOGGING IN"
 msgstr ""
 
-#: mod/wechat.php:245
+#: mod/wechat.php:244
 msgid "WELCOME BACK, LOGGING IN"
 msgstr ""
 
-#: mod/wechat.php:248
+#: mod/wechat.php:247
 msgid "KEEP WAITING"
 msgstr ""
 
-#: mod/wechat.php:286
+#: mod/wechat.php:291
 msgid "WP Open Social WeChat Login"
 msgstr ""
 
-#: mod/wechat.php:286
+#: mod/wechat.php:291
 msgid "Show WeChat Login QRCode"
 msgstr ""
 
-#: mod/wechat.php:291 mod/wechat.php:338 open-social.php:1529
-#: open-social.php:1557
+#: mod/wechat.php:296 mod/wechat.php:342 open-social.php:1533
+#: open-social.php:1561
 msgid "Title:"
 msgstr ""
 
-#: mod/wechat.php:292 open-social.php:1530
+#: mod/wechat.php:297 open-social.php:1534
 msgid "Don't show profile after login"
 msgstr ""
 
-#: mod/wechat.php:305
+#: mod/wechat.php:309
 msgid "WeChat Login"
 msgstr ""
 
-#: mod/wechat.php:332
+#: mod/wechat.php:336
 msgid "WP Open Social WeChat Subscription"
 msgstr ""
 
-#: mod/wechat.php:332
+#: mod/wechat.php:336
 msgid "Show WeChat Subscription QRCode"
 msgstr ""
 
-#: mod/wechat.php:339
+#: mod/wechat.php:343
 msgid "Scene String:"
 msgstr ""
 
-#: mod/wechat.php:340
+#: mod/wechat.php:344
 msgid "Template Content:"
 msgstr ""
 
-#: mod/wechat.php:355
+#: mod/wechat.php:358
 msgid "WeChat Subscription"
 msgstr ""
 
-#: mod/wechat.php:398
+#: mod/wechat.php:401
 msgid "Scan with WeChat to Subscribe Offcical Account and Login automatically"
 msgstr ""
 
@@ -597,7 +597,7 @@ msgstr ""
 
 #. Plugin Name of the plugin/theme
 #: mod/weibo.php:66 open-social.php:281 open-social.php:531 open-social.php:846
-#: open-social.php:980
+#: open-social.php:981
 msgid "WP Open Social"
 msgstr ""
 
@@ -693,7 +693,7 @@ msgstr ""
 msgid "Delete Users"
 msgstr ""
 
-#: open-social.php:483 open-social.php:1079 open-social.php:1151
+#: open-social.php:483 open-social.php:1082 open-social.php:1155
 #, php-format
 msgid "Unbind with %s"
 msgstr ""
@@ -826,7 +826,7 @@ msgstr ""
 msgid "Customize Callback URL separately"
 msgstr ""
 
-#: open-social.php:592 open-social.php:689 open-social.php:1052
+#: open-social.php:592 open-social.php:689 open-social.php:1053
 msgid "Login"
 msgstr ""
 
@@ -938,12 +938,12 @@ msgstr ""
 msgid "Callback URL"
 msgstr ""
 
-#: open-social.php:681 open-social.php:1132
+#: open-social.php:681 open-social.php:1136
 #, php-format
 msgid "Share with %s"
 msgstr ""
 
-#: open-social.php:691 open-social.php:1524
+#: open-social.php:691 open-social.php:1528
 msgid "WP Open Social Login"
 msgstr ""
 
@@ -951,12 +951,12 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: open-social.php:697 open-social.php:1553
+#: open-social.php:697 open-social.php:1557
 msgid "WP Open Social Share"
 msgstr ""
 
 #: open-social.php:707 open-social.php:749 open-social.php:833
-#: open-social.php:982
+#: open-social.php:983
 msgid "Binding"
 msgstr ""
 
@@ -968,7 +968,7 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: open-social.php:748 open-social.php:974 open-social.php:984
+#: open-social.php:748 open-social.php:975 open-social.php:985
 msgid "Cellphone"
 msgstr ""
 
@@ -996,49 +996,53 @@ msgstr ""
 msgid "Not Binding"
 msgstr ""
 
-#: open-social.php:910
+#: open-social.php:911
 msgid "New reply to your comment"
 msgstr ""
 
-#: open-social.php:1033
+#: open-social.php:1034
 #, php-format
 msgid "Login and bind with %s"
 msgstr ""
 
-#: open-social.php:1083
+#: open-social.php:1064
+msgid "Scan to Login in WeChat"
+msgstr ""
+
+#: open-social.php:1086
 #, php-format
 msgid "Bind with %s"
 msgstr ""
 
-#: open-social.php:1103
+#: open-social.php:1107
 msgid "Log Out"
 msgstr ""
 
-#: open-social.php:1136
+#: open-social.php:1140
 msgid "Scan to share with WeChat"
 msgstr ""
 
-#: open-social.php:1489
+#: open-social.php:1493
 msgid "Login to check out this content"
 msgstr ""
 
-#: open-social.php:1510
+#: open-social.php:1514
 msgid "Leave comment to check out this content"
 msgstr ""
 
-#: open-social.php:1524
+#: open-social.php:1528
 msgid "Display your WP Open Social login button"
 msgstr ""
 
-#: open-social.php:1542
+#: open-social.php:1546
 msgid "Howdy"
 msgstr ""
 
-#: open-social.php:1553
+#: open-social.php:1557
 msgid "Display your WP Open Social share button"
 msgstr ""
 
-#: open-social.php:1567
+#: open-social.php:1571
 msgid "Share With"
 msgstr ""
 

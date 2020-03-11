@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WP Open Social
- * Version: 5.0.2
+ * Version: 5.0.3
  * Plugin URI: https://www.xiaomac.com/wp-open-social.html
  * Description: Login and Share with social networks: QQ, WeiBo, WeChat, Baidu, Google, Microsoft, Twitter, Facebook. And so many other platforms and features.
  * Author: Link (XiaoMac.com)
@@ -1057,11 +1057,11 @@ function open_social_login_html($atts=array()){
         if($show && !open_social_in($show.',', $k.',')) continue;
         if(defined('OPEN_SOCIAL_SERVER') && wpos_ops($k.'_in') && !$preview) continue;
         if((wp_is_mobile() || wpos_ops('wechat_mp_prior')) && $k == 'wechat' && !$preview) continue;//prior to wechat open
-        if(!wp_is_mobile() && !wpos_ops('wechat_mp_desktop') && $k == 'wechat_mp' && !$preview) continue;
+        if(((wp_is_mobile() && !open_social_in(sanitize_text_field($_SERVER['HTTP_USER_AGENT']), 'MicroMessenger')) || (!wp_is_mobile() && !wpos_ops('wechat_mp_desktop'))) && $k == 'wechat_mp') $mobileTip = 1;
         if(wpos_ops(strtoupper($k))) $html .= open_login_button_show($k, ($preview ? '' : sprintf(__('Login with %s','open-social'), $v[0])));
     }
-    if(wp_is_mobile() && !open_social_in(sanitize_text_field($_SERVER['HTTP_USER_AGENT']), 'MicroMessenger')){
-        $mobileTip = "<div id='os-popup-placeholder' style='display:none'><span>&#215;</span>".open_share_button_show('wechat').__('Scan to Login with WeChat','open-social')."</div>";
+    if($mobileTip){
+        $mobileTip = "<div id='os-popup-placeholder' style='display:none'><span>&#215;</span>".open_share_button_show('wechat').__('Scan to Login in WeChat','open-social')."</div>";
     }
     if($html) $html = "<div class='os-login-box'>{$html}{$mobileTip}</div>";
     return "{$title}{$html}";

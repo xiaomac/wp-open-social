@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Open Social\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/open-social\n"
-"POT-Creation-Date: 2020-01-12 11:45+0800\n"
-"PO-Revision-Date: 2020-01-12 11:45+0800\n"
+"POT-Creation-Date: 2020-03-11 15:29+0800\n"
+"PO-Revision-Date: 2020-03-11 15:29+0800\n"
 "Last-Translator: Link <playes@qq.com>\n"
 "Language-Team: Link (Afly) <playes@qq.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: open-social.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -39,7 +39,7 @@ msgstr "新用户必须填写手机号码 (以<i>手机实名制</i>之名)"
 msgid "New user using user-id as nicename instead of username in url"
 msgstr "新用户使用用户编号作为链接中的用户标识"
 
-#: mod/compatible.php:114
+#: mod/compatible.php:118
 msgid "Reset this avatar"
 msgstr "重置此头像"
 
@@ -55,7 +55,7 @@ msgstr "代理服务器"
 msgid "Authorization"
 msgstr "授权"
 
-#: mod/proxied.php:62 open-social.php:983
+#: mod/proxied.php:62 open-social.php:984
 msgid "User ID"
 msgstr "用户编号"
 
@@ -144,7 +144,7 @@ msgid "Bind with existing account"
 msgstr "绑定现有的帐户"
 
 #: mod/registration.php:134 mod/registration.php:231 mod/sms.php:120
-#: mod/wechat.php:416
+#: mod/wechat.php:419
 #, php-format
 msgid "Hi, %s"
 msgstr "您好，%s"
@@ -334,7 +334,7 @@ msgstr "确认并下一步"
 msgid "Verification Code"
 msgstr "验证码"
 
-#: mod/sms.php:120 mod/wechat.php:416
+#: mod/sms.php:120 mod/wechat.php:419
 msgid "There"
 msgstr "欢迎"
 
@@ -470,12 +470,12 @@ msgstr "自定义微信公众号桌面登录的代码"
 msgid "Customize message for wechat subscriber"
 msgstr "自定义订阅/登录微信公众号时的发送消息"
 
-#: mod/wechat.php:66 mod/wechat.php:217
+#: mod/wechat.php:66 mod/wechat.php:216
 msgid ""
 "Hi, {name}, glad to have you here. Please complete registration on website."
 msgstr "你好，{name}，很高兴有你在这，请在网站上完成注册。"
 
-#: mod/wechat.php:67 mod/wechat.php:220
+#: mod/wechat.php:67 mod/wechat.php:219
 msgid "Hi, {name}, welcome back."
 msgstr "你好，{name}，欢迎回来。"
 
@@ -507,80 +507,80 @@ msgstr "加解密密钥"
 msgid "Server URL"
 msgstr "服务器地址"
 
-#: mod/wechat.php:145
+#: mod/wechat.php:144
 msgid "ERROR CHECKING SIGNATURE"
 msgstr "签名出错"
 
-#: mod/wechat.php:162
+#: mod/wechat.php:161
 msgid "ERROR CHECKING MSG_SIGNATURE"
 msgstr "消息签名出错"
 
-#: mod/wechat.php:197
+#: mod/wechat.php:196
 msgid "ERROR EMPTY MESSAGE"
 msgstr "消息解密出错"
 
-#: mod/wechat.php:204
+#: mod/wechat.php:203
 msgid "ERROR CHECKING APPID"
 msgstr "应用ID出错"
 
-#: mod/wechat.php:230
+#: mod/wechat.php:229
 msgid "ERROR CHECKING KEY"
 msgstr "用户标识出错"
 
-#: mod/wechat.php:243
+#: mod/wechat.php:242
 msgid "THANKS FOR SUBSCRIBING, LOGGING IN"
 msgstr "感谢关注！登录中…"
 
-#: mod/wechat.php:245
+#: mod/wechat.php:244
 msgid "WELCOME BACK, LOGGING IN"
 msgstr "欢迎回来！登录中…"
 
-#: mod/wechat.php:248
+#: mod/wechat.php:247
 msgid "KEEP WAITING"
 msgstr "继续等待中…"
 
-#: mod/wechat.php:286
+#: mod/wechat.php:291
 msgid "WP Open Social WeChat Login"
 msgstr "WP Open Social 微信登录"
 
-#: mod/wechat.php:286
+#: mod/wechat.php:291
 msgid "Show WeChat Login QRCode"
 msgstr "显示微信登录二维码，扫码可登录网站"
 
-#: mod/wechat.php:291 mod/wechat.php:338 open-social.php:1529
-#: open-social.php:1557
+#: mod/wechat.php:296 mod/wechat.php:342 open-social.php:1533
+#: open-social.php:1561
 msgid "Title:"
 msgstr "标题："
 
-#: mod/wechat.php:292 open-social.php:1530
+#: mod/wechat.php:297 open-social.php:1534
 msgid "Don't show profile after login"
 msgstr "登录后不显示"
 
-#: mod/wechat.php:305
+#: mod/wechat.php:309
 msgid "WeChat Login"
 msgstr "微信登录"
 
-#: mod/wechat.php:332
+#: mod/wechat.php:336
 msgid "WP Open Social WeChat Subscription"
 msgstr "WP Open Social 微信公众号"
 
-#: mod/wechat.php:332
+#: mod/wechat.php:336
 msgid "Show WeChat Subscription QRCode"
 msgstr "显示微信公众号订阅二维码"
 
-#: mod/wechat.php:339
+#: mod/wechat.php:343
 msgid "Scene String:"
 msgstr "场景字符串："
 
-#: mod/wechat.php:340
+#: mod/wechat.php:344
 msgid "Template Content:"
 msgstr "显示模板："
 
-#: mod/wechat.php:355
+#: mod/wechat.php:358
 msgid "WeChat Subscription"
 msgstr "关注微信公众号"
 
-#: mod/wechat.php:398
+#: mod/wechat.php:401
 msgid "Scan with WeChat to Subscribe Offcical Account and Login automatically"
 msgstr "使用微信扫码关注公众号并自动登录网站"
 
@@ -598,7 +598,7 @@ msgstr "强制登录"
 
 #. Plugin Name of the plugin/theme
 #: mod/weibo.php:66 open-social.php:281 open-social.php:531 open-social.php:846
-#: open-social.php:980
+#: open-social.php:981
 msgid "WP Open Social"
 msgstr "WP Open Social"
 
@@ -697,7 +697,7 @@ msgstr ""
 msgid "Delete Users"
 msgstr "删除用户"
 
-#: open-social.php:483 open-social.php:1079 open-social.php:1151
+#: open-social.php:483 open-social.php:1082 open-social.php:1155
 #, php-format
 msgid "Unbind with %s"
 msgstr "取消 %s 绑定"
@@ -830,7 +830,7 @@ msgstr "自定义各按钮的图标样式"
 msgid "Customize Callback URL separately"
 msgstr "自定义各登录账号的回调地址"
 
-#: open-social.php:592 open-social.php:689 open-social.php:1052
+#: open-social.php:592 open-social.php:689 open-social.php:1053
 msgid "Login"
 msgstr "登录"
 
@@ -942,12 +942,12 @@ msgstr "App Key/Secret"
 msgid "Callback URL"
 msgstr "回调地址"
 
-#: open-social.php:681 open-social.php:1132
+#: open-social.php:681 open-social.php:1136
 #, php-format
 msgid "Share with %s"
 msgstr "分享到 %s"
 
-#: open-social.php:691 open-social.php:1524
+#: open-social.php:691 open-social.php:1528
 msgid "WP Open Social Login"
 msgstr "WP Open Social 登录"
 
@@ -955,12 +955,12 @@ msgstr "WP Open Social 登录"
 msgid "Share"
 msgstr "分享"
 
-#: open-social.php:697 open-social.php:1553
+#: open-social.php:697 open-social.php:1557
 msgid "WP Open Social Share"
 msgstr "WP Open Social 分享"
 
 #: open-social.php:707 open-social.php:749 open-social.php:833
-#: open-social.php:982
+#: open-social.php:983
 msgid "Binding"
 msgstr "已绑定"
 
@@ -972,7 +972,7 @@ msgstr "其他"
 msgid "ID"
 msgstr "ID"
 
-#: open-social.php:748 open-social.php:974 open-social.php:984
+#: open-social.php:748 open-social.php:975 open-social.php:985
 msgid "Cellphone"
 msgstr "手机"
 
@@ -1000,49 +1000,53 @@ msgstr "所有用户"
 msgid "Not Binding"
 msgstr "未绑定"
 
-#: open-social.php:910
+#: open-social.php:911
 msgid "New reply to your comment"
 msgstr "您的评论有新回复"
 
-#: open-social.php:1033
+#: open-social.php:1034
 #, php-format
 msgid "Login and bind with %s"
 msgstr "登录并绑定 %s"
 
-#: open-social.php:1083
+#: open-social.php:1064
+msgid "Scan to Login in WeChat"
+msgstr "用微信扫描并登陆"
+
+#: open-social.php:1086
 #, php-format
 msgid "Bind with %s"
 msgstr "绑定 %s"
 
-#: open-social.php:1103
+#: open-social.php:1107
 msgid "Log Out"
 msgstr "登出"
 
-#: open-social.php:1136
+#: open-social.php:1140
 msgid "Scan to share with WeChat"
 msgstr "用微信扫描并分享"
 
-#: open-social.php:1489
+#: open-social.php:1493
 msgid "Login to check out this content"
 msgstr "登录以查阅此内容"
 
-#: open-social.php:1510
+#: open-social.php:1514
 msgid "Leave comment to check out this content"
 msgstr "评论以查阅此内容"
 
-#: open-social.php:1524
+#: open-social.php:1528
 msgid "Display your WP Open Social login button"
 msgstr "显示登录按钮"
 
-#: open-social.php:1542
+#: open-social.php:1546
 msgid "Howdy"
 msgstr "你好"
 
-#: open-social.php:1553
+#: open-social.php:1557
 msgid "Display your WP Open Social share button"
 msgstr "显示分享按钮"
 
-#: open-social.php:1567
+#: open-social.php:1571
 msgid "Share With"
 msgstr "分享到"
 

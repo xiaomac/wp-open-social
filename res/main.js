@@ -10,7 +10,9 @@ function open_social_param(name){
 
 function login_button_click(id,link,type,site){
     var back = location.href;
-    if(id=='wechat_mp' && !/MicroMessenger/.test(navigator.userAgent)){
+    if(open_social_param('redirect_to')) back = open_social_param('redirect_to');
+    var loginUrl = link + (/\?/.test(link)?'&':'?') + 'connect=' + id + '&action=' + type + (site?'&site='+site:'') + '&back=' + escape(back);
+    if(id == 'wechat_mp' && jQuery('.os-login-box #os-popup-placeholder').length){
         jQuery('#os-popup-overlay, #os-popup-box').remove();
         jQuery('body').append("<div id='os-popup-overlay'></div><div id='os-popup-box' class='os-popup-box'><div id='os-popup-title'>"+jQuery('#os-popup-placeholder').html()+"</div><div id='os-popup-content'></div></div>");
         jQuery('#os-popup-overlay').show();
@@ -18,12 +20,11 @@ function login_button_click(id,link,type,site){
             top: jQuery(window).height()/2-175, left: jQuery(window).width()/2-150
         }).show();
         jQuery('#os-popup-content').empty().qrcode({
-            width: 250, height: 250, text: os_utf16to8(decodeURIComponent(location.href))
+            width: 250, height: 250, text: os_utf16to8(decodeURIComponent(loginUrl))
         });
         return;
     }
-    if(open_social_param('redirect_to')) back = open_social_param('redirect_to');
-    location.href = link + (/\?/.test(link) ? '&' : '?') + 'connect=' + id + '&action=' + type + (site ? '&site='+site : '') + '&back=' + escape(back);
+    location.href = loginUrl;
 }
 
 function share_button_click(link){

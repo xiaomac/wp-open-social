@@ -1,6 +1,6 @@
 === WP Open Social ===
 
-Stable tag: 5.0.2
+Stable tag: 5.0.3
 Tested up to: 5.3.2
 Donate link: https://www.xiaomac.com/wp-open-social.html
 Tags: 社交, 登录, 登陆, 分享, 微博, 微信, 谷歌, 推特, social, share, qq, weibo, wechat, google, facebook, twitter
@@ -12,6 +12,8 @@ License: MIT License
 
 由于 Open Social 跟谷歌一个项目重名，为了区分插件改名为：WP Open Social。
 从 5.0 版本起，代码遵循 MIT 许可协议：可任意修改和使用，在保留许可协议前提下。
+
+注意：5.0版本起，更新前需要先备份 mod 目录，然后手工覆盖更新。如通过系统自动更新的话模块目录会被覆盖掉。
 
 = 基础功能 =
 
@@ -69,6 +71,9 @@ License: MIT License
 5. 设置-预览
 
 == Changelog ==
+
+= 5.0.3 =
+* 修正：微信公众号登录的显示问题
 
 = 5.0.2 =
 * 微信登录在不同平台默认显示
