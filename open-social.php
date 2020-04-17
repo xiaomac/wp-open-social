@@ -65,7 +65,7 @@ function open_social_init(){
         'qqzone'=>array(__('QQZone','open-social'), '//sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=%URL%&title=%TITLE%&desc=&summary=%SUMMARY%&site='.$site.'&pics=%PICS%'),
         'linkedin'=>array(__('Linkedin','open-social'), '//www.linkedin.com/shareArticle?mini=true&url=%URL%&title=%TITLE%&summary=%SUMMARY%&source='.$site),
         'facebook'=>array(__('Facebook','open-social'), '//www.facebook.com/sharer.php?u=%URL%&amp;t=%TITLE%'),
-        'twitter'=>array(__('Twitter','open-social'), '//twitter.com/home/?status=%TITLE%:%URL%'),
+        'twitter'=>array(__('Twitter','open-social'), '//twitter.com/intent/tweet?text=%TITLE%:%URL%'),
         'google'=>array(__('Google','open-social'), '//www.google.com/bookmarks/mark?op=edit&bkmk=%URL%&title=%TITLE%&annotation=%SUMMARY%'),
         'reddit'=>array(__('Reddit','open-social'), '//www.reddit.com/submit?url=%URL%&amp;title=%TITLE%'),
         'pinterest'=>array(__('Pinterest','open-social'), '//pinterest.com/pin/create/button/?url=%URL%&amp;media=%TITLE%&amp;description=%SUMMARY%')
